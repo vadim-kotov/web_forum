@@ -1,0 +1,223 @@
+<?xml version="1.0"?>
+
+<project name="web_forum" basedir="." default="build">
+    <property name="appname" value="${ant.project.name}"/>
+
+    <property name="lib.dir" value="./lib" />
+
+    <property name="src.dir" value="src" />
+    <property name="build.dir" value="build" />
+
+    <property name="war.dir" value="${build.dir}/${appname}" />
+
+    <property name="webinf.dir" value="${war.dir}/WEB-INF" />
+    <property name="class.dir" value="${war.dir}/WEB-INF/classes" />
+
+    <property name="model.dir" 
+        value="${src.dir}/java/model" />
+
+    <property name = "dbjar" value = ".\lib\mssql-jdbc-8.2.0.jre8.jar"/>
+    <property name = "dbdriver" value = "com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+    <property name = "dbalias" value = "web_forum"/>
+    <property name = "dbport" value = "49167"/>
+
+    <path id="master-classpath" description="Master CLASSPATH for this script">
+        <fileset dir="${lib.dir}">
+            <include name="*.jar" />
+        </fileset>
+        <pathelement location="./build/web_forum/WEB-INF/classes/" />
+    </path>
+
+    <target name = "startmssql">
+        <exec executable = "net">
+            <arg line = "start MSSQL$SQLExpress"/>
+        </exec>
+    </target>
+
+    <target name = "execddl">
+        <sql classpath = "${dbjar}"
+            driver = "${dbdriver}" 
+            url = "jdbc:sqlserver://localhost:${dbport};databaseName=${dbalias}" 
+            userid = "sa" password = "sa" 
+            src = ".\db\ddl.sql"
+            delimiter = "GO"
+            print = "yes">
+        </sql>
+    </target>
+
+    <target name="init" description="Setup for build script">
+
+        <mkdir dir="${class.dir}" />
+
+    </target>
+
+    <target name="updateconfig" depends="init"
+            description="Copies configuration files to WAR directory">
+        <copy file="${src.dir}/java/hibernate.cfg.xml" todir="${class.dir}"/>
+        <copy todir="${class.dir}/model">
+            <fileset dir="${model.dir}">
+                <include name="*.xml"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="compile" depends="init" 
+    	    description="Compiles .java files to WAR directory">
+        <javac srcdir="${src.dir}" destdir="${class.dir}" debug="true" 
+                failonerror="true" classpathref="master-classpath" 
+        	    depend="true">
+            <!--    <compilerarg line="-Xlint:deprecation"/> -->
+        </javac>
+    </target>
+
+    <target name="build" depends="compile, updateconfig" />
+
+    <target name="hibernatetest" depends="build">
+        <java fork="true" classpathref="master-classpath"
+            classname="test.HibernateTest"/>
+    </target>
+
+    <target name="test_selects" depends="execddl">
+        <junit printsummary="yes" showoutput="yes" filtertrace="false" fork="yes">
+            <classpath refid="master-classpath" />
+            <formatter type="plain"/>
+        <!--
+            <batchtest>
+                <fileset dir="${class.dir}">
+                    <include name="test/UserManagerTest.class"/>
+                    <include name="test/SectionManagerTest.class"/>
+                    <include name="test/TopicManagerTest.class"/>
+                </fileset>
+            </batchtest>
+-->
+            <test name="test.UserManagerTest" methods="testGetBanlist, testGetUsersInfo, 
+                testGetUserInfo, testGetCreatedTopicList, testGetTopicList, testGetMessageList"/>
+            <test name="test.SectionManagerTest" methods="testGetHierarchySize, testGetPath, 
+                testGetForumSectionList, testGetForumTopicList"/>
+            <test name="test.TopicManagerTest" methods="testGetMessageNumber, testGetPath, 
+                testGetTopicMessageList"/>
+
+        </junit>
+    </target>
+
+    <target name="test_create_user" depends="execddl">
+        <junit printsummary="yes" showoutput="yes" filtertrace="false" fork="yes">
+            <classpath refid="master-classpath" />
+            <formatter type="plain"/>
+
+            <test name="test.UserManagerTest" methods="testCreateUser"/>
+
+            </junit>
+    </target>
+
+    <target name="test_ban" depends="execddl">
+        <junit printsummary="yes" showoutput="yes" filtertrace="false" fork="yes">
+            <classpath refid="master-classpath" />
+            <formatter type="plain"/>
+
+            <test name="test.UserManagerTest" methods="testBan"/>
+
+            </junit>
+    </target>
+
+    <target name="test_change_name_desc" depends="execddl">
+        <junit printsummary="yes" showoutput="yes" filtertrace="false" fork="yes">
+            <classpath refid="master-classpath" />
+            <formatter type="plain"/>
+
+            <test name="test.SectionManagerTest" methods="testChangeNameDesc"/>
+
+            </junit>
+    </target>
+
+    <target name="test_create_section" depends="execddl">
+        <junit printsummary="yes" showoutput="yes" filtertrace="false" fork="yes">
+            <classpath refid="master-classpath" />
+            <formatter type="plain"/>
+
+            <test name="test.SectionManagerTest" methods="testCreateSection"/>
+
+            </junit>
+    </target>
+
+    <target name="test_create_topic" depends="execddl">
+        <junit printsummary="yes" showoutput="yes" filtertrace="false" fork="yes">
+            <classpath refid="master-classpath" />
+            <formatter type="plain"/>
+
+            <test name="test.SectionManagerTest" methods="testCreateTopic"/>
+
+            </junit>
+    </target>
+
+    <target name="test_delete_topics" depends="execddl">
+        <junit printsummary="yes" showoutput="yes" filtertrace="false" fork="yes">
+            <classpath refid="master-classpath" />
+            <formatter type="plain"/>
+
+            <test name="test.SectionManagerTest" methods="testDeleteTopics"/>
+
+            </junit>
+    </target>
+
+    <target name="test_delete_sections" depends="execddl">
+        <junit printsummary="yes" showoutput="yes" filtertrace="false" fork="yes">
+            <classpath refid="master-classpath" />
+            <formatter type="plain"/>
+
+            <test name="test.SectionManagerTest" methods="testDeleteSections"/>
+
+            </junit>
+    </target>
+
+    <target name="test_relocate_topics" depends="execddl">
+        <junit printsummary="yes" showoutput="yes" filtertrace="false" fork="yes">
+            <classpath refid="master-classpath" />
+            <formatter type="plain"/>
+
+            <test name="test.SectionManagerTest" methods="testRelocateTopics"/>
+
+            </junit>
+    </target>
+
+    <target name="test_relocate_message_thread" depends="execddl">
+        <junit printsummary="yes" showoutput="yes" filtertrace="false" fork="yes">
+            <classpath refid="master-classpath" />
+            <formatter type="plain"/>
+
+            <test name="test.SectionManagerTest" methods="testRelocateMessageThread"/>
+
+            </junit>
+    </target>
+
+    <target name="test_change_name" depends="execddl">
+        <junit printsummary="yes" showoutput="yes" filtertrace="false" fork="yes">
+            <classpath refid="master-classpath" />
+            <formatter type="plain"/>
+
+            <test name="test.TopicManagerTest" methods="testChangeName"/>
+
+            </junit>
+    </target>
+
+    <target name="test_create_message" depends="execddl">
+        <junit printsummary="yes" showoutput="yes" filtertrace="false" fork="yes">
+            <classpath refid="master-classpath" />
+            <formatter type="plain"/>
+
+            <test name="test.TopicManagerTest" methods="testCreateMessage"/>
+
+            </junit>
+    </target>
+
+    <target name="test_delete_messages" depends="execddl">
+        <junit printsummary="yes" showoutput="yes" filtertrace="false" fork="yes">
+            <classpath refid="master-classpath" />
+            <formatter type="plain"/>
+
+            <test name="test.TopicManagerTest" methods="testDeleteMessages"/>
+
+            </junit>
+    </target>
+
+</project>
