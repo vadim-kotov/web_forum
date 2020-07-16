@@ -16,6 +16,8 @@
     <property name="model.dir" 
         value="${src.dir}/java/model" />
 
+    <property name="testlogs.dir" value="testlogs"/>
+
     <property name = "dbjar" value = ".\lib\mssql-jdbc-8.2.0.jre8.jar"/>
     <property name = "dbdriver" value = "com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
     <property name = "dbalias" value = "web_forum"/>
@@ -48,6 +50,7 @@
     <target name="init" description="Setup for build script">
 
         <mkdir dir="${class.dir}" />
+        <mkdir dir="${testlogs.dir}"/>
 
     </target>
 
@@ -78,7 +81,7 @@
     </target>
 
     <target name="test_selects" depends="execddl">
-        <junit printsummary="yes" showoutput="yes" filtertrace="false" fork="yes">
+        <junit printsummary="yes" showoutput="no" filtertrace="false" fork="yes">
             <classpath refid="master-classpath" />
             <formatter type="plain"/>
         <!--
@@ -90,132 +93,132 @@
                 </fileset>
             </batchtest>
 -->
-            <test name="test.UserManagerTest" methods="testGetBanlist, testGetUsersInfo, 
+            <test name="test.UserManagerTest" outfile="${testlogs.dir}/user_manager_test_selects" methods="testGetBanlist, testGetUsersInfo, 
                 testGetUserInfo, testGetCreatedTopicList, testGetTopicList, testGetMessageList"/>
-            <test name="test.SectionManagerTest" methods="testGetHierarchySize, testGetPath, 
+            <test name="test.SectionManagerTest" outfile="${testlogs.dir}/section_manager_test_selects" methods="testGetHierarchySize, testGetPath, 
                 testGetForumSectionList, testGetForumTopicList"/>
-            <test name="test.TopicManagerTest" methods="testGetMessageNumber, testGetPath, 
+            <test name="test.TopicManagerTest" outfile="${testlogs.dir}/topic_manager_test_test_selects" methods="testGetMessageNumber, testGetPath, 
                 testGetTopicMessageList"/>
 
         </junit>
     </target>
 
     <target name="test_create_user" depends="execddl">
-        <junit printsummary="yes" showoutput="yes" filtertrace="false" fork="yes">
+        <junit printsummary="yes" showoutput="no" filtertrace="false" fork="yes">
             <classpath refid="master-classpath" />
             <formatter type="plain"/>
 
-            <test name="test.UserManagerTest" methods="testCreateUser"/>
+            <test name="test.UserManagerTest" outfile="${testlogs.dir}/test_create_user" methods="testCreateUser"/>
 
             </junit>
     </target>
 
     <target name="test_ban" depends="execddl">
-        <junit printsummary="yes" showoutput="yes" filtertrace="false" fork="yes">
+        <junit printsummary="yes" showoutput="no" filtertrace="false" fork="yes">
             <classpath refid="master-classpath" />
             <formatter type="plain"/>
 
-            <test name="test.UserManagerTest" methods="testBan"/>
+            <test name="test.UserManagerTest" outfile="${testlogs.dir}/test_ban" methods="testBan"/>
 
             </junit>
     </target>
 
     <target name="test_change_name_desc" depends="execddl">
-        <junit printsummary="yes" showoutput="yes" filtertrace="false" fork="yes">
+        <junit printsummary="yes" showoutput="no" filtertrace="false" fork="yes">
             <classpath refid="master-classpath" />
             <formatter type="plain"/>
 
-            <test name="test.SectionManagerTest" methods="testChangeNameDesc"/>
+            <test name="test.SectionManagerTest" outfile="${testlogs.dir}/test_change_name_desc" methods="testChangeNameDesc"/>
 
             </junit>
     </target>
 
     <target name="test_create_section" depends="execddl">
-        <junit printsummary="yes" showoutput="yes" filtertrace="false" fork="yes">
+        <junit printsummary="yes" showoutput="no" filtertrace="false" fork="yes">
             <classpath refid="master-classpath" />
             <formatter type="plain"/>
 
-            <test name="test.SectionManagerTest" methods="testCreateSection"/>
+            <test name="test.SectionManagerTest" outfile="${testlogs.dir}/test_create_section" methods="testCreateSection"/>
 
             </junit>
     </target>
 
     <target name="test_create_topic" depends="execddl">
-        <junit printsummary="yes" showoutput="yes" filtertrace="false" fork="yes">
+        <junit printsummary="yes" showoutput="no" filtertrace="false" fork="yes">
             <classpath refid="master-classpath" />
             <formatter type="plain"/>
 
-            <test name="test.SectionManagerTest" methods="testCreateTopic"/>
+            <test name="test.SectionManagerTest" outfile="${testlogs.dir}/test_create_topic" methods="testCreateTopic"/>
 
             </junit>
     </target>
 
     <target name="test_delete_topics" depends="execddl">
-        <junit printsummary="yes" showoutput="yes" filtertrace="false" fork="yes">
+        <junit printsummary="yes" showoutput="no" filtertrace="false" fork="yes">
             <classpath refid="master-classpath" />
             <formatter type="plain"/>
 
-            <test name="test.SectionManagerTest" methods="testDeleteTopics"/>
+            <test name="test.SectionManagerTest" outfile="${testlogs.dir}/test_delete_topics" methods="testDeleteTopics"/>
 
             </junit>
     </target>
 
     <target name="test_delete_sections" depends="execddl">
-        <junit printsummary="yes" showoutput="yes" filtertrace="false" fork="yes">
+        <junit printsummary="yes" showoutput="no" filtertrace="false" fork="yes">
             <classpath refid="master-classpath" />
             <formatter type="plain"/>
 
-            <test name="test.SectionManagerTest" methods="testDeleteSections"/>
+            <test name="test.SectionManagerTest" outfile="${testlogs.dir}/test_delete_sections" methods="testDeleteSections"/>
 
             </junit>
     </target>
 
     <target name="test_relocate_topics" depends="execddl">
-        <junit printsummary="yes" showoutput="yes" filtertrace="false" fork="yes">
+        <junit printsummary="yes" showoutput="no" filtertrace="false" fork="yes">
             <classpath refid="master-classpath" />
             <formatter type="plain"/>
 
-            <test name="test.SectionManagerTest" methods="testRelocateTopics"/>
+            <test name="test.SectionManagerTest" outfile="${testlogs.dir}/test_relocate_topics" methods="testRelocateTopics"/>
 
             </junit>
     </target>
 
     <target name="test_relocate_message_thread" depends="execddl">
-        <junit printsummary="yes" showoutput="yes" filtertrace="false" fork="yes">
+        <junit printsummary="yes" showoutput="no" filtertrace="false" fork="yes">
             <classpath refid="master-classpath" />
             <formatter type="plain"/>
 
-            <test name="test.SectionManagerTest" methods="testRelocateMessageThread"/>
+            <test name="test.SectionManagerTest" outfile="${testlogs.dir}/test_relocate_message_thread" methods="testRelocateMessageThread"/>
 
             </junit>
     </target>
 
     <target name="test_change_name" depends="execddl">
-        <junit printsummary="yes" showoutput="yes" filtertrace="false" fork="yes">
+        <junit printsummary="yes" showoutput="no" filtertrace="false" fork="yes">
             <classpath refid="master-classpath" />
             <formatter type="plain"/>
 
-            <test name="test.TopicManagerTest" methods="testChangeName"/>
+            <test name="test.TopicManagerTest" outfile="${testlogs.dir}/test_change_name" methods="testChangeName"/>
 
             </junit>
     </target>
 
     <target name="test_create_message" depends="execddl">
-        <junit printsummary="yes" showoutput="yes" filtertrace="false" fork="yes">
+        <junit printsummary="yes" showoutput="no" filtertrace="false" fork="yes">
             <classpath refid="master-classpath" />
             <formatter type="plain"/>
 
-            <test name="test.TopicManagerTest" methods="testCreateMessage"/>
+            <test name="test.TopicManagerTest" outfile="${testlogs.dir}/test_create_message" methods="testCreateMessage"/>
 
             </junit>
     </target>
 
     <target name="test_delete_messages" depends="execddl">
-        <junit printsummary="yes" showoutput="yes" filtertrace="false" fork="yes">
+        <junit printsummary="yes" showoutput="no" filtertrace="false" fork="yes">
             <classpath refid="master-classpath" />
             <formatter type="plain"/>
 
-            <test name="test.TopicManagerTest" methods="testDeleteMessages"/>
+            <test name="test.TopicManagerTest" outfile="${testlogs.dir}/test_delete_messages" methods="testDeleteMessages"/>
 
             </junit>
     </target>

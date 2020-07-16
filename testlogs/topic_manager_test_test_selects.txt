@@ -1,0 +1,431 @@
+Testsuite: test.TopicManagerTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8,45 sec
+------------- Standard Output ---------------
+Hibernate: 
+    /* 
+from
+    Topic */ select
+        topic0_.topic_id as topic_id1_5_,
+        topic0_.[name] as name2_5_,
+        topic0_.[date] as date3_5_,
+        topic0_.section_id as section_4_5_,
+        topic0_.creator_id as creator_5_5_ 
+    from
+        Topic topic0_
+Hibernate: 
+    /* criteria query */ select
+        count(*) as y0_ 
+    from
+        [Message] this_ 
+    where
+        this_.topic_id in (
+            ?, ?, ?, ?
+        )
+Hibernate: 
+    /* load model.Topic */ select
+        topic0_.topic_id as topic_id1_5_0_,
+        topic0_.[name] as name2_5_0_,
+        topic0_.[date] as date3_5_0_,
+        topic0_.section_id as section_4_5_0_,
+        topic0_.creator_id as creator_5_5_0_ 
+    from
+        Topic topic0_ 
+    where
+        topic0_.topic_id=?
+Hibernate: 
+    select
+        messages0_.topic_id as topic_id5_0_0_,
+        messages0_.message_id as message_1_0_0_,
+        messages0_.message_id as message_1_0_1_,
+        messages0_.[date] as date2_0_1_,
+        messages0_.header as header3_0_1_,
+        messages0_.upmessage_id as upmessag4_0_1_,
+        messages0_.topic_id as topic_id5_0_1_,
+        messages0_.author_id as author_i6_0_1_ 
+    from
+        [Message] messages0_ 
+    where
+        messages0_.topic_id=?
+Hibernate: 
+    /* load model.Topic */ select
+        topic0_.topic_id as topic_id1_5_0_,
+        topic0_.[name] as name2_5_0_,
+        topic0_.[date] as date3_5_0_,
+        topic0_.section_id as section_4_5_0_,
+        topic0_.creator_id as creator_5_5_0_ 
+    from
+        Topic topic0_ 
+    where
+        topic0_.topic_id=?
+Hibernate: 
+    select
+        messages0_.topic_id as topic_id5_0_0_,
+        messages0_.message_id as message_1_0_0_,
+        messages0_.message_id as message_1_0_1_,
+        messages0_.[date] as date2_0_1_,
+        messages0_.header as header3_0_1_,
+        messages0_.upmessage_id as upmessag4_0_1_,
+        messages0_.topic_id as topic_id5_0_1_,
+        messages0_.author_id as author_i6_0_1_ 
+    from
+        [Message] messages0_ 
+    where
+        messages0_.topic_id=?
+Hibernate: 
+    /* load model.Topic */ select
+        topic0_.topic_id as topic_id1_5_0_,
+        topic0_.[name] as name2_5_0_,
+        topic0_.[date] as date3_5_0_,
+        topic0_.section_id as section_4_5_0_,
+        topic0_.creator_id as creator_5_5_0_ 
+    from
+        Topic topic0_ 
+    where
+        topic0_.topic_id=?
+Hibernate: 
+    select
+        messages0_.topic_id as topic_id5_0_0_,
+        messages0_.message_id as message_1_0_0_,
+        messages0_.message_id as message_1_0_1_,
+        messages0_.[date] as date2_0_1_,
+        messages0_.header as header3_0_1_,
+        messages0_.upmessage_id as upmessag4_0_1_,
+        messages0_.topic_id as topic_id5_0_1_,
+        messages0_.author_id as author_i6_0_1_ 
+    from
+        [Message] messages0_ 
+    where
+        messages0_.topic_id=?
+Hibernate: 
+    /* load model.Topic */ select
+        topic0_.topic_id as topic_id1_5_0_,
+        topic0_.[name] as name2_5_0_,
+        topic0_.[date] as date3_5_0_,
+        topic0_.section_id as section_4_5_0_,
+        topic0_.creator_id as creator_5_5_0_ 
+    from
+        Topic topic0_ 
+    where
+        topic0_.topic_id=?
+Hibernate: 
+    select
+        messages0_.topic_id as topic_id5_0_0_,
+        messages0_.message_id as message_1_0_0_,
+        messages0_.message_id as message_1_0_1_,
+        messages0_.[date] as date2_0_1_,
+        messages0_.header as header3_0_1_,
+        messages0_.upmessage_id as upmessag4_0_1_,
+        messages0_.topic_id as topic_id5_0_1_,
+        messages0_.author_id as author_i6_0_1_ 
+    from
+        [Message] messages0_ 
+    where
+        messages0_.topic_id=?
+Hibernate: 
+    /* 
+from
+    Topic */ select
+        topic0_.topic_id as topic_id1_5_,
+        topic0_.[name] as name2_5_,
+        topic0_.[date] as date3_5_,
+        topic0_.section_id as section_4_5_,
+        topic0_.creator_id as creator_5_5_ 
+    from
+        Topic topic0_
+Hibernate: 
+    /* load model.Topic */ select
+        topic0_.topic_id as topic_id1_5_0_,
+        topic0_.[name] as name2_5_0_,
+        topic0_.[date] as date3_5_0_,
+        topic0_.section_id as section_4_5_0_,
+        topic0_.creator_id as creator_5_5_0_ 
+    from
+        Topic topic0_ 
+    where
+        topic0_.topic_id=?
+Hibernate: 
+    select
+        section0_.section_id as section_1_4_0_,
+        section0_.[name] as name2_4_0_,
+        section0_.[description] as descript3_4_0_,
+        section0_.upsection_id as upsectio4_4_0_ 
+    from
+        Section section0_ 
+    where
+        section0_.section_id=?
+Hibernate: 
+    select
+        section0_.section_id as section_1_4_0_,
+        section0_.[name] as name2_4_0_,
+        section0_.[description] as descript3_4_0_,
+        section0_.upsection_id as upsectio4_4_0_ 
+    from
+        Section section0_ 
+    where
+        section0_.section_id=?
+Hibernate: 
+    select
+        section0_.section_id as section_1_4_0_,
+        section0_.[name] as name2_4_0_,
+        section0_.[description] as descript3_4_0_,
+        section0_.upsection_id as upsectio4_4_0_ 
+    from
+        Section section0_ 
+    where
+        section0_.section_id=?
+Hibernate: 
+    /* dynamic native SQL query */ WITH temp([level], section_id, [name], upsection_id, [description]) AS (SELECT
+        1,
+        Section.* 
+    FROM
+        Section 
+    WHERE
+        section_id = (SELECT
+            section_id 
+        FROM
+            Topic 
+        WHERE
+            topic_id = ?) 
+    UNION
+    ALL SELECT
+        [level] + 1,
+        Section.* 
+    FROM
+        temp 
+    JOIN
+        Section 
+            ON (temp.upsection_id = Section.section_id)) SELECT
+            section_id,
+            [name],
+            upsection_id,
+            [description] 
+    FROM
+        temp 
+    ORDER BY
+        [level] DESC
+Hibernate: 
+    /* criteria query */ select
+        max(this_.topic_id) as y0_ 
+    from
+        Topic this_
+Hibernate: 
+    /* dynamic native SQL query */ WITH temp([level], section_id, [name], upsection_id, [description]) AS (SELECT
+        1,
+        Section.* 
+    FROM
+        Section 
+    WHERE
+        section_id = (SELECT
+            section_id 
+        FROM
+            Topic 
+        WHERE
+            topic_id = ?) 
+    UNION
+    ALL SELECT
+        [level] + 1,
+        Section.* 
+    FROM
+        temp 
+    JOIN
+        Section 
+            ON (temp.upsection_id = Section.section_id)) SELECT
+            section_id,
+            [name],
+            upsection_id,
+            [description] 
+    FROM
+        temp 
+    ORDER BY
+        [level] DESC
+Hibernate: 
+    /* 
+from
+    Topic */ select
+        topic0_.topic_id as topic_id1_5_,
+        topic0_.[name] as name2_5_,
+        topic0_.[date] as date3_5_,
+        topic0_.section_id as section_4_5_,
+        topic0_.creator_id as creator_5_5_ 
+    from
+        Topic topic0_
+Hibernate: 
+    select
+        topic0_.topic_id as topic_id1_5_0_,
+        topic0_.[name] as name2_5_0_,
+        topic0_.[date] as date3_5_0_,
+        topic0_.section_id as section_4_5_0_,
+        topic0_.creator_id as creator_5_5_0_ 
+    from
+        Topic topic0_ 
+    where
+        topic0_.topic_id=?
+Hibernate: 
+    /* dynamic native SQL query */ WITH temp([level], message_id, topic_id, upmessage_id, author_id, [date], header, [path]) AS (SELECT
+        1 AS [level],
+        [Message].*,
+        cast('1' AS varchar(MAX)) 
+    FROM
+        [Message] 
+    WHERE
+        topic_id = ? 
+        AND upmessage_id IS NULL 
+    UNION
+    ALL SELECT
+        [level] + 1,
+        [Message].*,
+        [path] + '.' + cast(ROW_NUMBER() OVER(
+    ORDER BY
+        [Message].[date] ASC) AS varchar(MAX)) 
+    FROM
+        temp 
+    JOIN
+        [Message] 
+            ON (temp.message_id = [Message].upmessage_id)) SELECT
+            [level],
+            message.message_id as message_1_0_0_,
+            message.[date] as date2_0_0_,
+            message.header as header3_0_0_,
+            message.upmessage_id as upmessag4_0_0_,
+            message.topic_id as topic_id5_0_0_,
+            message.author_id as author_i6_0_0_,
+            author.[user_id] as user_id1_2_1_,
+            author.[login] as login2_2_1_,
+            author.[password] as password3_2_1_,
+            author.regist_date as regist_d4_2_1_,
+            author.rights as rights5_2_1_,
+            author.avatar as avatar6_2_1_,
+            upmessage.message_id as message_1_0_2_,
+            upmessage.[date] as date2_0_2_,
+            upmessage.header as header3_0_2_,
+            upmessage.upmessage_id as upmessag4_0_2_,
+            upmessage.topic_id as topic_id5_0_2_,
+            upmessage.author_id as author_i6_0_2_,
+            upauthor.[user_id] as user_id1_2_3_,
+            upauthor.[login] as login2_2_3_,
+            upauthor.[password] as password3_2_3_,
+            upauthor.regist_date as regist_d4_2_3_,
+            upauthor.rights as rights5_2_3_,
+            upauthor.avatar as avatar6_2_3_,
+            messageObjects.message_id as message_4_1_0__,
+            messageObjects.[object_id] as object_i1_1_0__,
+            messageObjects.object_num as object_n9_0__,
+            messageObjects.[object_id] as object_i1_1_4_,
+            messageObjects.[value] as value3_1_4_,
+            messageObjects.message_id as message_4_1_4_,
+            messageObjects.quote_author_id as quote_au5_1_4_,
+            messageObjects.quote_id as quote_id6_1_4_,
+            messageObjects.width as width7_1_4_,
+            messageObjects.height as height8_1_4_,
+            messageObjects.[type_id] as type_id2_1_4_,
+            quote.message_id as message_1_0_5_,
+            quote.[date] as date2_0_5_,
+            quote.header as header3_0_5_,
+            quote.upmessage_id as upmessag4_0_5_,
+            quote.topic_id as topic_id5_0_5_,
+            quote.author_id as author_i6_0_5_,
+            quote_author.[user_id] as user_id1_2_6_,
+            quote_author.[login] as login2_2_6_,
+            quote_author.[password] as password3_2_6_,
+            quote_author.regist_date as regist_d4_2_6_,
+            quote_author.rights as rights5_2_6_,
+            quote_author.avatar as avatar6_2_6_ 
+    FROM
+        temp message 
+    LEFT JOIN
+        [User] author 
+            ON (
+                message.author_id = author.[user_id]
+            )
+    LEFT JOIN
+        [Message] upmessage 
+            ON (
+                message.upmessage_id = upmessage.message_id
+            ) 
+    LEFT JOIN
+        [User] upauthor 
+            ON (
+                upmessage.author_id = upauthor.[user_id]
+            ) 
+    LEFT JOIN
+        [Object] messageObjects 
+            ON (
+                message.message_id = messageObjects.message_id
+            ) 
+    LEFT JOIN
+        [Message] quote 
+            ON (
+                messageObjects.quote_id = quote.message_id
+            ) 
+    LEFT JOIN
+        [User] quote_author 
+            ON (
+                messageObjects.quote_author_id = quote_author.[user_id]
+            ) 
+    ORDER BY
+        [path]
+Hibernate: 
+    /* 
+from
+    Message 
+where
+    topic.topicId = ?0 
+    and upmessage.messageId is null */ select
+        message0_.message_id as message_1_0_,
+        message0_.[date] as date2_0_,
+        message0_.header as header3_0_,
+        message0_.upmessage_id as upmessag4_0_,
+        message0_.topic_id as topic_id5_0_,
+        message0_.author_id as author_i6_0_ 
+    from
+        [Message] message0_ 
+    where
+        message0_.topic_id=? 
+        and (
+            message0_.upmessage_id is null
+        )
+Hibernate: 
+    /* criteria query */ select
+        max(this_.topic_id) as y0_ 
+    from
+        Topic this_
+Hibernate: 
+    select
+        topic0_.topic_id as topic_id1_5_0_,
+        topic0_.[name] as name2_5_0_,
+        topic0_.[date] as date3_5_0_,
+        topic0_.section_id as section_4_5_0_,
+        topic0_.creator_id as creator_5_5_0_ 
+    from
+        Topic topic0_ 
+    where
+        topic0_.topic_id=?
+------------- ---------------- ---------------
+------------- Standard Error -----------------
+èþë 16, 2020 7:03:04 PM org.hibernate.Version logVersion
+INFO: HHH000412: Hibernate Core {5.4.10.Final}
+èþë 16, 2020 7:03:05 PM org.hibernate.annotations.common.reflection.java.JavaReflectionManager <clinit>
+INFO: HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+èþë 16, 2020 7:03:07 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl configure
+WARN: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+èþë 16, 2020 7:03:07 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:49167;databaseName=web_forum]
+èþë 16, 2020 7:03:07 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001001: Connection properties: {user=sa, password=****}
+èþë 16, 2020 7:03:07 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001003: Autocommit mode: false
+èþë 16, 2020 7:03:07 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections <init>
+INFO: HHH000115: Hibernate connection pool size: 20 (min=1)
+èþë 16, 2020 7:03:08 PM org.hibernate.dialect.Dialect <init>
+INFO: HHH000400: Using dialect: org.hibernate.dialect.SQLServer2012Dialect
+èþë 16, 2020 7:03:12 PM org.hibernate.internal.SessionImpl createCriteria
+WARN: HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+èþë 16, 2020 7:03:12 PM org.hibernate.internal.SessionImpl createCriteria
+WARN: HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+èþë 16, 2020 7:03:12 PM org.hibernate.internal.SessionImpl createCriteria
+WARN: HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+------------- ---------------- ---------------
+
+Testcase: testGetMessageNumber took 8,1 sec
+Testcase: testGetPath took 0,14 sec
+Testcase: testGetTopicMessageList took 0,137 sec

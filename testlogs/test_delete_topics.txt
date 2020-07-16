@@ -1,0 +1,220 @@
+Testsuite: test.SectionManagerTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8,568 sec
+------------- Standard Output ---------------
+Hibernate: 
+    /* criteria query */ select
+        this_.topic_id as topic_id1_5_2_,
+        this_.[name] as name2_5_2_,
+        this_.[date] as date3_5_2_,
+        this_.section_id as section_4_5_2_,
+        this_.creator_id as creator_5_5_2_,
+        m1_.topic_id as topic_id5_0_4_,
+        m1_.message_id as message_1_0_4_,
+        m1_.message_id as message_1_0_0_,
+        m1_.[date] as date2_0_0_,
+        m1_.header as header3_0_0_,
+        m1_.upmessage_id as upmessag4_0_0_,
+        m1_.topic_id as topic_id5_0_0_,
+        m1_.author_id as author_i6_0_0_,
+        mo2_.message_id as message_4_1_5_,
+        mo2_.[object_id] as object_i1_1_5_,
+        mo2_.object_num as object_n9_5_,
+        mo2_.[object_id] as object_i1_1_1_,
+        mo2_.[value] as value3_1_1_,
+        mo2_.message_id as message_4_1_1_,
+        mo2_.quote_author_id as quote_au5_1_1_,
+        mo2_.quote_id as quote_id6_1_1_,
+        mo2_.width as width7_1_1_,
+        mo2_.height as height8_1_1_,
+        mo2_.[type_id] as type_id2_1_1_ 
+    from
+        Topic this_ 
+    left outer join
+        [Message] m1_ 
+            on this_.topic_id=m1_.topic_id 
+    left outer join
+        [Object] mo2_ 
+            on m1_.message_id=mo2_.message_id
+Hibernate: 
+    /* delete Topic 
+    where
+        topicId in ?0 */ delete 
+        from
+            Topic 
+        where
+            topic_id in (
+                ? , ? , ? , ? , ? , ?
+            )
+Hibernate: 
+    select
+        topic0_.topic_id as topic_id1_5_0_,
+        topic0_.[name] as name2_5_0_,
+        topic0_.[date] as date3_5_0_,
+        topic0_.section_id as section_4_5_0_,
+        topic0_.creator_id as creator_5_5_0_ 
+    from
+        Topic topic0_ 
+    where
+        topic0_.topic_id=?
+Hibernate: 
+    /* criteria query */ select
+        this_.message_id as message_1_0_0_,
+        this_.[date] as date2_0_0_,
+        this_.header as header3_0_0_,
+        this_.upmessage_id as upmessag4_0_0_,
+        this_.topic_id as topic_id5_0_0_,
+        this_.author_id as author_i6_0_0_ 
+    from
+        [Message] this_ 
+    where
+        this_.topic_id=?
+Hibernate: 
+    select
+        topic0_.topic_id as topic_id1_5_0_,
+        topic0_.[name] as name2_5_0_,
+        topic0_.[date] as date3_5_0_,
+        topic0_.section_id as section_4_5_0_,
+        topic0_.creator_id as creator_5_5_0_ 
+    from
+        Topic topic0_ 
+    where
+        topic0_.topic_id=?
+Hibernate: 
+    /* criteria query */ select
+        this_.message_id as message_1_0_0_,
+        this_.[date] as date2_0_0_,
+        this_.header as header3_0_0_,
+        this_.upmessage_id as upmessag4_0_0_,
+        this_.topic_id as topic_id5_0_0_,
+        this_.author_id as author_i6_0_0_ 
+    from
+        [Message] this_ 
+    where
+        this_.topic_id=?
+Hibernate: 
+    select
+        topic0_.topic_id as topic_id1_5_0_,
+        topic0_.[name] as name2_5_0_,
+        topic0_.[date] as date3_5_0_,
+        topic0_.section_id as section_4_5_0_,
+        topic0_.creator_id as creator_5_5_0_ 
+    from
+        Topic topic0_ 
+    where
+        topic0_.topic_id=?
+Hibernate: 
+    /* criteria query */ select
+        this_.message_id as message_1_0_0_,
+        this_.[date] as date2_0_0_,
+        this_.header as header3_0_0_,
+        this_.upmessage_id as upmessag4_0_0_,
+        this_.topic_id as topic_id5_0_0_,
+        this_.author_id as author_i6_0_0_ 
+    from
+        [Message] this_ 
+    where
+        this_.topic_id=?
+Hibernate: 
+    select
+        topic0_.topic_id as topic_id1_5_0_,
+        topic0_.[name] as name2_5_0_,
+        topic0_.[date] as date3_5_0_,
+        topic0_.section_id as section_4_5_0_,
+        topic0_.creator_id as creator_5_5_0_ 
+    from
+        Topic topic0_ 
+    where
+        topic0_.topic_id=?
+Hibernate: 
+    /* criteria query */ select
+        this_.message_id as message_1_0_0_,
+        this_.[date] as date2_0_0_,
+        this_.header as header3_0_0_,
+        this_.upmessage_id as upmessag4_0_0_,
+        this_.topic_id as topic_id5_0_0_,
+        this_.author_id as author_i6_0_0_ 
+    from
+        [Message] this_ 
+    where
+        this_.topic_id=?
+Hibernate: 
+    select
+        topic0_.topic_id as topic_id1_5_0_,
+        topic0_.[name] as name2_5_0_,
+        topic0_.[date] as date3_5_0_,
+        topic0_.section_id as section_4_5_0_,
+        topic0_.creator_id as creator_5_5_0_ 
+    from
+        Topic topic0_ 
+    where
+        topic0_.topic_id=?
+Hibernate: 
+    /* criteria query */ select
+        this_.message_id as message_1_0_0_,
+        this_.[date] as date2_0_0_,
+        this_.header as header3_0_0_,
+        this_.upmessage_id as upmessag4_0_0_,
+        this_.topic_id as topic_id5_0_0_,
+        this_.author_id as author_i6_0_0_ 
+    from
+        [Message] this_ 
+    where
+        this_.topic_id=?
+Hibernate: 
+    select
+        topic0_.topic_id as topic_id1_5_0_,
+        topic0_.[name] as name2_5_0_,
+        topic0_.[date] as date3_5_0_,
+        topic0_.section_id as section_4_5_0_,
+        topic0_.creator_id as creator_5_5_0_ 
+    from
+        Topic topic0_ 
+    where
+        topic0_.topic_id=?
+Hibernate: 
+    /* criteria query */ select
+        this_.message_id as message_1_0_0_,
+        this_.[date] as date2_0_0_,
+        this_.header as header3_0_0_,
+        this_.upmessage_id as upmessag4_0_0_,
+        this_.topic_id as topic_id5_0_0_,
+        this_.author_id as author_i6_0_0_ 
+    from
+        [Message] this_ 
+    where
+        this_.topic_id=?
+------------- ---------------- ---------------
+------------- Standard Error -----------------
+èþë 16, 2020 7:06:33 PM org.hibernate.Version logVersion
+INFO: HHH000412: Hibernate Core {5.4.10.Final}
+èþë 16, 2020 7:06:34 PM org.hibernate.annotations.common.reflection.java.JavaReflectionManager <clinit>
+INFO: HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+èþë 16, 2020 7:06:36 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl configure
+WARN: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+èþë 16, 2020 7:06:36 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:49167;databaseName=web_forum]
+èþë 16, 2020 7:06:36 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001001: Connection properties: {user=sa, password=****}
+èþë 16, 2020 7:06:36 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001003: Autocommit mode: false
+èþë 16, 2020 7:06:36 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections <init>
+INFO: HHH000115: Hibernate connection pool size: 20 (min=1)
+èþë 16, 2020 7:06:37 PM org.hibernate.dialect.Dialect <init>
+INFO: HHH000400: Using dialect: org.hibernate.dialect.SQLServer2012Dialect
+èþë 16, 2020 7:06:40 PM org.hibernate.internal.SessionImpl createCriteria
+WARN: HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+èþë 16, 2020 7:06:41 PM org.hibernate.internal.SessionImpl createCriteria
+WARN: HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+èþë 16, 2020 7:06:41 PM org.hibernate.internal.SessionImpl createCriteria
+WARN: HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+èþë 16, 2020 7:06:41 PM org.hibernate.internal.SessionImpl createCriteria
+WARN: HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+èþë 16, 2020 7:06:41 PM org.hibernate.internal.SessionImpl createCriteria
+WARN: HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+èþë 16, 2020 7:06:41 PM org.hibernate.internal.SessionImpl createCriteria
+WARN: HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+èþë 16, 2020 7:06:41 PM org.hibernate.internal.SessionImpl createCriteria
+WARN: HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+------------- ---------------- ---------------
+
+Testcase: testDeleteTopics took 8,51 sec

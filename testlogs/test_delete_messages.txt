@@ -1,0 +1,466 @@
+Testsuite: test.TopicManagerTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8,347 sec
+------------- Standard Output ---------------
+Hibernate: 
+    /* criteria query */ select
+        this_.message_id as message_1_0_1_,
+        this_.[date] as date2_0_1_,
+        this_.header as header3_0_1_,
+        this_.upmessage_id as upmessag4_0_1_,
+        this_.topic_id as topic_id5_0_1_,
+        this_.author_id as author_i6_0_1_,
+        messageobj2_.message_id as message_4_1_3_,
+        messageobj2_.[object_id] as object_i1_1_3_,
+        messageobj2_.object_num as object_n9_3_,
+        messageobj2_.[object_id] as object_i1_1_0_,
+        messageobj2_.[value] as value3_1_0_,
+        messageobj2_.message_id as message_4_1_0_,
+        messageobj2_.quote_author_id as quote_au5_1_0_,
+        messageobj2_.quote_id as quote_id6_1_0_,
+        messageobj2_.width as width7_1_0_,
+        messageobj2_.height as height8_1_0_,
+        messageobj2_.[type_id] as type_id2_1_0_ 
+    from
+        [Message] this_ 
+    left outer join
+        [Object] messageobj2_ 
+            on this_.message_id=messageobj2_.message_id
+Hibernate: 
+    select
+        downmessag0_.upmessage_id as upmessag4_0_0_,
+        downmessag0_.message_id as message_1_0_0_,
+        downmessag0_.message_id as message_1_0_1_,
+        downmessag0_.[date] as date2_0_1_,
+        downmessag0_.header as header3_0_1_,
+        downmessag0_.upmessage_id as upmessag4_0_1_,
+        downmessag0_.topic_id as topic_id5_0_1_,
+        downmessag0_.author_id as author_i6_0_1_ 
+    from
+        [Message] downmessag0_ 
+    where
+        downmessag0_.upmessage_id=?
+Hibernate: 
+    select
+        downmessag0_.upmessage_id as upmessag4_0_0_,
+        downmessag0_.message_id as message_1_0_0_,
+        downmessag0_.message_id as message_1_0_1_,
+        downmessag0_.[date] as date2_0_1_,
+        downmessag0_.header as header3_0_1_,
+        downmessag0_.upmessage_id as upmessag4_0_1_,
+        downmessag0_.topic_id as topic_id5_0_1_,
+        downmessag0_.author_id as author_i6_0_1_ 
+    from
+        [Message] downmessag0_ 
+    where
+        downmessag0_.upmessage_id=?
+Hibernate: 
+    select
+        downmessag0_.upmessage_id as upmessag4_0_0_,
+        downmessag0_.message_id as message_1_0_0_,
+        downmessag0_.message_id as message_1_0_1_,
+        downmessag0_.[date] as date2_0_1_,
+        downmessag0_.header as header3_0_1_,
+        downmessag0_.upmessage_id as upmessag4_0_1_,
+        downmessag0_.topic_id as topic_id5_0_1_,
+        downmessag0_.author_id as author_i6_0_1_ 
+    from
+        [Message] downmessag0_ 
+    where
+        downmessag0_.upmessage_id=?
+Hibernate: 
+    select
+        downmessag0_.upmessage_id as upmessag4_0_0_,
+        downmessag0_.message_id as message_1_0_0_,
+        downmessag0_.message_id as message_1_0_1_,
+        downmessag0_.[date] as date2_0_1_,
+        downmessag0_.header as header3_0_1_,
+        downmessag0_.upmessage_id as upmessag4_0_1_,
+        downmessag0_.topic_id as topic_id5_0_1_,
+        downmessag0_.author_id as author_i6_0_1_ 
+    from
+        [Message] downmessag0_ 
+    where
+        downmessag0_.upmessage_id=?
+Hibernate: 
+    select
+        downmessag0_.upmessage_id as upmessag4_0_0_,
+        downmessag0_.message_id as message_1_0_0_,
+        downmessag0_.message_id as message_1_0_1_,
+        downmessag0_.[date] as date2_0_1_,
+        downmessag0_.header as header3_0_1_,
+        downmessag0_.upmessage_id as upmessag4_0_1_,
+        downmessag0_.topic_id as topic_id5_0_1_,
+        downmessag0_.author_id as author_i6_0_1_ 
+    from
+        [Message] downmessag0_ 
+    where
+        downmessag0_.upmessage_id=?
+Hibernate: 
+    /* delete Message 
+    where
+        messageId in ?0 */ delete 
+        from
+            [Message] 
+        where
+            message_id in (
+                ? , ? , ? , ? , ?
+            )
+Hibernate: 
+    /* criteria query */ select
+        this_.message_id as message_1_0_0_,
+        this_.[date] as date2_0_0_,
+        this_.header as header3_0_0_,
+        this_.upmessage_id as upmessag4_0_0_,
+        this_.topic_id as topic_id5_0_0_,
+        this_.author_id as author_i6_0_0_ 
+    from
+        [Message] this_ 
+    where
+        this_.upmessage_id=?
+Hibernate: 
+    select
+        message0_.message_id as message_1_0_0_,
+        message0_.[date] as date2_0_0_,
+        message0_.header as header3_0_0_,
+        message0_.upmessage_id as upmessag4_0_0_,
+        message0_.topic_id as topic_id5_0_0_,
+        message0_.author_id as author_i6_0_0_ 
+    from
+        [Message] message0_ 
+    where
+        message0_.message_id=?
+Hibernate: 
+    select
+        messageobj0_.[object_id] as object_i1_1_0_,
+        messageobj0_.[value] as value3_1_0_,
+        messageobj0_.message_id as message_4_1_0_,
+        messageobj0_.quote_author_id as quote_au5_1_0_,
+        messageobj0_.quote_id as quote_id6_1_0_,
+        messageobj0_.width as width7_1_0_,
+        messageobj0_.height as height8_1_0_,
+        messageobj0_.[type_id] as type_id2_1_0_ 
+    from
+        [Object] messageobj0_ 
+    where
+        messageobj0_.[object_id]=?
+Hibernate: 
+    /* criteria query */ select
+        this_.[object_id] as object_i1_1_0_,
+        this_.[value] as value3_1_0_,
+        this_.message_id as message_4_1_0_,
+        this_.quote_author_id as quote_au5_1_0_,
+        this_.quote_id as quote_id6_1_0_,
+        this_.width as width7_1_0_,
+        this_.height as height8_1_0_,
+        this_.[type_id] as type_id2_1_0_ 
+    from
+        [Object] this_ 
+    where
+        this_.message_id=?
+Hibernate: 
+    /* criteria query */ select
+        this_.message_id as message_1_0_0_,
+        this_.[date] as date2_0_0_,
+        this_.header as header3_0_0_,
+        this_.upmessage_id as upmessag4_0_0_,
+        this_.topic_id as topic_id5_0_0_,
+        this_.author_id as author_i6_0_0_ 
+    from
+        [Message] this_ 
+    where
+        this_.upmessage_id=?
+Hibernate: 
+    select
+        message0_.message_id as message_1_0_0_,
+        message0_.[date] as date2_0_0_,
+        message0_.header as header3_0_0_,
+        message0_.upmessage_id as upmessag4_0_0_,
+        message0_.topic_id as topic_id5_0_0_,
+        message0_.author_id as author_i6_0_0_ 
+    from
+        [Message] message0_ 
+    where
+        message0_.message_id=?
+Hibernate: 
+    select
+        messageobj0_.[object_id] as object_i1_1_0_,
+        messageobj0_.[value] as value3_1_0_,
+        messageobj0_.message_id as message_4_1_0_,
+        messageobj0_.quote_author_id as quote_au5_1_0_,
+        messageobj0_.quote_id as quote_id6_1_0_,
+        messageobj0_.width as width7_1_0_,
+        messageobj0_.height as height8_1_0_,
+        messageobj0_.[type_id] as type_id2_1_0_ 
+    from
+        [Object] messageobj0_ 
+    where
+        messageobj0_.[object_id]=?
+Hibernate: 
+    select
+        messageobj0_.[object_id] as object_i1_1_0_,
+        messageobj0_.[value] as value3_1_0_,
+        messageobj0_.message_id as message_4_1_0_,
+        messageobj0_.quote_author_id as quote_au5_1_0_,
+        messageobj0_.quote_id as quote_id6_1_0_,
+        messageobj0_.width as width7_1_0_,
+        messageobj0_.height as height8_1_0_,
+        messageobj0_.[type_id] as type_id2_1_0_ 
+    from
+        [Object] messageobj0_ 
+    where
+        messageobj0_.[object_id]=?
+Hibernate: 
+    /* criteria query */ select
+        this_.[object_id] as object_i1_1_0_,
+        this_.[value] as value3_1_0_,
+        this_.message_id as message_4_1_0_,
+        this_.quote_author_id as quote_au5_1_0_,
+        this_.quote_id as quote_id6_1_0_,
+        this_.width as width7_1_0_,
+        this_.height as height8_1_0_,
+        this_.[type_id] as type_id2_1_0_ 
+    from
+        [Object] this_ 
+    where
+        this_.message_id=?
+Hibernate: 
+    /* criteria query */ select
+        this_.message_id as message_1_0_0_,
+        this_.[date] as date2_0_0_,
+        this_.header as header3_0_0_,
+        this_.upmessage_id as upmessag4_0_0_,
+        this_.topic_id as topic_id5_0_0_,
+        this_.author_id as author_i6_0_0_ 
+    from
+        [Message] this_ 
+    where
+        this_.upmessage_id=?
+Hibernate: 
+    select
+        message0_.message_id as message_1_0_0_,
+        message0_.[date] as date2_0_0_,
+        message0_.header as header3_0_0_,
+        message0_.upmessage_id as upmessag4_0_0_,
+        message0_.topic_id as topic_id5_0_0_,
+        message0_.author_id as author_i6_0_0_ 
+    from
+        [Message] message0_ 
+    where
+        message0_.message_id=?
+Hibernate: 
+    select
+        messageobj0_.[object_id] as object_i1_1_0_,
+        messageobj0_.[value] as value3_1_0_,
+        messageobj0_.message_id as message_4_1_0_,
+        messageobj0_.quote_author_id as quote_au5_1_0_,
+        messageobj0_.quote_id as quote_id6_1_0_,
+        messageobj0_.width as width7_1_0_,
+        messageobj0_.height as height8_1_0_,
+        messageobj0_.[type_id] as type_id2_1_0_ 
+    from
+        [Object] messageobj0_ 
+    where
+        messageobj0_.[object_id]=?
+Hibernate: 
+    select
+        messageobj0_.[object_id] as object_i1_1_0_,
+        messageobj0_.[value] as value3_1_0_,
+        messageobj0_.message_id as message_4_1_0_,
+        messageobj0_.quote_author_id as quote_au5_1_0_,
+        messageobj0_.quote_id as quote_id6_1_0_,
+        messageobj0_.width as width7_1_0_,
+        messageobj0_.height as height8_1_0_,
+        messageobj0_.[type_id] as type_id2_1_0_ 
+    from
+        [Object] messageobj0_ 
+    where
+        messageobj0_.[object_id]=?
+Hibernate: 
+    select
+        messageobj0_.[object_id] as object_i1_1_0_,
+        messageobj0_.[value] as value3_1_0_,
+        messageobj0_.message_id as message_4_1_0_,
+        messageobj0_.quote_author_id as quote_au5_1_0_,
+        messageobj0_.quote_id as quote_id6_1_0_,
+        messageobj0_.width as width7_1_0_,
+        messageobj0_.height as height8_1_0_,
+        messageobj0_.[type_id] as type_id2_1_0_ 
+    from
+        [Object] messageobj0_ 
+    where
+        messageobj0_.[object_id]=?
+Hibernate: 
+    /* criteria query */ select
+        this_.[object_id] as object_i1_1_0_,
+        this_.[value] as value3_1_0_,
+        this_.message_id as message_4_1_0_,
+        this_.quote_author_id as quote_au5_1_0_,
+        this_.quote_id as quote_id6_1_0_,
+        this_.width as width7_1_0_,
+        this_.height as height8_1_0_,
+        this_.[type_id] as type_id2_1_0_ 
+    from
+        [Object] this_ 
+    where
+        this_.message_id=?
+Hibernate: 
+    /* criteria query */ select
+        this_.message_id as message_1_0_0_,
+        this_.[date] as date2_0_0_,
+        this_.header as header3_0_0_,
+        this_.upmessage_id as upmessag4_0_0_,
+        this_.topic_id as topic_id5_0_0_,
+        this_.author_id as author_i6_0_0_ 
+    from
+        [Message] this_ 
+    where
+        this_.upmessage_id=?
+Hibernate: 
+    select
+        message0_.message_id as message_1_0_0_,
+        message0_.[date] as date2_0_0_,
+        message0_.header as header3_0_0_,
+        message0_.upmessage_id as upmessag4_0_0_,
+        message0_.topic_id as topic_id5_0_0_,
+        message0_.author_id as author_i6_0_0_ 
+    from
+        [Message] message0_ 
+    where
+        message0_.message_id=?
+Hibernate: 
+    select
+        messageobj0_.[object_id] as object_i1_1_0_,
+        messageobj0_.[value] as value3_1_0_,
+        messageobj0_.message_id as message_4_1_0_,
+        messageobj0_.quote_author_id as quote_au5_1_0_,
+        messageobj0_.quote_id as quote_id6_1_0_,
+        messageobj0_.width as width7_1_0_,
+        messageobj0_.height as height8_1_0_,
+        messageobj0_.[type_id] as type_id2_1_0_ 
+    from
+        [Object] messageobj0_ 
+    where
+        messageobj0_.[object_id]=?
+Hibernate: 
+    /* criteria query */ select
+        this_.[object_id] as object_i1_1_0_,
+        this_.[value] as value3_1_0_,
+        this_.message_id as message_4_1_0_,
+        this_.quote_author_id as quote_au5_1_0_,
+        this_.quote_id as quote_id6_1_0_,
+        this_.width as width7_1_0_,
+        this_.height as height8_1_0_,
+        this_.[type_id] as type_id2_1_0_ 
+    from
+        [Object] this_ 
+    where
+        this_.message_id=?
+Hibernate: 
+    /* criteria query */ select
+        this_.message_id as message_1_0_0_,
+        this_.[date] as date2_0_0_,
+        this_.header as header3_0_0_,
+        this_.upmessage_id as upmessag4_0_0_,
+        this_.topic_id as topic_id5_0_0_,
+        this_.author_id as author_i6_0_0_ 
+    from
+        [Message] this_ 
+    where
+        this_.upmessage_id=?
+Hibernate: 
+    select
+        message0_.message_id as message_1_0_0_,
+        message0_.[date] as date2_0_0_,
+        message0_.header as header3_0_0_,
+        message0_.upmessage_id as upmessag4_0_0_,
+        message0_.topic_id as topic_id5_0_0_,
+        message0_.author_id as author_i6_0_0_ 
+    from
+        [Message] message0_ 
+    where
+        message0_.message_id=?
+Hibernate: 
+    select
+        messageobj0_.[object_id] as object_i1_1_0_,
+        messageobj0_.[value] as value3_1_0_,
+        messageobj0_.message_id as message_4_1_0_,
+        messageobj0_.quote_author_id as quote_au5_1_0_,
+        messageobj0_.quote_id as quote_id6_1_0_,
+        messageobj0_.width as width7_1_0_,
+        messageobj0_.height as height8_1_0_,
+        messageobj0_.[type_id] as type_id2_1_0_ 
+    from
+        [Object] messageobj0_ 
+    where
+        messageobj0_.[object_id]=?
+Hibernate: 
+    select
+        messageobj0_.[object_id] as object_i1_1_0_,
+        messageobj0_.[value] as value3_1_0_,
+        messageobj0_.message_id as message_4_1_0_,
+        messageobj0_.quote_author_id as quote_au5_1_0_,
+        messageobj0_.quote_id as quote_id6_1_0_,
+        messageobj0_.width as width7_1_0_,
+        messageobj0_.height as height8_1_0_,
+        messageobj0_.[type_id] as type_id2_1_0_ 
+    from
+        [Object] messageobj0_ 
+    where
+        messageobj0_.[object_id]=?
+Hibernate: 
+    /* criteria query */ select
+        this_.[object_id] as object_i1_1_0_,
+        this_.[value] as value3_1_0_,
+        this_.message_id as message_4_1_0_,
+        this_.quote_author_id as quote_au5_1_0_,
+        this_.quote_id as quote_id6_1_0_,
+        this_.width as width7_1_0_,
+        this_.height as height8_1_0_,
+        this_.[type_id] as type_id2_1_0_ 
+    from
+        [Object] this_ 
+    where
+        this_.message_id=?
+------------- ---------------- ---------------
+------------- Standard Error -----------------
+èþë 16, 2020 7:12:24 PM org.hibernate.Version logVersion
+INFO: HHH000412: Hibernate Core {5.4.10.Final}
+èþë 16, 2020 7:12:26 PM org.hibernate.annotations.common.reflection.java.JavaReflectionManager <clinit>
+INFO: HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+èþë 16, 2020 7:12:27 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl configure
+WARN: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+èþë 16, 2020 7:12:28 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:49167;databaseName=web_forum]
+èþë 16, 2020 7:12:28 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001001: Connection properties: {user=sa, password=****}
+èþë 16, 2020 7:12:28 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001003: Autocommit mode: false
+èþë 16, 2020 7:12:28 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections <init>
+INFO: HHH000115: Hibernate connection pool size: 20 (min=1)
+èþë 16, 2020 7:12:29 PM org.hibernate.dialect.Dialect <init>
+INFO: HHH000400: Using dialect: org.hibernate.dialect.SQLServer2012Dialect
+èþë 16, 2020 7:12:31 PM org.hibernate.internal.SessionImpl createCriteria
+WARN: HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+èþë 16, 2020 7:12:32 PM org.hibernate.internal.SessionImpl createCriteria
+WARN: HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+èþë 16, 2020 7:12:32 PM org.hibernate.internal.SessionImpl createCriteria
+WARN: HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+èþë 16, 2020 7:12:32 PM org.hibernate.internal.SessionImpl createCriteria
+WARN: HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+èþë 16, 2020 7:12:32 PM org.hibernate.internal.SessionImpl createCriteria
+WARN: HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+èþë 16, 2020 7:12:32 PM org.hibernate.internal.SessionImpl createCriteria
+WARN: HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+èþë 16, 2020 7:12:32 PM org.hibernate.internal.SessionImpl createCriteria
+WARN: HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+èþë 16, 2020 7:12:32 PM org.hibernate.internal.SessionImpl createCriteria
+WARN: HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+èþë 16, 2020 7:12:32 PM org.hibernate.internal.SessionImpl createCriteria
+WARN: HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+èþë 16, 2020 7:12:32 PM org.hibernate.internal.SessionImpl createCriteria
+WARN: HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+èþë 16, 2020 7:12:32 PM org.hibernate.internal.SessionImpl createCriteria
+WARN: HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+------------- ---------------- ---------------
+
+Testcase: testDeleteMessages took 8,315 sec

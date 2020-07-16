@@ -1,0 +1,277 @@
+Testsuite: test.TopicManagerTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8,754 sec
+------------- Standard Output ---------------
+Hibernate: 
+    /* criteria query */ select
+        this_.message_id as message_1_0_0_,
+        this_.[date] as date2_0_0_,
+        this_.header as header3_0_0_,
+        this_.upmessage_id as upmessag4_0_0_,
+        this_.topic_id as topic_id5_0_0_,
+        this_.author_id as author_i6_0_0_ 
+    from
+        [Message] this_
+Hibernate: 
+    /* criteria query */ select
+        this_.[user_id] as user_id1_2_0_,
+        this_.[login] as login2_2_0_,
+        this_.[password] as password3_2_0_,
+        this_.regist_date as regist_d4_2_0_,
+        this_.rights as rights5_2_0_,
+        this_.avatar as avatar6_2_0_ 
+    from
+        [User] this_
+Hibernate: 
+    /* criteria query */ select
+        this_.[object_id] as object_i1_1_0_,
+        this_.[value] as value3_1_0_,
+        this_.message_id as message_4_1_0_,
+        this_.quote_author_id as quote_au5_1_0_,
+        this_.quote_id as quote_id6_1_0_,
+        this_.width as width7_1_0_,
+        this_.height as height8_1_0_,
+        this_.[type_id] as type_id2_1_0_ 
+    from
+        [Object] this_
+Hibernate: 
+    /* insert model.Message
+        */ insert 
+        into
+            [Message]
+            (
+                [date], header, upmessage_id, topic_id, author_id
+            ) 
+        values
+            (?, ?, ?, ?, ?)
+Hibernate: 
+    /* insert model.Text
+        */ insert 
+        into
+            [Object]
+            (
+                [value], message_id, [type_id]
+            ) 
+        values
+            (?, ?, 1)
+Hibernate: 
+    /* insert model.Text
+        */ insert 
+        into
+            [Object]
+            (
+                [value], message_id, [type_id]
+            ) 
+        values
+            (?, ?, 1)
+Hibernate: 
+    /* insert model.Quote
+        */ insert 
+        into
+            [Object]
+            (
+                [value], message_id, quote_author_id, quote_id, [type_id]
+            ) 
+        values
+            (?, ?, ?, ?, 2)
+Hibernate: 
+    /* insert model.Text
+        */ insert 
+        into
+            [Object]
+            (
+                [value], message_id, [type_id]
+            ) 
+        values
+            (?, ?, 1)
+Hibernate: 
+    /* insert model.Text
+        */ insert 
+        into
+            [Object]
+            (
+                [value], message_id, [type_id]
+            ) 
+        values
+            (?, ?, 1)
+Hibernate: 
+    /* insert model.Quote
+        */ insert 
+        into
+            [Object]
+            (
+                [value], message_id, quote_author_id, quote_id, [type_id]
+            ) 
+        values
+            (?, ?, ?, ?, 2)
+Hibernate: 
+    /* insert model.Text
+        */ insert 
+        into
+            [Object]
+            (
+                [value], message_id, [type_id]
+            ) 
+        values
+            (?, ?, 1)
+Hibernate: 
+    /* insert model.Text
+        */ insert 
+        into
+            [Object]
+            (
+                [value], message_id, [type_id]
+            ) 
+        values
+            (?, ?, 1)
+Hibernate: 
+    /* insert model.Image
+        */ insert 
+        into
+            [Object]
+            (
+                [value], message_id, width, height, [type_id]
+            ) 
+        values
+            (?, ?, ?, ?, 3)
+Hibernate: 
+    /* insert model.Text
+        */ insert 
+        into
+            [Object]
+            (
+                [value], message_id, [type_id]
+            ) 
+        values
+            (?, ?, 1)
+Hibernate: 
+    update
+        [Object] 
+    set
+        object_num=? 
+    where
+        [object_id]=?
+Hibernate: 
+    update
+        [Object] 
+    set
+        object_num=? 
+    where
+        [object_id]=?
+Hibernate: 
+    update
+        [Object] 
+    set
+        object_num=? 
+    where
+        [object_id]=?
+Hibernate: 
+    update
+        [Object] 
+    set
+        object_num=? 
+    where
+        [object_id]=?
+Hibernate: 
+    update
+        [Object] 
+    set
+        object_num=? 
+    where
+        [object_id]=?
+Hibernate: 
+    update
+        [Object] 
+    set
+        object_num=? 
+    where
+        [object_id]=?
+Hibernate: 
+    update
+        [Object] 
+    set
+        object_num=? 
+    where
+        [object_id]=?
+Hibernate: 
+    update
+        [Object] 
+    set
+        object_num=? 
+    where
+        [object_id]=?
+Hibernate: 
+    update
+        [Object] 
+    set
+        object_num=? 
+    where
+        [object_id]=?
+Hibernate: 
+    update
+        [Object] 
+    set
+        object_num=? 
+    where
+        [object_id]=?
+Hibernate: 
+    select
+        message0_.message_id as message_1_0_0_,
+        message0_.[date] as date2_0_0_,
+        message0_.header as header3_0_0_,
+        message0_.upmessage_id as upmessag4_0_0_,
+        message0_.topic_id as topic_id5_0_0_,
+        message0_.author_id as author_i6_0_0_ 
+    from
+        [Message] message0_ 
+    where
+        message0_.message_id=?
+Hibernate: 
+    select
+        messageobj0_.message_id as message_4_1_0_,
+        messageobj0_.[object_id] as object_i1_1_0_,
+        messageobj0_.object_num as object_n9_0_,
+        messageobj0_.[object_id] as object_i1_1_1_,
+        messageobj0_.[value] as value3_1_1_,
+        messageobj0_.message_id as message_4_1_1_,
+        messageobj0_.quote_author_id as quote_au5_1_1_,
+        messageobj0_.quote_id as quote_id6_1_1_,
+        messageobj0_.width as width7_1_1_,
+        messageobj0_.height as height8_1_1_,
+        messageobj0_.[type_id] as type_id2_1_1_ 
+    from
+        [Object] messageobj0_ 
+    where
+        messageobj0_.message_id=?
+Hibernate: 
+    /* delete model.Message */ delete 
+        from
+            [Message] 
+        where
+            message_id=?
+------------- ---------------- ---------------
+------------- Standard Error -----------------
+èþë 16, 2020 7:11:53 PM org.hibernate.Version logVersion
+INFO: HHH000412: Hibernate Core {5.4.10.Final}
+èþë 16, 2020 7:11:54 PM org.hibernate.annotations.common.reflection.java.JavaReflectionManager <clinit>
+INFO: HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+èþë 16, 2020 7:11:56 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl configure
+WARN: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+èþë 16, 2020 7:11:57 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:49167;databaseName=web_forum]
+èþë 16, 2020 7:11:57 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001001: Connection properties: {user=sa, password=****}
+èþë 16, 2020 7:11:57 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001003: Autocommit mode: false
+èþë 16, 2020 7:11:57 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections <init>
+INFO: HHH000115: Hibernate connection pool size: 20 (min=1)
+èþë 16, 2020 7:11:58 PM org.hibernate.dialect.Dialect <init>
+INFO: HHH000400: Using dialect: org.hibernate.dialect.SQLServer2012Dialect
+èþë 16, 2020 7:12:01 PM org.hibernate.internal.SessionImpl createCriteria
+WARN: HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+èþë 16, 2020 7:12:01 PM org.hibernate.internal.SessionImpl createCriteria
+WARN: HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+èþë 16, 2020 7:12:01 PM org.hibernate.internal.SessionImpl createCriteria
+WARN: HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+------------- ---------------- ---------------
+
+Testcase: testCreateMessage took 8,71 sec

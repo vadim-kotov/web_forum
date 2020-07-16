@@ -1,0 +1,176 @@
+Testsuite: test.UserManagerTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8,298 sec
+------------- Standard Output ---------------
+Hibernate: 
+    /* 
+from
+    User 
+where
+    login = ?0 */ select
+        user0_.[user_id] as user_id1_2_,
+        user0_.[login] as login2_2_,
+        user0_.[password] as password3_2_,
+        user0_.regist_date as regist_d4_2_,
+        user0_.rights as rights5_2_,
+        user0_.avatar as avatar6_2_ 
+    from
+        [User] user0_ 
+    where
+        user0_.[login]=?
+Hibernate: 
+    /* 
+from
+    User 
+where
+    login = ?0 */ select
+        user0_.[user_id] as user_id1_2_,
+        user0_.[login] as login2_2_,
+        user0_.[password] as password3_2_,
+        user0_.regist_date as regist_d4_2_,
+        user0_.rights as rights5_2_,
+        user0_.avatar as avatar6_2_ 
+    from
+        [User] user0_ 
+    where
+        user0_.[login]=?
+Hibernate: 
+    /* insert model.User
+        */ insert 
+        into
+            [User]
+            (
+                [login], [password], regist_date, rights, avatar
+            ) 
+        values
+            (?, ?, ?, ?, ?)
+Hibernate: 
+    /* 
+from
+    User 
+where
+    login = ?0 */ select
+        user0_.[user_id] as user_id1_2_,
+        user0_.[login] as login2_2_,
+        user0_.[password] as password3_2_,
+        user0_.regist_date as regist_d4_2_,
+        user0_.rights as rights5_2_,
+        user0_.avatar as avatar6_2_ 
+    from
+        [User] user0_ 
+    where
+        user0_.[login]=?
+Hibernate: 
+    select
+        user0_.[user_id] as user_id1_2_0_,
+        user0_.[login] as login2_2_0_,
+        user0_.[password] as password3_2_0_,
+        user0_.regist_date as regist_d4_2_0_,
+        user0_.rights as rights5_2_0_,
+        user0_.avatar as avatar6_2_0_ 
+    from
+        [User] user0_ 
+    where
+        user0_.[user_id]=?
+Hibernate: 
+    /* delete model.User */ delete 
+        from
+            [User] 
+        where
+            [user_id]=?
+Hibernate: 
+    /* 
+from
+    User */ select
+        user0_.[user_id] as user_id1_2_,
+        user0_.[login] as login2_2_,
+        user0_.[password] as password3_2_,
+        user0_.regist_date as regist_d4_2_,
+        user0_.rights as rights5_2_,
+        user0_.avatar as avatar6_2_ 
+    from
+        [User] user0_
+Hibernate: 
+    /* 
+from
+    User */ select
+        user0_.[user_id] as user_id1_2_,
+        user0_.[login] as login2_2_,
+        user0_.[password] as password3_2_,
+        user0_.regist_date as regist_d4_2_,
+        user0_.rights as rights5_2_,
+        user0_.avatar as avatar6_2_ 
+    from
+        [User] user0_
+Hibernate: 
+    /* 
+from
+    User */ select
+        user0_.[user_id] as user_id1_2_,
+        user0_.[login] as login2_2_,
+        user0_.[password] as password3_2_,
+        user0_.regist_date as regist_d4_2_,
+        user0_.rights as rights5_2_,
+        user0_.avatar as avatar6_2_ 
+    from
+        [User] user0_
+Hibernate: 
+    /* 
+from
+    User */ select
+        user0_.[user_id] as user_id1_2_,
+        user0_.[login] as login2_2_,
+        user0_.[password] as password3_2_,
+        user0_.regist_date as regist_d4_2_,
+        user0_.rights as rights5_2_,
+        user0_.avatar as avatar6_2_ 
+    from
+        [User] user0_
+Hibernate: 
+    /* 
+from
+    User 
+where
+    login = ?0 */ select
+        user0_.[user_id] as user_id1_2_,
+        user0_.[login] as login2_2_,
+        user0_.[password] as password3_2_,
+        user0_.regist_date as regist_d4_2_,
+        user0_.rights as rights5_2_,
+        user0_.avatar as avatar6_2_ 
+    from
+        [User] user0_ 
+    where
+        user0_.[login]=?
+Hibernate: 
+    /* 
+from
+    User */ select
+        user0_.[user_id] as user_id1_2_,
+        user0_.[login] as login2_2_,
+        user0_.[password] as password3_2_,
+        user0_.regist_date as regist_d4_2_,
+        user0_.rights as rights5_2_,
+        user0_.avatar as avatar6_2_ 
+    from
+        [User] user0_
+------------- ---------------- ---------------
+------------- Standard Error -----------------
+èþë 16, 2020 7:03:42 PM org.hibernate.Version logVersion
+INFO: HHH000412: Hibernate Core {5.4.10.Final}
+èþë 16, 2020 7:03:43 PM org.hibernate.annotations.common.reflection.java.JavaReflectionManager <clinit>
+INFO: HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+èþë 16, 2020 7:03:45 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl configure
+WARN: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+èþë 16, 2020 7:03:45 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:49167;databaseName=web_forum]
+èþë 16, 2020 7:03:45 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001001: Connection properties: {user=sa, password=****}
+èþë 16, 2020 7:03:45 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001003: Autocommit mode: false
+èþë 16, 2020 7:03:45 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections <init>
+INFO: HHH000115: Hibernate connection pool size: 20 (min=1)
+èþë 16, 2020 7:03:47 PM org.hibernate.dialect.Dialect <init>
+INFO: HHH000400: Using dialect: org.hibernate.dialect.SQLServer2012Dialect
+------------- ---------------- ---------------
+
+Testcase: testCreateUser took 8,298 sec

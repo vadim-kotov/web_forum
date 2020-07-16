@@ -1,0 +1,167 @@
+Testsuite: test.SectionManagerTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9,95 sec
+------------- Standard Output ---------------
+Hibernate: 
+    /* 
+from
+    Section */ select
+        section0_.section_id as section_1_4_,
+        section0_.[name] as name2_4_,
+        section0_.[description] as descript3_4_,
+        section0_.upsection_id as upsectio4_4_ 
+    from
+        Section section0_
+Hibernate: 
+    select
+        section0_.section_id as section_1_4_0_,
+        section0_.[name] as name2_4_0_,
+        section0_.[description] as descript3_4_0_,
+        section0_.upsection_id as upsectio4_4_0_ 
+    from
+        Section section0_ 
+    where
+        section0_.section_id=?
+Hibernate: 
+    /* insert model.Section
+        */ insert 
+        into
+            Section
+            ([name], [description], upsection_id) 
+        values
+            (?, ?, ?)
+Hibernate: 
+    select
+        section0_.section_id as section_1_4_0_,
+        section0_.[name] as name2_4_0_,
+        section0_.[description] as descript3_4_0_,
+        section0_.upsection_id as upsectio4_4_0_ 
+    from
+        Section section0_ 
+    where
+        section0_.section_id=?
+Hibernate: 
+    /* criteria query */ select
+        this_.section_id as section_1_4_1_,
+        this_.[name] as name2_4_1_,
+        this_.[description] as descript3_4_1_,
+        this_.upsection_id as upsectio4_4_1_,
+        section2_.section_id as section_1_4_0_,
+        section2_.[name] as name2_4_0_,
+        section2_.[description] as descript3_4_0_,
+        section2_.upsection_id as upsectio4_4_0_ 
+    from
+        Section this_ 
+    left outer join
+        Section section2_ 
+            on this_.upsection_id=section2_.section_id 
+    where
+        this_.section_id=?
+Hibernate: 
+    select
+        section0_.section_id as section_1_4_0_,
+        section0_.[name] as name2_4_0_,
+        section0_.[description] as descript3_4_0_,
+        section0_.upsection_id as upsectio4_4_0_ 
+    from
+        Section section0_ 
+    where
+        section0_.section_id=?
+Hibernate: 
+    /* delete model.Section */ delete 
+        from
+            Section 
+        where
+            section_id=?
+Hibernate: 
+    /* insert model.Section
+        */ insert 
+        into
+            Section
+            ([name], [description], upsection_id) 
+        values
+            (?, ?, ?)
+Hibernate: 
+    select
+        section0_.section_id as section_1_4_0_,
+        section0_.[name] as name2_4_0_,
+        section0_.[description] as descript3_4_0_,
+        section0_.upsection_id as upsectio4_4_0_ 
+    from
+        Section section0_ 
+    where
+        section0_.section_id=?
+Hibernate: 
+    /* criteria query */ select
+        this_.section_id as section_1_4_1_,
+        this_.[name] as name2_4_1_,
+        this_.[description] as descript3_4_1_,
+        this_.upsection_id as upsectio4_4_1_,
+        section2_.section_id as section_1_4_0_,
+        section2_.[name] as name2_4_0_,
+        section2_.[description] as descript3_4_0_,
+        section2_.upsection_id as upsectio4_4_0_ 
+    from
+        Section this_ 
+    left outer join
+        Section section2_ 
+            on this_.upsection_id=section2_.section_id 
+    where
+        this_.section_id=?
+Hibernate: 
+    select
+        section0_.section_id as section_1_4_0_,
+        section0_.[name] as name2_4_0_,
+        section0_.[description] as descript3_4_0_,
+        section0_.upsection_id as upsectio4_4_0_ 
+    from
+        Section section0_ 
+    where
+        section0_.section_id=?
+Hibernate: 
+    /* delete model.Section */ delete 
+        from
+            Section 
+        where
+            section_id=?
+Hibernate: 
+    /* criteria query */ select
+        max(this_.section_id) as y0_ 
+    from
+        Section this_
+Hibernate: 
+    select
+        section0_.section_id as section_1_4_0_,
+        section0_.[name] as name2_4_0_,
+        section0_.[description] as descript3_4_0_,
+        section0_.upsection_id as upsectio4_4_0_ 
+    from
+        Section section0_ 
+    where
+        section0_.section_id=?
+------------- ---------------- ---------------
+------------- Standard Error -----------------
+èþë 16, 2020 7:05:44 PM org.hibernate.Version logVersion
+INFO: HHH000412: Hibernate Core {5.4.10.Final}
+èþë 16, 2020 7:05:45 PM org.hibernate.annotations.common.reflection.java.JavaReflectionManager <clinit>
+INFO: HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+èþë 16, 2020 7:05:47 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl configure
+WARN: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+èþë 16, 2020 7:05:47 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:49167;databaseName=web_forum]
+èþë 16, 2020 7:05:47 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001001: Connection properties: {user=sa, password=****}
+èþë 16, 2020 7:05:47 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001003: Autocommit mode: false
+èþë 16, 2020 7:05:47 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections <init>
+INFO: HHH000115: Hibernate connection pool size: 20 (min=1)
+èþë 16, 2020 7:05:48 PM org.hibernate.dialect.Dialect <init>
+INFO: HHH000400: Using dialect: org.hibernate.dialect.SQLServer2012Dialect
+èþë 16, 2020 7:05:52 PM org.hibernate.internal.SessionImpl createCriteria
+WARN: HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+èþë 16, 2020 7:05:54 PM org.hibernate.internal.SessionImpl createCriteria
+WARN: HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+èþë 16, 2020 7:05:54 PM org.hibernate.internal.SessionImpl createCriteria
+WARN: HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+------------- ---------------- ---------------
+
+Testcase: testCreateSection took 9,887 sec

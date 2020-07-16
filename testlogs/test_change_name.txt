@@ -1,0 +1,130 @@
+Testsuite: test.TopicManagerTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8,884 sec
+------------- Standard Output ---------------
+Hibernate: 
+    /* 
+from
+    Topic */ select
+        topic0_.topic_id as topic_id1_5_,
+        topic0_.[name] as name2_5_,
+        topic0_.[date] as date3_5_,
+        topic0_.section_id as section_4_5_,
+        topic0_.creator_id as creator_5_5_ 
+    from
+        Topic topic0_
+Hibernate: 
+    select
+        topic0_.topic_id as topic_id1_5_0_,
+        topic0_.[name] as name2_5_0_,
+        topic0_.[date] as date3_5_0_,
+        topic0_.section_id as section_4_5_0_,
+        topic0_.creator_id as creator_5_5_0_ 
+    from
+        Topic topic0_ 
+    where
+        topic0_.topic_id=?
+Hibernate: 
+    select
+        topic0_.topic_id as topic_id1_5_0_,
+        topic0_.[name] as name2_5_0_,
+        topic0_.[date] as date3_5_0_,
+        topic0_.section_id as section_4_5_0_,
+        topic0_.creator_id as creator_5_5_0_ 
+    from
+        Topic topic0_ 
+    where
+        topic0_.topic_id=?
+Hibernate: 
+    /* update
+        model.Topic */ update
+            Topic 
+        set
+            [name]=?,
+            [date]=?,
+            section_id=?,
+            creator_id=? 
+        where
+            topic_id=?
+Hibernate: 
+    select
+        topic0_.topic_id as topic_id1_5_0_,
+        topic0_.[name] as name2_5_0_,
+        topic0_.[date] as date3_5_0_,
+        topic0_.section_id as section_4_5_0_,
+        topic0_.creator_id as creator_5_5_0_ 
+    from
+        Topic topic0_ 
+    where
+        topic0_.topic_id=?
+Hibernate: 
+    select
+        topic0_.topic_id as topic_id1_5_0_,
+        topic0_.[name] as name2_5_0_,
+        topic0_.[date] as date3_5_0_,
+        topic0_.section_id as section_4_5_0_,
+        topic0_.creator_id as creator_5_5_0_ 
+    from
+        Topic topic0_ 
+    where
+        topic0_.topic_id=?
+Hibernate: 
+    /* update
+        model.Topic */ update
+            Topic 
+        set
+            [name]=?,
+            [date]=?,
+            section_id=?,
+            creator_id=? 
+        where
+            topic_id=?
+Hibernate: 
+    /* criteria query */ select
+        max(this_.topic_id) as y0_ 
+    from
+        Topic this_
+Hibernate: 
+    select
+        topic0_.topic_id as topic_id1_5_0_,
+        topic0_.[name] as name2_5_0_,
+        topic0_.[date] as date3_5_0_,
+        topic0_.section_id as section_4_5_0_,
+        topic0_.creator_id as creator_5_5_0_ 
+    from
+        Topic topic0_ 
+    where
+        topic0_.topic_id=?
+Hibernate: 
+    select
+        topic0_.topic_id as topic_id1_5_0_,
+        topic0_.[name] as name2_5_0_,
+        topic0_.[date] as date3_5_0_,
+        topic0_.section_id as section_4_5_0_,
+        topic0_.creator_id as creator_5_5_0_ 
+    from
+        Topic topic0_ 
+    where
+        topic0_.topic_id=?
+------------- ---------------- ---------------
+------------- Standard Error -----------------
+èþë 16, 2020 7:08:38 PM org.hibernate.Version logVersion
+INFO: HHH000412: Hibernate Core {5.4.10.Final}
+èþë 16, 2020 7:08:39 PM org.hibernate.annotations.common.reflection.java.JavaReflectionManager <clinit>
+INFO: HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+èþë 16, 2020 7:08:41 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl configure
+WARN: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+èþë 16, 2020 7:08:41 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001005: using driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] at URL [jdbc:sqlserver://localhost:49167;databaseName=web_forum]
+èþë 16, 2020 7:08:42 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001001: Connection properties: {user=sa, password=****}
+èþë 16, 2020 7:08:42 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001003: Autocommit mode: false
+èþë 16, 2020 7:08:42 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections <init>
+INFO: HHH000115: Hibernate connection pool size: 20 (min=1)
+èþë 16, 2020 7:08:43 PM org.hibernate.dialect.Dialect <init>
+INFO: HHH000400: Using dialect: org.hibernate.dialect.SQLServer2012Dialect
+èþë 16, 2020 7:08:46 PM org.hibernate.internal.SessionImpl createCriteria
+WARN: HHH90000022: Hibernate's legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+------------- ---------------- ---------------
+
+Testcase: testChangeName took 8,821 sec
