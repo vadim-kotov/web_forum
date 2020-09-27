@@ -1,0 +1,283 @@
+#forum-header h2{
+    color: #444;
+    font-weight: bold;
+    font-size: 1.5em;
+
+    margin-left: 10%;
+
+    padding-top: 2em;
+    padding-bottom: 1em;
+}
+#forum-header{
+    position: relative;
+}
+.buttons li{
+    list-style: none;
+    margin-top: .5em;
+}
+.buttons li a{
+    display: table-cell;
+
+    background-color: #444;
+    color: #eee;
+    width: 10em;
+    height: 3em;
+    font-weight: bold;
+    
+    text-align: center;
+    vertical-align: middle;
+
+    border: 3px #444;
+    border-radius: 5px;
+    border-style: groove;
+    box-shadow: 3px 3px 3px 0px #444;
+}
+.buttons li a:hover{
+    color: #fff;
+}
+.buttons li a:active{
+    border-style: ridge;
+    box-shadow: none;
+}
+#forum-header .buttons{
+    position: absolute;
+    bottom: 0;
+    right: 5%;
+}
+
+#path{
+    margin-left: 5%;
+    font-size: 1em;
+    height: 2em;
+}
+#path *{
+    vertical-align: middle;
+}
+#path-up{
+    width: 2em;
+}
+#path-next{
+    width: 1em;
+}
+#path ul, #path li{
+    display: inline;
+    list-style-type: none;
+}
+#path ul a{
+    color: #444;
+}
+#path li:last-child a{
+    color: #999;
+}
+#path ul a:hover{
+    text-decoration: underline;
+}
+
+.tools{
+    background-color: #444;
+    height: 1.5em;
+    margin-bottom: 1.5em;
+}
+
+.sections-table{
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    color: #ddd;
+    margin-bottom: 4em;
+}
+.sections-table td{
+    overflow-x: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    height: 4.5em;
+    vertical-align: middle;
+    line-height: 1.5em;
+}
+
+table td{
+    border-bottom: 1px solid #fff;              
+}
+table{
+    border: 1px solid #000;
+}
+
+.sections-table tr:nth-child(odd){
+    background-color: #666;
+}
+.sections-table tr:nth-child(even){
+    background-color: #333;
+}
+
+.sections-table a:hover{
+    text-decoration: underline;
+}
+.first-line{
+    font-size: .85em;
+    font-weight: bold;
+    color: #fff;
+}
+.second-line{
+    font-size: .85em;
+    color: #ccc;
+}
+.sec-header{
+    width: 50%;
+}
+.sec-description{
+    padding-left: 1.5em;
+}
+.sec-topic-num{
+    text-align: center;
+    width: 5%;
+}
+.sec-user-num{
+    text-align: center;
+    width: 10%;
+}
+.sec-mes-num{
+    text-align: center;
+    width: 5%;
+}
+.sec-topic-num .second-line, .sec-mes-num .second-line, .sec-user-num .second-line{
+    font-size: .75em;
+}
+.sec-last-mes{
+    width: 30%;
+    padding-right: 1em;
+}
+
+.sections-table .sec-table-img{
+    float: left;
+    vertical-align: middle;
+}
+.sections-table .sec-table-img img{
+    vertical-align: middle;
+    height: 3em;
+}
+
+.sec-header .sec-table-img{
+    margin-left: 1em;
+    margin-right: 1em;
+}
+.sec-last-mes .sec-table-img{
+    margin-left: .5em;
+    margin-right: .5em;
+}
+
+.sections-table time:after{
+    content: " - ";
+}
+
+.topics-table{
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 4em;
+}
+.topics-table a:hover{
+    text-decoration: underline;
+}
+.topics-table th{
+    overflow-x: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    height: 3em;
+    vertical-align: middle;
+    background-color: #999;
+    font-size: .85em;
+    font-weight: bold;
+}
+.topics-table th, .topics-table td{                 /*!!!!!!!!!!!!!!!!!!!!!!*/
+    border: 1px solid black;
+}
+.topics-table thead{
+    border: 1px solid black;
+}
+.topics-table tbody{
+    background-color: #666;
+}
+.topics-table td{
+    /*height: 6em;*/
+    line-height: 1.5em;
+}
+.topics-table time:before{
+    content: " - ";
+}
+.topics-table th:nth-child(1){
+    text-align: left;
+    width: 55%;
+    padding-left: 5%;
+}
+.topics-table th:nth-child(2){
+    width: 10%;
+    text-align: center;
+}
+.topics-table th:nth-child(3){
+    width: 5%;
+    text-align: center;
+}
+.topics-table th:nth-child(4){
+    text-align: left;
+    width: 30%;
+}
+.top-header .top-table-img{
+    float: left;
+    vertical-align: middle;
+    /*margin: .5em;*/
+    margin-right: 1em;
+}
+.top-header .top-table-img img{
+    vertical-align: middle;
+    height: 4.5em;
+}
+.div-pre-wrap{
+    white-space: pre-wrap;
+}
+.div-nowrap{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #999;
+}
+.top-header{
+    padding: .5em;
+}
+.top-header .div-pre-wrap{
+    max-height: 3em;
+    overflow: hidden;
+}
+.top-user-num, .top-mes-num{
+    text-align: center;
+    padding-top: .5em;
+    padding-bottom: .5em;
+}
+.top-user-num .second-line, .top-mes-num .second-line{
+    font-size: .75em;
+}
+.top-last-mes{
+    padding: .5em;
+}
+.top-last-mes .top-table-img{
+    float: left;
+    /*vertical-align: top;*/
+    /*margin: .5em;*/
+    margin-right: 1em;
+    /*margin-bottom: 0em;*/
+}
+.top-last-mes .top-table-img img{
+    vertical-align: middle;
+    height: 3em;
+}
+.top-last-mes .div-pre-wrap{
+    height: 3em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.top-clear{
+    clear: both;
+}
+#footer{
+    height: 5em;
+    background-color: #444;
+}

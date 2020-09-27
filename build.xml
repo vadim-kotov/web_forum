@@ -110,7 +110,7 @@
 
             <test name="test.UserManagerTest" outfile="${testlogs.dir}/test_create_user" methods="testCreateUser"/>
 
-            </junit>
+        </junit>
     </target>
 
     <target name="test_ban" depends="execddl">
@@ -120,7 +120,7 @@
 
             <test name="test.UserManagerTest" outfile="${testlogs.dir}/test_ban" methods="testBan"/>
 
-            </junit>
+        </junit>
     </target>
 
     <target name="test_change_name_desc" depends="execddl">
@@ -130,7 +130,7 @@
 
             <test name="test.SectionManagerTest" outfile="${testlogs.dir}/test_change_name_desc" methods="testChangeNameDesc"/>
 
-            </junit>
+        </junit>
     </target>
 
     <target name="test_create_section" depends="execddl">
@@ -140,7 +140,7 @@
 
             <test name="test.SectionManagerTest" outfile="${testlogs.dir}/test_create_section" methods="testCreateSection"/>
 
-            </junit>
+        </junit>
     </target>
 
     <target name="test_create_topic" depends="execddl">
@@ -150,7 +150,7 @@
 
             <test name="test.SectionManagerTest" outfile="${testlogs.dir}/test_create_topic" methods="testCreateTopic"/>
 
-            </junit>
+        </junit>
     </target>
 
     <target name="test_delete_topics" depends="execddl">
@@ -160,7 +160,7 @@
 
             <test name="test.SectionManagerTest" outfile="${testlogs.dir}/test_delete_topics" methods="testDeleteTopics"/>
 
-            </junit>
+        </junit>
     </target>
 
     <target name="test_delete_sections" depends="execddl">
@@ -170,7 +170,7 @@
 
             <test name="test.SectionManagerTest" outfile="${testlogs.dir}/test_delete_sections" methods="testDeleteSections"/>
 
-            </junit>
+        </junit>
     </target>
 
     <target name="test_relocate_topics" depends="execddl">
@@ -180,7 +180,7 @@
 
             <test name="test.SectionManagerTest" outfile="${testlogs.dir}/test_relocate_topics" methods="testRelocateTopics"/>
 
-            </junit>
+        </junit>
     </target>
 
     <target name="test_relocate_message_thread" depends="execddl">
@@ -190,7 +190,7 @@
 
             <test name="test.SectionManagerTest" outfile="${testlogs.dir}/test_relocate_message_thread" methods="testRelocateMessageThread"/>
 
-            </junit>
+        </junit>
     </target>
 
     <target name="test_change_name" depends="execddl">
@@ -200,7 +200,7 @@
 
             <test name="test.TopicManagerTest" outfile="${testlogs.dir}/test_change_name" methods="testChangeName"/>
 
-            </junit>
+        </junit>
     </target>
 
     <target name="test_create_message" depends="execddl">
@@ -210,7 +210,7 @@
 
             <test name="test.TopicManagerTest" outfile="${testlogs.dir}/test_create_message" methods="testCreateMessage"/>
 
-            </junit>
+        </junit>
     </target>
 
     <target name="test_delete_messages" depends="execddl">
@@ -220,7 +220,13 @@
 
             <test name="test.TopicManagerTest" outfile="${testlogs.dir}/test_delete_messages" methods="testDeleteMessages"/>
 
-            </junit>
+        </junit>
+    </target>
+
+    <target name="springtest" depends="build">
+        <java fork="true" classpathref="master-classpath" 
+            output="output"
+            classname="test.SpringTest" />
     </target>
 
 </project>

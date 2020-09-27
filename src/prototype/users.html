@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Users</title>
+    <link rel="stylesheet" type="text/css" href="includes/common.css"/>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div id="header">
+        <h1>Форум о Мэйн-Кунах</h1>
+    </div>
+    <div id="wrapper">
+        <div id="nav">
+            <ul>
+                <li><a href="#">Форум</a></li>
+                <li><a href="#">Пользователи</a></li>
+                <li><a href="#">Личный кабинет</a></li>
+            </ul>
+        </div>
+        <form method="get" action="users.html">
+            <fieldset>
+            <legend>Фильтры:</legend>
+            <div>
+                <p>Период активности:</p>
+                <label for="activity-period-start">С:</label>
+                <input type="date" name="activity-period-start">
+                <label for="ativity-period-end">По:</label>
+                <input type="date" name="activity-period-end">
+            </div>
+            <div>
+                <p>Количество сообщений:</p>
+                <label for="mes-num-min">От:</label>
+                <input type="number" name="mes-num-min">
+                <label for="mes-num-max">До:</label>
+                <input type="number" name="mes-num-max">
+            </div>
+            <div>
+                <p>Дата регистрации:</p>
+                <label for="registry-period-start">С:</label>
+                <input type="date" name="registry-period-start">
+                <label for="registry-period-end">По:</label>
+                <input type="date" name="registry-period-end">
+            </div>
+            <input type="submit" value="Применить">
+            </fieldset>
+        </form>
+    </div>
+</body>
+</html>
