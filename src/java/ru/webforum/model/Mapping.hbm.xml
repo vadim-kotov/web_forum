@@ -1,0 +1,159 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <filter-def name="activityDateBounds">
+        <filter-param name="minDate" type="date"/>
+        <filter-param name="maxDate" type="date"/>
+    </filter-def>
+
+    <filter-def name="registryDateBounds">
+        <filter-param name="minDate" type="date"/>
+        <filter-param name="maxDate" type="date"/>
+    </filter-def>
+
+    <class name="ru.webforum.model.User" table="`User`"> 
+        <id name="userId" column="`user_id`">
+            <generator class="identity" />
+        </id>
+        <property name="login" column="`login`"/>
+        <property name="password" column="`password`"/>
+        <property name="registDate" column="regist_date"/>
+        <property name="rights" column="rights"/>
+        <property name="avatar" column="avatar"/>
+
+        <set name="topics" lazy="true" inverse="true">
+            <key column="creator_id"/>
+            <one-to-many class="ru.webforum.model.Topic"/>
+        </set>
+
+        <set name="messages" lazy="true" inverse="true">
+            <key column="author_id"/>
+            <one-to-many class="ru.webforum.model.Message"/>
+        </set>
+
+        <set name="banlist" lazy="true" inverse="true" sort="natural">
+            <key column="`user_id`"/>
+            <one-to-many class="ru.webforum.model.banlist.Banlist"/>
+        </set>
+
+        <filter name="registryDateBounds" condition="regist_date BETWEEN :minDate AND :maxDate"/>
+
+    </class>
+
+    <class name="ru.webforum.model.Section" table="Section">
+        <id name="sectionId" column="section_id">
+            <generator class="identity"/>
+        </id>
+        <property name="name" column="`name`"/>
+        <property name ="description" column="`description`"/>
+
+        <many-to-one name="upsection" class="ru.webforum.model.Section" column="upsection_id"/>
+
+        <set name="downsections" lazy="true" inverse="true">
+            <key column="upsection_id"/>
+            <one-to-many class="ru.webforum.model.Section"/>
+        </set>
+
+        <set name="topics" lazy="true" inverse="true">
+            <key column="section_id"/>
+            <one-to-many class="ru.webforum.model.Topic"/>
+        </set>
+    </class>
+
+    <class name="ru.webforum.model.Topic" table="Topic">
+        <id name="topicId" column="topic_id">
+            <generator class="identity"/>
+        </id>
+        <property name="name" column="`name`"/>
+        <property name="date" column="`date`"/>
+
+        <many-to-one name="section" class="ru.webforum.model.Section" column="section_id"/>
+
+        <many-to-one name="creator" class="ru.webforum.model.User" column="creator_id"/>
+
+        <set name="messages" lazy="true" inverse="true" cascade="persist, save-update">
+            <key column="topic_id"/>
+            <one-to-many class="ru.webforum.model.Message"/>
+        </set>
+
+        <filter name="activityDateBounds" condition="`date` BETWEEN :minDate AND :maxDate"/>
+
+    </class>
+
+    <class name="ru.webforum.model.Message" table="`Message`">
+        <id name="messageId" column="message_id">
+            <generator class="identity"/>
+        </id>
+        <property name="date" column="`date`"/>
+        <property name="header" column="header"/>
+
+        <many-to-one name="upmessage" class="ru.webforum.model.Message" column="upmessage_id"/>
+    
+        <set name="downmessages" lazy="true" inverse="true">
+            <key column="upmessage_id"/>
+            <one-to-many class="ru.webforum.model.Message"/>
+        </set>
+
+        <many-to-one name="topic" class="ru.webforum.model.Topic" column="topic_id"/>
+
+        <many-to-one name="author" class="ru.webforum.model.User" column="author_id"/>
+
+        <list name="messageObjects" lazy="true" inverse="true" cascade="persist, save-update">
+            <key column="message_id"/>
+            <list-index column="object_num" base="1"/>
+            <one-to-many class="ru.webforum.model.MessageObject"/>
+        </list>
+
+        <filter name="activityDateBounds" condition="`date` BETWEEN :minDate AND :maxDate"/>
+
+    </class>
+
+    <class name="ru.webforum.model.MessageObject" table="`Object`" discriminator-value="0">
+        <id name="messageObjectId" column="`object_id`">
+            <generator class="identity"/>
+        </id>
+        <discriminator column="`type_id`" type="integer"/>
+        <property name="value" column="`value`"/>
+
+        <many-to-one name="message" class="ru.webforum.model.Message" column="message_id"/>
+
+        <subclass name="ru.webforum.model.Text" discriminator-value="1"/>
+
+        <subclass name="ru.webforum.model.Quote" discriminator-value="2">
+            <many-to-one name="quoteAuthor" class="ru.webforum.model.User" column="quote_author_id"/>
+            <many-to-one name="quoteMessage" class="ru.webforum.model.Message" column="quote_id"/>
+        </subclass>
+
+        <subclass name="ru.webforum.model.Image" discriminator-value="3">
+            <property name="width" column="width"/>
+            <property name="height" column="height"/>
+        </subclass>
+
+    </class>
+
+    <class name="ru.webforum.model.banlist.Banlist" table="Banlist" discriminator-value="0">
+        <id name="banlistId" column="banlist_id">
+            <generator class="identity"/>
+        </id>
+        <discriminator column="`type_id`" type="integer"/>
+
+        <property name="banDate" column="ban_date"/>
+        <property name="unbanDate" column="unban_date"/>
+        <property name="source" column="`source`"/>
+
+        <many-to-one name="user" class="ru.webforum.model.User" column="`user_id`"/>
+
+        <many-to-one name="moder" class="ru.webforum.model.User" column="moder_id"/>
+
+        <subclass name="ru.webforum.model.banlist.BanMessage" discriminator-value="21">
+            <many-to-one name="topic" class="ru.webforum.model.Topic" column="topic_id"/>
+        </subclass>
+
+        <subclass name="ru.webforum.model.banlist.BanTopic" discriminator-value="22"/>
+    </class>
+
+</hibernate-mapping>

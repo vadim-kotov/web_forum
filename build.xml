@@ -3,25 +3,21 @@
 <project name="web_forum" basedir="." default="build">
     <property name="appname" value="${ant.project.name}"/>
 
-    <property name="lib.dir" value="./lib" />
-
     <property name="src.dir" value="src" />
     <property name="build.dir" value="build" />
+    <property name="dist.dir" value="dist" />
 
     <property name="war.dir" value="${build.dir}/${appname}" />
 
     <property name="webinf.dir" value="${war.dir}/WEB-INF" />
-    <property name="class.dir" value="${war.dir}/WEB-INF/classes" />
-
+    <property name="class.dir" value="${webinf.dir}/classes" />
+    <property name="lib.dir" value="${webinf.dir}/lib" />
     <property name="model.dir" 
-        value="${src.dir}/java/model" />
+        value="${src.dir}/java/ru/webforum/model" />
 
     <property name="testlogs.dir" value="testlogs"/>
 
-    <property name = "dbjar" value = ".\lib\mssql-jdbc-8.2.0.jre8.jar"/>
-    <property name = "dbdriver" value = "com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
-    <property name = "dbalias" value = "web_forum"/>
-    <property name = "dbport" value = "49167"/>
+    <property file="build.properties"/>
 
     <path id="master-classpath" description="Master CLASSPATH for this script">
         <fileset dir="${lib.dir}">
@@ -30,42 +26,50 @@
         <pathelement location="./build/web_forum/WEB-INF/classes/" />
     </path>
 
-    <target name = "startmssql">
-        <exec executable = "net">
-            <arg line = "start MSSQL$SQLExpress"/>
+    <target name="startmssql">
+        <exec executable="net">
+            <arg line="start MSSQL$SQLExpress"/>
         </exec>
     </target>
 
-    <target name = "execddl">
-        <sql classpath = "${dbjar}"
-            driver = "${dbdriver}" 
-            url = "jdbc:sqlserver://localhost:${dbport};databaseName=${dbalias}" 
-            userid = "sa" password = "sa" 
-            src = ".\db\ddl.sql"
-            delimiter = "GO"
-            print = "yes">
+    <target name="execddl">
+        <sql classpath="${lib.dir}/${db.jar}"
+            driver="${db.driver}" 
+            url="${db.url}" 
+            userid="${db.userid}" password="${db.password}" 
+            src=".\db\ddl.sql"
+            delimiter="GO"
+            print="yes">
         </sql>
+    </target>
+
+    <target name="clean">
+        <delete dir="${class.dir}"/>
+        <delete dir="${testlogs.dir}"/>
+    	<delete dir="${dist}"/>
     </target>
 
     <target name="init" description="Setup for build script">
 
-        <mkdir dir="${class.dir}" />
         <mkdir dir="${testlogs.dir}"/>
 
     </target>
 
     <target name="updateconfig" depends="init"
             description="Copies configuration files to WAR directory">
-        <copy file="${src.dir}/java/hibernate.cfg.xml" todir="${class.dir}"/>
-        <copy todir="${class.dir}/model">
+        <copy file="${src.dir}/java/ru/webforum/hibernate.cfg.xml" todir="${class.dir}" preservelastmodified="true"/>
+        <copy todir="${class.dir}/ru/webforum/model" preservelastmodified="true">
             <fileset dir="${model.dir}">
                 <include name="*.xml"/>
             </fileset>
         </copy>
     </target>
 
-    <target name="compile" depends="init" 
+    <target name="compile" depends="clean" 
     	    description="Compiles .java files to WAR directory">
+
+        <mkdir dir="${class.dir}" />
+
         <javac srcdir="${src.dir}" destdir="${class.dir}" debug="true" 
                 failonerror="true" classpathref="master-classpath" 
         	    depend="true">
@@ -75,12 +79,37 @@
 
     <target name="build" depends="compile, updateconfig" />
 
-    <target name="hibernatetest" depends="build">
-        <java fork="true" classpathref="master-classpath"
-            classname="test.HibernateTest"/>
+    <target name="warfile" depends="build">
+
+        <mkdir dir="${dist.dir}"/>
+
+        <war destfile="${dist.dir}/${appname}.war" basedir="${war.dir}" needxmlfile="false">
+            <include name="**"/>
+        </war>
+
     </target>
 
-    <target name="test_selects" depends="execddl">
+    <target name="deploywar" depends="warfile">
+    	<delete> 
+    		<fileset dir="${deploy.path}" includes="*.war_deployed"/>
+    	</delete>
+        <copy todir="${deploy.path}" preservelastmodified="true">
+            <fileset dir="${dist.dir}">
+                <include name="*.war"/>
+            </fileset>
+        </copy>
+    </target>
+
+
+<!-- ############################################################################## -->
+
+
+    <target name="hibernatetest" depends="build">
+        <java fork="true" classpathref="master-classpath"
+            classname="ru.webforum.test.HibernateTest"/>
+    </target>
+
+    <target name="test_selects">
         <junit printsummary="yes" showoutput="no" filtertrace="false" fork="yes">
             <classpath refid="master-classpath" />
             <formatter type="plain"/>
@@ -93,11 +122,11 @@
                 </fileset>
             </batchtest>
 -->
-            <test name="test.UserManagerTest" outfile="${testlogs.dir}/user_manager_test_selects" methods="testGetBanlist, testGetUsersInfo, 
+            <test name="ru.webforum.test.UserManagerTest" outfile="${testlogs.dir}/user_manager_test_selects" methods="testGetBanlist, testGetUsersInfo, 
                 testGetUserInfo, testGetCreatedTopicList, testGetTopicList, testGetMessageList"/>
-            <test name="test.SectionManagerTest" outfile="${testlogs.dir}/section_manager_test_selects" methods="testGetHierarchySize, testGetPath, 
+            <test name="ru.webforum.test.SectionManagerTest" outfile="${testlogs.dir}/section_manager_test_selects" methods="testGetHierarchySize, testGetPath, 
                 testGetForumSectionList, testGetForumTopicList"/>
-            <test name="test.TopicManagerTest" outfile="${testlogs.dir}/topic_manager_test_test_selects" methods="testGetMessageNumber, testGetPath, 
+            <test name="ru.webforum.test.TopicManagerTest" outfile="${testlogs.dir}/topic_manager_test_test_selects" methods="testGetMessageNumber, testGetPath, 
                 testGetTopicMessageList"/>
 
         </junit>
@@ -108,7 +137,7 @@
             <classpath refid="master-classpath" />
             <formatter type="plain"/>
 
-            <test name="test.UserManagerTest" outfile="${testlogs.dir}/test_create_user" methods="testCreateUser"/>
+            <test name="ru.webforum.test.UserManagerTest" outfile="${testlogs.dir}/test_create_user" methods="testCreateUser"/>
 
         </junit>
     </target>
@@ -118,7 +147,7 @@
             <classpath refid="master-classpath" />
             <formatter type="plain"/>
 
-            <test name="test.UserManagerTest" outfile="${testlogs.dir}/test_ban" methods="testBan"/>
+            <test name="ru.webforum.test.UserManagerTest" outfile="${testlogs.dir}/test_ban" methods="testBan"/>
 
         </junit>
     </target>
@@ -128,7 +157,7 @@
             <classpath refid="master-classpath" />
             <formatter type="plain"/>
 
-            <test name="test.SectionManagerTest" outfile="${testlogs.dir}/test_change_name_desc" methods="testChangeNameDesc"/>
+            <test name="ru.webforum.test.SectionManagerTest" outfile="${testlogs.dir}/test_change_name_desc" methods="testChangeNameDesc"/>
 
         </junit>
     </target>
@@ -138,7 +167,7 @@
             <classpath refid="master-classpath" />
             <formatter type="plain"/>
 
-            <test name="test.SectionManagerTest" outfile="${testlogs.dir}/test_create_section" methods="testCreateSection"/>
+            <test name="ru.webforum.test.SectionManagerTest" outfile="${testlogs.dir}/test_create_section" methods="testCreateSection"/>
 
         </junit>
     </target>
@@ -148,7 +177,7 @@
             <classpath refid="master-classpath" />
             <formatter type="plain"/>
 
-            <test name="test.SectionManagerTest" outfile="${testlogs.dir}/test_create_topic" methods="testCreateTopic"/>
+            <test name="ru.webforum.test.SectionManagerTest" outfile="${testlogs.dir}/test_create_topic" methods="testCreateTopic"/>
 
         </junit>
     </target>
@@ -158,7 +187,7 @@
             <classpath refid="master-classpath" />
             <formatter type="plain"/>
 
-            <test name="test.SectionManagerTest" outfile="${testlogs.dir}/test_delete_topics" methods="testDeleteTopics"/>
+            <test name="ru.webforum.test.SectionManagerTest" outfile="${testlogs.dir}/test_delete_topics" methods="testDeleteTopics"/>
 
         </junit>
     </target>
@@ -168,7 +197,7 @@
             <classpath refid="master-classpath" />
             <formatter type="plain"/>
 
-            <test name="test.SectionManagerTest" outfile="${testlogs.dir}/test_delete_sections" methods="testDeleteSections"/>
+            <test name="ru.webforum.test.SectionManagerTest" outfile="${testlogs.dir}/test_delete_sections" methods="testDeleteSections"/>
 
         </junit>
     </target>
@@ -178,7 +207,7 @@
             <classpath refid="master-classpath" />
             <formatter type="plain"/>
 
-            <test name="test.SectionManagerTest" outfile="${testlogs.dir}/test_relocate_topics" methods="testRelocateTopics"/>
+            <test name="ru.webforum.test.SectionManagerTest" outfile="${testlogs.dir}/test_relocate_topics" methods="testRelocateTopics"/>
 
         </junit>
     </target>
@@ -188,7 +217,7 @@
             <classpath refid="master-classpath" />
             <formatter type="plain"/>
 
-            <test name="test.SectionManagerTest" outfile="${testlogs.dir}/test_relocate_message_thread" methods="testRelocateMessageThread"/>
+            <test name="ru.webforum.test.SectionManagerTest" outfile="${testlogs.dir}/test_relocate_message_thread" methods="testRelocateMessageThread"/>
 
         </junit>
     </target>
@@ -198,7 +227,7 @@
             <classpath refid="master-classpath" />
             <formatter type="plain"/>
 
-            <test name="test.TopicManagerTest" outfile="${testlogs.dir}/test_change_name" methods="testChangeName"/>
+            <test name="ru.webforum.test.TopicManagerTest" outfile="${testlogs.dir}/test_change_name" methods="testChangeName"/>
 
         </junit>
     </target>
@@ -208,7 +237,7 @@
             <classpath refid="master-classpath" />
             <formatter type="plain"/>
 
-            <test name="test.TopicManagerTest" outfile="${testlogs.dir}/test_create_message" methods="testCreateMessage"/>
+            <test name="ru.webforum.test.TopicManagerTest" outfile="${testlogs.dir}/test_create_message" methods="testCreateMessage"/>
 
         </junit>
     </target>
@@ -218,7 +247,7 @@
             <classpath refid="master-classpath" />
             <formatter type="plain"/>
 
-            <test name="test.TopicManagerTest" outfile="${testlogs.dir}/test_delete_messages" methods="testDeleteMessages"/>
+            <test name="ru.webforum.test.TopicManagerTest" outfile="${testlogs.dir}/test_delete_messages" methods="testDeleteMessages"/>
 
         </junit>
     </target>
@@ -226,7 +255,7 @@
     <target name="springtest" depends="build">
         <java fork="true" classpathref="master-classpath" 
             output="output"
-            classname="test.SpringTest" />
+            classname="ru.webforum.test.SpringTest" />
     </target>
 
 </project>

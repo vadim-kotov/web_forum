@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+#error-header h2{
+	color: #444;
+	font-weight: bold;
+	font-size: 1.5em;
+	
+	margin-left: 10%;
+	
+	padding-top: 2em;
+    padding-bottom: 1em;
+}
+
+#error-message{
+	margin-left: 5%;
+	height: 3em;
+	background-color: #444;
+}
+
+#error-message p{
+	font-size: 1em;
+	color: #eee;
+	
+	display: table-cell;
+	width: 100%;
+	vertical-align: middle;
+}

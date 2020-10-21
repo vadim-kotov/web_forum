@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+
+        <!-- Database connection settings -->
+        <property name="connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+		<property name="connection.url">jdbc:sqlserver://localhost:49165;databaseName=web_forum</property>
+		<property name="connection.username">sa</property>
+		<property name="connection.password">sa</property>
+
+        <!-- SQL dialect -->
+        <property name="dialect">org.hibernate.dialect.SQLServer2012Dialect</property>
+         <!-- Enable Hibernate's automatic session context management -->
+         <property name="current_session_context_class">thread</property> 
+         <property name="hibernate.jdbc.batch_size">20</property>
+        <!-- Disable the second-level cache -->
+        <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property> 
+
+        <!-- Echo all executed SQL to stdout -->
+        <property name="hibernate.show_sql">true</property>
+
+        <mapping resource="ru/webforum/model/Mapping.hbm.xml"/>
+    </session-factory>
+</hibernate-configuration>
