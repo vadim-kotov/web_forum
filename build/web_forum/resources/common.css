@@ -7,6 +7,12 @@ html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, ul, li, table, tr, td, th, 
     border: 0;
     font-size: 100%;
     vertical-align: baseline;
+
+
+}
+html{
+    position: relative;         /*sticky-footer styles*/
+    min-height: 100%;
 }
 a{
     text-decoration: none;
@@ -21,7 +27,9 @@ a{
 
 body {
     font-family: Verdana;
-    background-color: #eee
+    background-color: #eee;
+
+    margin-bottom: 5em;         /*sticky-footer styles*/
 }
 #wrapper {
     margin-left: 5%;
@@ -36,6 +44,14 @@ body {
     padding-top: 130px;
     font-weight: bold;
     color: #444;
+}
+#nav{
+    padding-left: 5%;
+    background-color: #444;
+    border: 1px solid #444;
+}
+#nav ul{
+    margin-bottom: -3px;
 }
 #nav ul li{
     display: inline-block;
@@ -60,10 +76,10 @@ body {
     color: #999;
 }
 #footer{
-	position: fixed;
-	bottom: 0;
-	
-	width: 100%;
-    height: 5em;
+    width: 100%;
     background-color: #444;
+
+    height: 5em;                /*sticky-footer styles*/
+    position: absolute;
+    bottom: 0;
 }

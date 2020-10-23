@@ -12,16 +12,16 @@
 }
 
 #error-message{
-	margin-left: 5%;
-	height: 3em;
-	background-color: #444;
+	margin: 0 5%;
+	background-color: #444;	
+	padding: 1em 2em;
+
+	border-radius: 0.25em;
+	border: 1px solid black;
+	box-shadow: 1px 1px 3px 1px #000;
 }
 
-#error-message p{
+#error-message span{
 	font-size: 1em;
 	color: #eee;
-	
-	display: table-cell;
-	width: 100%;
-	vertical-align: middle;
 }

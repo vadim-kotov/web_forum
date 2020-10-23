@@ -170,12 +170,14 @@ table{
 .sections-table time:after{
     content: " - ";
 }
-
+#topics{
+    padding-bottom: 5em;
+}
 .topics-table{
     table-layout: fixed;
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 4em;
+   /* margin-bottom: 4em;*/
 }
 .topics-table a:hover{
     text-decoration: underline;
@@ -275,7 +277,4 @@ table{
     height: 3em;
     overflow: hidden;
     text-overflow: ellipsis;
-}
-.top-clear{
-    clear: both;
 }
