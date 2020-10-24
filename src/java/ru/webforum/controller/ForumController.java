@@ -37,11 +37,10 @@ public class ForumController
 			
 			return "error/queryError";
 		}
+		model.addAttribute("section", section);
 		
 		List<ForumSection> sectionsList = sectionManager.getForumSectionList(id);
-		
 		model.addAttribute("subSects", sectionsList);
-		model.addAttribute("section", section);
 		
 		return "forum/forum";
 	}	

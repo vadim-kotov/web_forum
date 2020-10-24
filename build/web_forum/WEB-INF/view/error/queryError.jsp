@@ -15,10 +15,9 @@
 
 	<%@ include file="/resources/header.html" %>
 
-	<div id="wrapper">
-	
-		<%@ include file="/resources/nav.html" %>
-		
+	<%@ include file="/resources/nav.html" %>
+
+	<div id="wrapper">	
 		<div id="error-header">
 			<h2>Ошибка!!!</h2>
 		</div>

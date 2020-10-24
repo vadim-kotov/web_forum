@@ -19,12 +19,11 @@
 
 	<%@ include file="/resources/header.html" %>
 	
-	<div id="wrapper">
+	<%@ include file="/resources/nav.html" %>
 	
-		<%@ include file="/resources/nav.html" %>
-		
+	<div id="wrapper">
 		<div id="forum-header">
-            <h2><c:out value="${section.name}" /></h2>
+            <h2><c:out value="${section.name}"/></h2>
             <div class="buttons">
                 <ul>
                     <li><a href="#">Создать тему</a></li>
@@ -41,39 +40,31 @@
             ></ul>
         </div>
         <div id="main">
-            <div id="sections">
-                <div id="sections-tools" class="tools"></div>
-                <table class="sections-table">
-                    <tr>
-                        <td class="sec-header"><a class="sec-table-img" href="#"><img src="<c:out value="/web_forum/resources/forum/section.png"/>" alt="section"/></a><a class="first-line" href="#">Котята брид и шоу-классов</a><br><span class="second-line sec-description">Нефиговые котятки</span></td>
-                        <td class="sec-user-num"><a class="first-line" href="#">70</a><br><span class="second-line">Участники</span></td>
-                        <td class="sec-topic-num"><span class="first-line">21</span><br><span class="second-line">Темы</span></td>
-                        <td class="sec-mes-num"><span class="first-line">123</span><br><span class="second-line">Ответы</span></td>
-                        <td class="sec-last-mes"><a class="sec-table-img" href="#"><img src="<c:out value="/web_forum/resources/forum/avatar.png"/>" alt="user_avatar"/></a><a class="first-line" href="#">Черный солид Faydark Jet Black, 02.04.20 питомник Faydark (Украина, Харьков)</a><br><time class="second-line" datetime="2020-08-21T17:45">21.08.2020 17:45</time><a class="first-line" href="#">Eytar</a></td>
-                    </tr>
-                    <tr>
-                        <td class="sec-header"><a class="sec-table-img" href="#"><img src="<c:out value="/web_forum/resources/forum/section.png"/>" alt="section"/></a><a class="first-line" href="#">Котята - домашние любимцы. Цена до 15000 р.</a><br><span class="second-line sec-description">С пивом потянет</span></td>
-                        <td class="sec-user-num"><a class="first-line" href="#">81</a><br><span class="second-line">Участники</span></td>
-                        <td class="sec-topic-num"><span class="first-line">30</span><br><span class="second-line">Темы</span></td>
-                        <td class="sec-mes-num"><span class="first-line">162</span><br><span class="second-line">Ответы</span></td>
-                        <td class="sec-last-mes"><a class="sec-table-img" href="#"><img src="<c:out value="/web_forum/resources/forum/avatar.png"/>" alt="user_avatar"/></a><a class="first-line" href="#">Ximena JokerCoon, черная тикированная</a><br><time class="second-line" datetime="2020-04-11T20:18">11.04.2020 20:18</time><a class="first-line" href="#">JokerCoon</a></td>
-                    </tr>
-                    <tr>
-                        <td class="sec-header"><a class="sec-table-img" href="#"><img src="<c:out value="/web_forum/resources/forum/section.png"/>" alt="section"/></a><a class="first-line" href="#">Котята - домашние любимцы. Цена 15000-25000 р.</a><br><span class="second-line sec-description">Ну такое, не рыба не мясо</span></td>
-                        <td class="sec-user-num"><a class="first-line" href="#">112</a><br><span class="second-line">Участники</span></td>
-                        <td class="sec-topic-num"><span class="first-line">30</span><br><span class="second-line">Темы</span></td>
-                        <td class="sec-mes-num"><span class="first-line">182</span><br><span class="second-line">Ответы</span></td>
-                        <td class="sec-last-mes"><a class="sec-table-img" href="#"><img src="<c:out value="/web_forum/resources/forum/avatar.png"/>" alt="user_avatar"/></a><a class="first-line" href="#">Питомник Great Lion. Franc - Шкода с большой буквы.</a><br><time class="second-line" datetime="2020-04-28T16:32">28.04.2020 16:32</time><a class="first-line" href="#">ЕленаС</a></td>
-                    </tr>
-                    <tr>
-                        <td class="sec-header"><a class="sec-table-img" href="#"><img src="<c:out value="/web_forum/resources/forum/section.png"/>" alt="section"/></a><a class="first-line" href="#">Котята - домашние любимцы. Цена от 25000 р.</a><br><span class="second-line sec-description">Нормальные котятки</span></td>
-                        <td class="sec-user-num"><a class="first-line" href="#">23</a><br><span class="second-line">Участники</span></td>
-                        <td class="sec-topic-num"><span class="first-line">11</span><br><span class="second-line">Темы</span></td>
-                        <td class="sec-mes-num"><span class="first-line">99</span><br><span class="second-line">Ответы</span></td>
-                        <td class="sec-last-mes"><a class="sec-table-img" href="#"><img src="<c:out value="/web_forum/resources/forum/avatar.png"/>" alt="user_avatar"/></a><a class="first-line" href="#">Megatherion Leo Minor — Малый Лев</a><br><time class="second-line" datetime="2020-08-26T17:25">26.08.2020 17:25</time><a class="first-line" href="#">Усатая</a></td>
-                    </tr>
-                </table>
-            </div>
+        	<c:if test="${not empty subSects}">
+	            <div id="sections">
+	                <div id="sections-tools" class="tools"></div>
+	                <table class="sections-table">
+	                	<c:forEach var="subSect" items="${subSects}">
+	                		<tr>
+		                        <td class="sec-header">
+		                        	<a class="sec-table-img" href="<c:url value="${subSect.section.sectionId}.do"/>"/><img src="<c:out value="/web_forum/resources/forum/section.png"/>" alt="section"/></a>
+		                        	<a class="first-line" href="<c:url value="${subSect.section.sectionId}.do"/>"/><c:out value="${subSect.section.name}"/></a><br>
+		                        	<span class="second-line sec-description"><c:out value="${subSect.section.description}"/></span>
+		                        </td>
+		                        <td class="sec-user-num"><a class="first-line" href="#"><c:out value="${subSect.userNum}"/></a><br><span class="second-line">Участники</span></td>
+		                        <td class="sec-topic-num"><span class="first-line"><c:out value="${subSect.topicNum}"/></span><br><span class="second-line">Темы</span></td>
+		                        <td class="sec-mes-num"><span class="first-line"><c:out value="${subSect.messageNum}"/></span><br><span class="second-line">Ответы</span></td>
+		                        <td class="sec-last-mes">
+		                        	<a class="sec-table-img" href="#"><img src="<c:out value="/web_forum/resources/forum/avatar.png"/>" alt="user_avatar"/></a>
+		                        	<a class="first-line" href="#"><c:out value="${subSect.lastMessage.topic.name}"/></a><br>
+		                        	<time class="second-line" datetime="2020-08-21T17:45"><c:out value="${subSect.lastMessage.date}"/></time>
+		                        	<a class="first-line" href="#"><c:out value="${subSect.lastMessage.author.login}"/></a>
+		                        </td>
+	                    	</tr>
+	                	</c:forEach>
+	                </table>
+	            </div>
+	        </c:if>
             <div id="topics">
                 <table class="topics-table">
                     <thead>
