@@ -10,6 +10,11 @@ html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, ul, li, table, tr, td, th, 
 
 
 }
+.clearfix:after{
+	content: "";
+	display: table;
+	clear: both;
+}
 html{
     position: relative;         /*sticky-footer styles*/
     min-height: 100%;

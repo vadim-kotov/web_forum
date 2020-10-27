@@ -4,16 +4,25 @@ import java.util.Set;
 
 public class Section implements Cloneable
 {
-    private int sectionId;
+    private Integer sectionId;
     private String name;
-    private String description;
+	private String description;
 
     private Section upsection = null;
     private Set<Section> downsections = null;
     private Set<Topic> topics = null;
+    
+    public Section() {}
 
-    public int getSectionId() { return this.sectionId; }
-    public void setSectionId(int sectionId) { this.sectionId = sectionId; }
+	public Section(Integer sectionId, String name, String description) 
+    {
+		this.sectionId = sectionId;
+		this.name = name;
+		this.description = description;
+	}
+
+    public Integer getSectionId() { return this.sectionId; }
+    public void setSectionId(Integer sectionId) { this.sectionId = sectionId; }
 
     public String getName() { return this.name; }
     public void setName(String name) { this.name = name; }

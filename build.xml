@@ -132,7 +132,7 @@
         </junit>
     </target>
 
-    <target name="test_create_user" depends="execddl">
+    <target name="test_create_user">
         <junit printsummary="yes" showoutput="no" filtertrace="false" fork="yes">
             <classpath refid="master-classpath" />
             <formatter type="plain"/>
@@ -142,7 +142,7 @@
         </junit>
     </target>
 
-    <target name="test_ban" depends="execddl">
+    <target name="test_ban">
         <junit printsummary="yes" showoutput="no" filtertrace="false" fork="yes">
             <classpath refid="master-classpath" />
             <formatter type="plain"/>
@@ -152,7 +152,7 @@
         </junit>
     </target>
 
-    <target name="test_change_name_desc" depends="execddl">
+    <target name="test_change_name_desc">
         <junit printsummary="yes" showoutput="no" filtertrace="false" fork="yes">
             <classpath refid="master-classpath" />
             <formatter type="plain"/>
@@ -162,7 +162,7 @@
         </junit>
     </target>
 
-    <target name="test_create_section" depends="execddl">
+    <target name="test_create_section">
         <junit printsummary="yes" showoutput="no" filtertrace="false" fork="yes">
             <classpath refid="master-classpath" />
             <formatter type="plain"/>
@@ -172,7 +172,7 @@
         </junit>
     </target>
 
-    <target name="test_create_topic" depends="execddl">
+    <target name="test_create_topic">
         <junit printsummary="yes" showoutput="no" filtertrace="false" fork="yes">
             <classpath refid="master-classpath" />
             <formatter type="plain"/>
@@ -182,7 +182,7 @@
         </junit>
     </target>
 
-    <target name="test_delete_topics" depends="execddl">
+    <target name="test_delete_topics">
         <junit printsummary="yes" showoutput="no" filtertrace="false" fork="yes">
             <classpath refid="master-classpath" />
             <formatter type="plain"/>
@@ -192,7 +192,7 @@
         </junit>
     </target>
 
-    <target name="test_delete_sections" depends="execddl">
+    <target name="test_delete_sections">
         <junit printsummary="yes" showoutput="no" filtertrace="false" fork="yes">
             <classpath refid="master-classpath" />
             <formatter type="plain"/>
@@ -202,7 +202,7 @@
         </junit>
     </target>
 
-    <target name="test_relocate_topics" depends="execddl">
+    <target name="test_relocate_topics">
         <junit printsummary="yes" showoutput="no" filtertrace="false" fork="yes">
             <classpath refid="master-classpath" />
             <formatter type="plain"/>
@@ -212,7 +212,7 @@
         </junit>
     </target>
 
-    <target name="test_relocate_message_thread" depends="execddl">
+    <target name="test_relocate_message_thread">
         <junit printsummary="yes" showoutput="no" filtertrace="false" fork="yes">
             <classpath refid="master-classpath" />
             <formatter type="plain"/>
@@ -222,7 +222,7 @@
         </junit>
     </target>
 
-    <target name="test_change_name" depends="execddl">
+    <target name="test_change_name">
         <junit printsummary="yes" showoutput="no" filtertrace="false" fork="yes">
             <classpath refid="master-classpath" />
             <formatter type="plain"/>
@@ -232,7 +232,7 @@
         </junit>
     </target>
 
-    <target name="test_create_message" depends="execddl">
+    <target name="test_create_message">
         <junit printsummary="yes" showoutput="no" filtertrace="false" fork="yes">
             <classpath refid="master-classpath" />
             <formatter type="plain"/>
@@ -242,7 +242,7 @@
         </junit>
     </target>
 
-    <target name="test_delete_messages" depends="execddl">
+    <target name="test_delete_messages">
         <junit printsummary="yes" showoutput="no" filtertrace="false" fork="yes">
             <classpath refid="master-classpath" />
             <formatter type="plain"/>
