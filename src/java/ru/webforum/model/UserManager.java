@@ -12,11 +12,14 @@ import java.util.Collections;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.type.IntegerType;
+import org.springframework.stereotype.Component;
+
 import ru.webforum.util.HibernateUtil;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.*;
 import org.hibernate.transform.Transformers;
 
+@Component
 public class UserManager
 {
     /*
