@@ -142,7 +142,7 @@
                     <input class="textinput" type="text" name="login" placeholder="Логин" required/><br/>
                     <input class="textinput" type="password" name="password" placeholder="Пароль" required/><br/>
                     <input class="textinput" type="password" name="passwordConfirm" placeholder="Подтвердите пароль" required/>
-                    <div>
+                    <div id="registration-button-div">
                         <input class="button" type="submit" value="Регистрация"/>
                     </div>
                 </form>
@@ -164,6 +164,11 @@
             var body = document.getElementsByTagName("body")[0]
             body.style.overflow = "auto";
         }
+
+        var regist = document.getElementById("registration");
+        regist.addEventListener("click", function(e){
+            e.stopPropagation();
+        });
     </script>
 </body>
 </html>
