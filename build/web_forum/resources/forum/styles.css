@@ -260,6 +260,7 @@ table{
     font-size: .75em;
 }
 .top-last-mes{
+    vertical-align: top;
     padding: .5em;
 }
 .top-last-mes .top-table-img{

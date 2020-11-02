@@ -65,7 +65,7 @@ public class ForumController
 	
 	@GetMapping("")
 	public String forumRootPage(Model model)
-	{
+	{		
 		Section section = new Section(null, "Форум", "");
 		model.addAttribute("section", section);
 		

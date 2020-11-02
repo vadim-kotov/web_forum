@@ -7,8 +7,6 @@ html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, ul, li, table, tr, td, th, 
     border: 0;
     font-size: 100%;
     vertical-align: baseline;
-
-
 }
 .clearfix:after{
 	content: "";
@@ -31,7 +29,7 @@ a{
 }
 
 body {
-    font-family: Verdana;
+    font-family: Verdana, Geneva, Tahoma, sans-serif; 
     background-color: #eee;
 
     margin-bottom: 5em;         /*sticky-footer styles*/
@@ -42,13 +40,58 @@ body {
 }
 #header {
     height: 250px;
+    position: relative;
 }
 #header h1{
     font-size: 30px;
-    padding-left: 100px;
+    padding-left: 15%;
     padding-top: 130px;
     font-weight: bold;
     color: #444;
+}
+#log-in-outter{
+    position: absolute;
+    top: 20px;
+    right: 0;
+}
+#log-in-inner{
+    padding: 10px 130px 10px 10px;
+    background-color: #444;
+}
+.textinput{
+    width: 150px;
+    height: 30px;
+    margin-bottom: 3px;
+    background-color: #eee;
+    border: none;
+}
+.textinput:hover{
+    background-color: white;
+}
+.textinput:focus{
+    outline: none;
+    background-color: white
+}
+.button{
+    height: 30px;
+    outline: none;
+    border: none;
+    background-color: #bbb;
+}
+.button:hover{
+    background-color: #eee;
+}
+#log-in-inner .button{
+    width: 73px;
+}
+#log-in-outter a{
+    margin: 10px;
+    color: #444;
+    font-weight: bold;
+    font-size: 0.8em;
+}
+#log-in-outter a:hover{
+    text-decoration: underline;
 }
 #nav{
     padding-left: 5%;
@@ -87,4 +130,46 @@ body {
     height: 5em;                /*sticky-footer styles*/
     position: absolute;
     bottom: 0;
+}
+#popup{
+    width: 100%;
+    min-height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    /*overflow:hidden;*/
+    position: fixed;
+    overflow: hidden;
+    top:0px;
+    display: none;
+}
+#registration{
+    position: relative;
+    margin: 100px auto 0 auto;
+    width: 400px;
+    height: 300px;
+    background-color: #999;
+}
+#registration-header{
+    background-color: #333;
+    padding-left: 5%;
+}
+#registration-header h2{
+    display: table-cell;
+    height: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+    vertical-align: middle;
+    background-color: #777;
+    border: 1px solid #333;
+}
+#registration-form{
+    margin-top: 30px;
+    margin-left: 30px;
+}
+#registration-form .textinput{
+    margin-bottom: 15px;
+    width: 175px;
+}
+
+#registration-form .button{
+
 }
