@@ -12,6 +12,6 @@
 				<input class="button" type="submit" value="Войти"/>
 			</form>
 		</div>
-		<a href="<c:url value="/forum/registration.do"/>" onclick="showPopUp();">Регистрация</a>
+		<a href="<c:url value="#"/>" onclick="showPopUp(); return false;">Регистрация</a>
 	</div>
 </div>

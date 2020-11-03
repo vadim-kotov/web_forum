@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import ru.webforum.model.Section;
 import ru.webforum.model.SectionManager;
+import ru.webforum.model.User;
 import ru.webforum.model.SectionManager.ForumSection;
 import ru.webforum.model.SectionManager.ForumTopic;
 import ru.webforum.util.ControllerError;
@@ -60,6 +61,8 @@ public class ForumController
 		List<ForumTopic> topicsList = sectionManager.getForumTopicList(id);
 		model.addAttribute("subTopics", topicsList);
 		
+		model.addAttribute("user", new User());
+		
 		return "forum/forum";
 	}
 	
@@ -77,6 +80,8 @@ public class ForumController
 		model.addAttribute("upsection", null);
 		
 		model.addAttribute("subTopics", null);
+		
+		model.addAttribute("user", new User());
 		
 		return "forum/forum";
 	}

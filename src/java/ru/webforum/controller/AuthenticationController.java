@@ -1,6 +1,7 @@
 package ru.webforum.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,25 +17,21 @@ import ru.webforum.model.UserManager;
 public class AuthenticationController 
 {
 	private final UserManager userManager;
+	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
 	@Autowired
-	AuthenticationController(UserManager userManager)
+	AuthenticationController(UserManager userManager, BCryptPasswordEncoder bCryptPasswordEncoder)
 	{
 		this.userManager = userManager;
+		this.bCryptPasswordEncoder = bCryptPasswordEncoder;
 	}
-	
-	@GetMapping("/registration")
-	public void registrationForm(Model model)
-	{
-		model.addAttribute("user", new User());
-	}
-	
+
 	@PostMapping("/registration")
 	public String newUser(@ModelAttribute("user") User user)
 	{
-		System.out.println(user);
+		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 		userManager.createUser(user);
 		
-		return "forum/forum";
+		return "redirect:/forum.do";
 	}
 }
