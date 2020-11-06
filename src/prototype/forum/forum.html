@@ -8,13 +8,13 @@
     <link class="prototype" rel="stylesheet" type="text/css" href="common.css"/>
 </head>
 
-<body>  
+<body>
     
     <div id="header">
         <h1>Форум о Мэйн-Кунах</h1>
         
         <div id="log-in-outter">
-            <div id="log-in-inner">
+            <div id="log-in-inner" class="third-wrapper">
                 <form>
                     <input class="textinput" type="text" name="login" placeholder="Логин" required/><br/>
                     <input class="textinput" type="password" name="password" placeholder="Пароль" required/><br/>
@@ -22,7 +22,7 @@
                     
                 </form>
             </div>
-            <a href="#" onclick="showPopUp();return false;">Регистрация</a>
+            <a href="#">Регистрация</a>
         </div>
         
     </div>
@@ -35,7 +35,7 @@
     </div>
     <div id="wrapper">
         
-        <div id="forum-header">
+        <div id="second-header">
             <h2>Котята Мейн-Куны</h2>
             <div class="buttons">
                 <ul>
@@ -129,47 +129,9 @@
             </div>
         </div>
     </div>
+    
     <div id="footer">
 
     </div>
-    <div id="popup" onclick="hidePopUp()">
-        <div id="registration">
-            
-            <div id="registration-header">
-                <h2>Регистрация</h2>
-            </div>
-            <div id="registration-form">
-                <form>
-                    <input class="textinput" type="text" name="login" placeholder="Логин" required/><br/>
-                    <input class="textinput" type="password" name="password" placeholder="Пароль" required/><br/>
-                    <input class="textinput" type="password" name="passwordConfirm" placeholder="Подтвердите пароль" required/>
-                    <div id="registration-button-div">
-                        <input class="button" type="submit" value="Регистрация"/>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <script type="text/javascript">
-        function showPopUp() {
-            var div = document.getElementById("popup");
-            div.style.display = "block";
-            var body = document.getElementsByTagName("body")[0]
-            body.style.overflow = "hidden";
-        }
-
-        function hidePopUp() {
-            var div = document.getElementById("popup");
-            div.style.display = "none";
-            var body = document.getElementsByTagName("body")[0]
-            body.style.overflow = "auto";
-        }
-
-        var regist = document.getElementById("registration");
-        regist.addEventListener("click", function(e){
-            e.stopPropagation();
-        });
-    </script>
 </body>
 </html>

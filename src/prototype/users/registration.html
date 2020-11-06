@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8"/>
+    <base href="../../../build/web_forum/resources/" />
+    <title>Registration</title>
+    <link rel="stylesheet" type="text/css" href="common.css"/>
+    <link rel="stylesheet" type="text/css" href="registration/styles.css"/>
+</head>
+<body>
+
+    <div id="header">
+        <h1>Форум о Мэйн-Кунах</h1>
+        
+        <div id="log-in-outter">
+            <div id="log-in-inner" class="third-wrapper">
+                <form>
+                    <input class="textinput" type="text" name="login" placeholder="Логин" required/><br/>
+                    <input class="textinput" type="password" name="password" placeholder="Пароль" required/><br/>
+                    <input class="button" type="submit" value="Войти"/>
+                    
+                </form>
+            </div>
+            <a href="#">Регистрация</a>
+        </div>
+        
+    </div>
+
+    <div id="nav">
+        <ul>
+            <li><a href="#">Форум</a></li
+            ><li><a href="#">Пользователи</a></li
+            ><li><a href="#">Личный кабинет</a></li>
+        </ul>
+    </div>
+
+    <div id="wrapper">
+        <div id="second-header">
+            <h2>Регистрация</h2>
+        </div>
+        <div id="second-wrapper">
+            <form id="registration" class="third-wrapper" novalidate>
+                <input class="textinput" type="text" name="login" placeholder="Логин" required="true"/><br/>
+                <span class="input-error"></span>
+                <input id="registration-password" class="textinput" type="password" name="password" placeholder="Пароль" required="true" minlength="8"/>
+                <span id="registration-password-error" class="input-error"></span>
+                <input id="registration-password-confirm" class="textinput" type="password" name="passwordConfirm" placeholder="Подтвердите пароль" required="true"/>
+                <span id="registration-password-confirm-error" class="input-error"></span>
+                    
+                <div id="registration-button">
+                    <input  class="button" type="submit" value="Регистрация"/>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="footer">
+
+    </div>
+    <script type="text/javascript">
+        var password = document.getElementById("registration-password");
+        var passwordError = document.getElementById("registration-password-error");
+        var passwordConfirm = document.getElementById("registration-password-confirm");
+        var passwordConfirmError = document.getElementById("registration-password-confirm-error");
+
+        password.addEventListener("blur", function(event) {
+            if(!password.validity.valid) {
+                passwordError.innerHTML = "введите пароль не короче 8 символов";
+            }
+            if(!password.validity.valid || passwordConfirm.value != password.value) {
+                password.className = "textinput textinput-error";
+            }
+        });
+        password.addEventListener("focus", function(event){
+            passwordError.innerHTML = "";
+            password.className = "textinput";
+        });
+
+        passwordConfirm.addEventListener("blur", function(event){
+            if(passwordConfirm.value != password.value)
+            {
+                passwordConfirmError.innerHTML = "пароли не совпадают";
+                passwordConfirm.className = "textinput textinput-error";
+
+                password.className = "textinput textinput-error";
+            }
+        });
+        passwordConfirm.addEventListener("focus", function(event){
+            passwordConfirmError.innerHTML = "";
+            passwordConfirm.className = "textinput";
+
+            if(password.validity.valid){
+                password.className = "textinput";
+            }
+        });
+
+        var form = document.querySelector("#registration");
+        var formInputs = document.querySelectorAll("input.textinput.textinput-error");
+        form.addEventListener("submit", function(event){
+            console.log(1);
+            console.log(formInputs);
+            if(passwordConfirm.error)
+            {
+                event.preventDefault();
+            }
+        }, false);
+    </script>
+</body>

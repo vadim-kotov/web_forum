@@ -1,26 +1,5 @@
 @charset "UTF-8";
 
-#error-header h2{
-	color: #444;
-	font-weight: bold;
-	font-size: 1.5em;
-	
-	margin-left: 10%;
-	
-	padding-top: 2em;
-    padding-bottom: 1em;
-}
-
-#error-message{
-	margin: 0 5%;
-	background-color: #444;	
-	padding: 1em 2em;
-
-	border-radius: 0.25em;
-	border: 1px solid black;
-	box-shadow: 1px 1px 3px 1px #000;
-}
-
 #error-message span{
 	font-size: 1em;
 	color: #eee;

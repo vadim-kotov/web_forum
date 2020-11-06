@@ -1,0 +1,24 @@
+#registration{
+    display: table-cell;
+    padding-top: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+#registration .textinput:not(:first-child){
+    margin-top: 15px;
+}
+#registration .textinput{
+    width: 200px;
+}
+#registration-button{
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+.input-error{
+    display: block;
+    height: 0.5em;
+    font-size: 0.55em;
+    line-height: 0.5em;
+    color: rgb(250, 56, 56)
+}
