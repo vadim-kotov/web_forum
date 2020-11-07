@@ -13,17 +13,17 @@
 </head>
 <body>
 
-	<%@ include file="/resources/header.html" %>
+	<%@ include file="../header.jsp" %>
 
 	<%@ include file="/resources/nav.html" %>
 
 	<div id="wrapper">	
-		<div id="error-header">
+		<div id="second-header">
 			<h2>Ошибка!!!</h2>
 		</div>
 		
-		<div id="error-message">
-			<p><c:out value="${error.errorMessage}"/></p>
+		<div id="second-wrapper">
+			<span id="error-message"><c:out value="${error.errorMessage}"/></span>
 		</div>
 		
 	</div>

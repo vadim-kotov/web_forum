@@ -5,13 +5,13 @@
 	<h1>Форум о Мэйн-Кунах</h1>
 
 	<div id="log-in-outter">
-		<div id="log-in-inner">
+		<div id="log-in-inner" class="third-wrapper">
 			<form>
 				<input class="textinput" type="text" name="login" placeholder="Логин" required="true"/><br/>
 				<input class="textinput" type="password" name="password" placeholder="Пароль" required="true"/><br/>
 				<input class="button" type="submit" value="Войти"/>
 			</form>
 		</div>
-		<a href="<c:url value="#"/>" onclick="showPopUp(); return false;">Регистрация</a>
+		<a href="<c:url value="/users/registration.do"/>">Регистрация</a>
 	</div>
 </div>

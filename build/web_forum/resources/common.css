@@ -138,6 +138,13 @@ body {
     background-color: rgb(255,200,200);
     border: 1px solid rgb(255,95,95);
 }
+.input-error{
+    display: block;
+    height: 0.5em;
+    font-size: 0.55em;
+    line-height: 0.5em;
+    color: rgb(250, 56, 56)
+}
 .button{
     height: 30px;
     outline: none;

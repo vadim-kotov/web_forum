@@ -15,10 +15,3 @@
     margin-top: 50px;
     margin-bottom: 30px;
 }
-.input-error{
-    display: block;
-    height: 0.5em;
-    font-size: 0.55em;
-    line-height: 0.5em;
-    color: rgb(250, 56, 56)
-}

@@ -29,7 +29,7 @@
 	<%@ include file="/resources/nav.html" %>
 	
 	<div id="wrapper">
-		<div id="forum-header">
+		<div id="second-header">
             <h2><c:out value="${section.name}"/></h2>
             <div class="buttons">
                 <ul>
@@ -125,8 +125,6 @@
 	</div>
 	
 	<%@ include file="/resources/footer.html" %>
-
-	<%@ include file="../registration.jsp" %>
 	
 </body>
 </html>

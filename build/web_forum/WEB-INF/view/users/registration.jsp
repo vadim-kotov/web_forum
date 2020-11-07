@@ -1,47 +1,31 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
 <!DOCTYPE html>
+<html>
 <head>
-    <meta charset="utf-8"/>
-    <base href="../../../build/web_forum/resources/" />
-    <title>Registration</title>
-    <link rel="stylesheet" type="text/css" href="common.css"/>
-    <link rel="stylesheet" type="text/css" href="registration/styles.css"/>
+	<meta charset="UTF-8">
+	<title>Error</title>
+	<link rel="stylesheet" type="text/css" href="<c:url value="/resources/common.css"/>"/>
+	<link rel="stylesheet" type="text/css" href="<c:url value="/resources/users/registration/styles.css"/>"/>
 </head>
 <body>
+	<%@ include file="../header.jsp" %>
 
-    <div id="header">
-        <h1>Форум о Мэйн-Кунах</h1>
-        
-        <div id="log-in-outter">
-            <div id="log-in-inner" class="third-wrapper">
-                <form>
-                    <input class="textinput" type="text" name="login" placeholder="Логин" required/><br/>
-                    <input class="textinput" type="password" name="password" placeholder="Пароль" required/><br/>
-                    <input class="button" type="submit" value="Войти"/>
-                    
-                </form>
-            </div>
-            <a href="#">Регистрация</a>
-        </div>
-        
-    </div>
-
-    <div id="nav">
-        <ul>
-            <li><a href="#">Форум</a></li
-            ><li><a href="#">Пользователи</a></li
-            ><li><a href="#">Личный кабинет</a></li>
-        </ul>
-    </div>
-
+    <%@ include file="/resources/nav.html" %>
+    
     <div id="wrapper">
         <div id="second-header">
             <h2>Регистрация</h2>
         </div>
         <div id="second-wrapper">
-            <form id="registration" class="third-wrapper" novalidate>
-                <input id="registration-login" class="textinput" type="text" name="login" placeholder="Логин" required="true"/><br/>
+            <form:form id="registration" class="third-wrapper" novalidate="true" action="/users/registration.do" modelAttribute="user" method="POST">
+                <form:input path="login" id="registration-login" class="textinput" type="text" name="login" placeholder="Логин" required="true"/>
                 <span id="registration-login-error" class="input-error"></span>
-                <input id="registration-password" class="textinput" type="password" name="password" placeholder="Пароль" required="true" minlength="8"/>
+                <form:input path="password" id="registration-password" class="textinput" type="password" name="password" placeholder="Пароль" required="true" minlength="8"/>
                 <span id="registration-password-error" class="input-error"></span>
                 <input id="registration-password-confirm" class="textinput" type="password" name="passwordConfirm" placeholder="Подтвердите пароль" required="true"/>
                 <span id="registration-password-confirm-error" class="input-error"></span>
@@ -49,13 +33,12 @@
                 <div id="registration-button">
                     <input  class="button" type="submit" value="Регистрация"/>
                 </div>
-            </form>
+            </form:form>
         </div>
     </div>
 
-    <div id="footer">
-
-    </div>
+    <%@ include file="/resources/footer.html" %>
+    
     <script type="text/javascript">
         var login = document.getElementById("registration-login");
         var loginError = document.getElementById("registration-login-error");
