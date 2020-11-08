@@ -1,0 +1,17 @@
+#log-in {
+    display: table-cell;
+    padding-top: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+#log-in .textinput:not(:first-child) {
+    margin-top: 15px;
+}
+#log-in .textinput{
+    width: 200px;
+}
+#log-in-button{
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}

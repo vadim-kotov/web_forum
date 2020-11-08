@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8"/>
+    <base href="../../../build/web_forum/resources/" />
+    <title>Log in</title>
+    <link rel="stylesheet" type="text/css" href="common.css"/>
+    <link rel="stylesheet" type="text/css" href="users/login/styles.css"/>
+</head>
+<body>
+    <div id="header">
+        <h1>Форум о Мэйн-Кунах</h1>
+    </div>
+
+    <div id="nav">
+        <ul>
+            <li><a href="#">Форум</a></li
+            ><li><a href="#">Пользователи</a></li
+            ><li><a href="#">Личный кабинет</a></li>
+        </ul>
+    </div>
+
+    <div id="wrapper">
+        <div id="second-header">
+            <h2>Вход</h2>
+        </div>
+        <div id="second-wrapper">
+            <form id="log-in" class="third-wrapper" novalidate="true">
+                <input id="log-in-login" class="textinput" type="text" name="login" placeholder="Логин" required="true"/>
+                <span id="log-in-login-error" class="input-error"></span>
+                <input id="log-in-password" class="textinput" type="password" name="password" placeholder="Пароль" required="true"/>
+                <span id="log-in-password-error" class="input-error"></span>
+
+                <div id="log-in-button">
+                    <input  class="button" type="submit" value="Вход"/>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="footer">
+
+    </div>
+
+    <script type="text/javascript">
+        var login = document.getElementById("log-in-login");
+        var password = document.getElementById("log-in-password");
+        var loginError = document.getElementById("log-in-login-error");
+        var passwordError = document.getElementById("log-in-password-error");
+
+        login.addEventListener("focus", function(event) {
+            loginError.innerHTML = "";
+            login.className = "textinput";
+        });
+        password.addEventListener("focus", function(event) {
+            passwordError.innerHTML = "";
+            password.className = "textinput";
+        });
+
+        var form = document.getElementById("log-in");
+        form.addEventListener("submit", function(event) {
+            var flag = false;
+
+            if(!login.value) {
+                flag = true;
+
+                login.className = "textinput textinput-error";
+                loginError.innerHTML = "введите это поле";
+            }
+            if(!password.value) {
+                flag = true;
+
+                password.className = "textinput textinput-error";
+                passwordError.innerHTML = "введите это поле";
+            }
+
+            if(flag) {
+                event.preventDefault();
+            }
+        });
+    </script>
+</body>
