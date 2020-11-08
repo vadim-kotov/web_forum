@@ -13,7 +13,7 @@
 	<link rel="stylesheet" type="text/css" href="<c:url value="/resources/users/registration/styles.css"/>"/>
 </head>
 <body>
-	<%@ include file="../header.jsp" %>
+	<%@ include file="/resources/header.html" %>
 
     <%@ include file="/resources/nav.html" %>
     

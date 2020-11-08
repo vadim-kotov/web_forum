@@ -1,12 +1,18 @@
 package ru.webforum.model;
 
 import ru.webforum.model.banlist.Banlist;
+import ru.webforum.security.RoleManager;
 
+import java.util.Collection;
 import java.util.Date;
 import java.util.Set;
 import java.util.SortedSet;
 
-public class User implements Cloneable
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+public class User implements UserDetails, Cloneable
 {
     private int userId;
     private String login;
@@ -19,6 +25,9 @@ public class User implements Cloneable
     Set<Message> messages = null;
 
     SortedSet<Banlist> banlist;
+    
+    @Autowired
+    private RoleManager roleManager;
 
     public int getUserId() { return this.userId; }
     public void setUserId(int userId) { this.userId = userId; }
@@ -55,4 +64,19 @@ public class User implements Cloneable
         user.registDate = (Date) this.registDate.clone();
         return user;
     }
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() 
+	{
+		return roleManager.getRoleSet(rights);
+	}
+	@Override
+	public String getUsername() { return login;	}
+	@Override
+	public boolean isAccountNonExpired() { return true;	}
+	@Override
+	public boolean isAccountNonLocked() { return true; }
+	@Override
+	public boolean isCredentialsNonExpired() { return true;	}
+	@Override
+	public boolean isEnabled() { return true; }
 }

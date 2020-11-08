@@ -16,14 +16,14 @@ import ru.webforum.model.UserManager;
 @RequestMapping("/users/registration")
 public class RegistrationController 
 {
-	private final UserManager userManager;
-	/*private BCryptPasswordEncoder bCryptPasswordEncoder;*/
+	private UserManager userManager;
+	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
 	@Autowired
-	RegistrationController(UserManager userManager/*, BCryptPasswordEncoder bCryptPasswordEncoder*/)
+	RegistrationController(UserManager userManager, BCryptPasswordEncoder bCryptPasswordEncoder)
 	{
 		this.userManager = userManager;
-		/*this.bCryptPasswordEncoder = bCryptPasswordEncoder;*/
+		this.bCryptPasswordEncoder = bCryptPasswordEncoder;
 	}
 
 	@GetMapping("")
@@ -37,7 +37,7 @@ public class RegistrationController
 	@PostMapping("")
 	public String newUser(@ModelAttribute("user") User user)
 	{
-		/*user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));*/
+		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 		userManager.createUser(user);
 		
 		return "redirect:/forum.do";
