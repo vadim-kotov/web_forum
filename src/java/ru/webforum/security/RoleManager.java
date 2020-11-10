@@ -3,13 +3,13 @@ package ru.webforum.security;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.springframework.stereotype.Component;
+//import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class RoleManager 
 {
-	private Set<Role> roleUser;
-	private Set<Role> roleAdmin;
+	static private Set<Role> roleUser;
+	static private Set<Role> roleAdmin;
 	
 	{
 		roleUser = new HashSet<Role>();
@@ -17,9 +17,14 @@ public class RoleManager
 		
 		roleAdmin = new HashSet<Role>();
 		roleAdmin.add(new Role("ROLE_ADMIN"));
+		
+		for(Role r : roleUser)
+		{
+			System.out.println(r.getAuthority());
+		}
 	}
 	
-	public Set<Role> getRoleSet(boolean rights)
+	static public Set<Role> getRoleSet(boolean rights)
 	{
 		if(rights)
 		{

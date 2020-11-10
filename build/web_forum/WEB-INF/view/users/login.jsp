@@ -12,21 +12,23 @@
 </head>
 <body>
 
-	<%@ include file="/resourcec/header.html" %>
+	<%@ include file="/WEB-INF/view/header.jsp" %>
 
-    <%@ include file="/resources/nav.html" %>
+    <%@ include file="/WEB-INF/view/nav.jsp" %>
 
     <div id="wrapper">
         <div id="second-header">
             <h2>Вход</h2>
         </div>
         <div id="second-wrapper">
-            <form id="log-in" class="third-wrapper" novalidate="true" action="/users/login" method="POST">
-                <input id="log-in-login" class="textinput" type="text" name="login" placeholder="Логин" required="true"/>
+            <form id="log-in" class="third-wrapper" novalidate="true" action="/web_forum/users/login.do" method="POST">
+                <input id="log-in-login" class="textinput" type="text" name="username" placeholder="Логин" required="true"/>
                 <span id="log-in-login-error" class="input-error"></span>
                 <input id="log-in-password" class="textinput" type="password" name="password" placeholder="Пароль" required="true"/>
                 <span id="log-in-password-error" class="input-error"></span>
-
+                
+				<input type="hidden" name="${_csrf.parameterName}"   value="${_csrf.token}" />
+				
                 <div id="log-in-button">
                     <input  class="button" type="submit" value="Вход"/>
                 </div>
@@ -34,7 +36,7 @@
         </div>
     </div>
 
-    <%@ include file="/resources/footer.html" %>
+    <%@ include file="/WEB-INF/view/footer.jsp" %>
 
     <script type="text/javascript">
         var login = document.getElementById("log-in-login");

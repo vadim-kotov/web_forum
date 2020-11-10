@@ -13,22 +13,19 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 public class User implements UserDetails, Cloneable
-{
+{	
     private int userId;
     private String login;
     private String password;
     private Date registDate;
     private boolean rights;
     private String avatar;
-
+    
     Set<Topic> topics = null;
     Set<Message> messages = null;
 
     SortedSet<Banlist> banlist;
     
-    @Autowired
-    private RoleManager roleManager;
-
     public int getUserId() { return this.userId; }
     public void setUserId(int userId) { this.userId = userId; }
 
@@ -67,7 +64,7 @@ public class User implements UserDetails, Cloneable
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() 
 	{
-		return roleManager.getRoleSet(rights);
+		return RoleManager.getRoleSet(this.rights);
 	}
 	@Override
 	public String getUsername() { return login;	}

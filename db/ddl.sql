@@ -11,7 +11,7 @@ CREATE TABLE [User]
 (
 	[user_id] int IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	[login] varchar(50) NOT NULL UNIQUE,						/*check simbols*/
-	[password] varchar(20) NOT NULL CHECK(LEN(password) >= 8),		/*check simbols*/
+	[password] varchar(max) NOT NULL,		/*check simbols*/
 	regist_date datetime2 NOT NULL,							
 	rights bit NOT NULL,										/*0 - user, 1 - moderator*/								
 	avatar varchar(100)

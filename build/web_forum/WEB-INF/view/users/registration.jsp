@@ -13,16 +13,16 @@
 	<link rel="stylesheet" type="text/css" href="<c:url value="/resources/users/registration/styles.css"/>"/>
 </head>
 <body>
-	<%@ include file="/resources/header.html" %>
+	<%@ include file="/WEB-INF/view/header.jsp" %>
 
-    <%@ include file="/resources/nav.html" %>
+    <%@ include file="/WEB-INF/view/nav.jsp" %>
     
     <div id="wrapper">
         <div id="second-header">
             <h2>Регистрация</h2>
         </div>
         <div id="second-wrapper">
-            <form:form id="registration" class="third-wrapper" novalidate="true" action="/users/registration.do" modelAttribute="user" method="POST">
+            <form:form id="registration" class="third-wrapper" novalidate="true" action="/web_forum/users/registration.do" modelAttribute="user" method="POST">
                 <form:input path="login" id="registration-login" class="textinput" type="text" name="login" placeholder="Логин" required="true"/>
                 <span id="registration-login-error" class="input-error"></span>
                 <form:input path="password" id="registration-password" class="textinput" type="password" name="password" placeholder="Пароль" required="true" minlength="8"/>
@@ -37,7 +37,7 @@
         </div>
     </div>
 
-    <%@ include file="/resources/footer.html" %>
+    <%@ include file="/WEB-INF/view/footer.jsp" %>
     
     <script type="text/javascript">
         var login = document.getElementById("registration-login");

@@ -3,6 +3,7 @@ package ru.webforum.security;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -34,14 +35,17 @@ public class ApplicationWebSecurityConfigurerAdapter extends WebSecurityConfigur
 	protected void configure(final HttpSecurity httpSecurity) throws Exception
 	{
 		httpSecurity
-			.csrf().disable()
+			.csrf().and().cors().disable()
 			.authorizeRequests()
-				.antMatchers("/web_forum/users/registration.do").anonymous()
-			.anyRequest().authenticated()
+				/*.antMatchers("/web_forum/users/registration.do").anonymous()*/
+				.antMatchers("/**").permitAll()
+				.antMatchers("/", "/users/login.do").permitAll()
+			.anyRequest().permitAll()
 			.and()
 			.formLogin()
-				.loginPage("/web_forum/users/login.do")
-				.defaultSuccessUrl("/forum.do");
+				.loginPage("/users/login.do")
+				.defaultSuccessUrl("/forum.do")
+				.permitAll();
 	}
 	
 	@Override

@@ -13,9 +13,9 @@
 </head>
 <body>
 
-	<%@ include file="/resources/header.html" %>
+	<%@ include file="/WEB-INF/view/header.jsp" %>
 
-	<%@ include file="/resources/nav.html" %>
+	<%@ include file="/WEB-INF/view/nav.jsp" %>
 
 	<div id="wrapper">	
 		<div id="second-header">
@@ -28,7 +28,7 @@
 		
 	</div>
 
-	<%@ include file="/resources/footer.html" %>
+	<%@ include file="/WEB-INF/view/footer.jsp" %>
 
 </body>
 </html>

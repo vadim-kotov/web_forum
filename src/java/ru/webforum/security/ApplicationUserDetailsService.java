@@ -20,9 +20,9 @@ public class ApplicationUserDetailsService implements UserDetailsService {
 	}
 
 	@Override
-	public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException 
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException 
 	{
-		User user = userManager.getUser(login);
+		User user = userManager.getUser(username);
 		if(user == null)
 		{
 			throw new UsernameNotFoundException("User not found");
