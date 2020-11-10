@@ -183,7 +183,7 @@ body {
     right: 10%;
     top: 0;
 }
-#auth a{
+#auth a, #auth span{
     display: table-cell;
     height: 50px;
     vertical-align: middle;

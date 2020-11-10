@@ -37,14 +37,17 @@ public class ApplicationWebSecurityConfigurerAdapter extends WebSecurityConfigur
 		httpSecurity
 			.csrf().and().cors().disable()
 			.authorizeRequests()
-				/*.antMatchers("/web_forum/users/registration.do").anonymous()*/
-				.antMatchers("/**").permitAll()
-				.antMatchers("/", "/users/login.do").permitAll()
+				.antMatchers("/users/registration.do").anonymous()
 			.anyRequest().permitAll()
 			.and()
 			.formLogin()
 				.loginPage("/users/login.do")
 				.defaultSuccessUrl("/forum.do")
+				.permitAll()
+			.and()
+				.logout()
+				.logoutUrl("/users/logout.do")
+				.logoutSuccessUrl("/forum.do")
 				.permitAll();
 	}
 	
