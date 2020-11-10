@@ -30,10 +30,18 @@
 	
 	<div id="wrapper">
 		<div id="second-header">
-            <h2><c:out value="${section.name}"/></h2>
+            <h2>
+            	<c:out value="${section.name}"/>
+            	
+            </h2>
             <div class="buttons">
                 <ul>
-                    <li><a href="#">Создать тему</a></li>
+                	<sec:authorize access="hasRole('ROLE_ADMIN')">
+                		<li><a href="<c:url value="/forum/${section.sectionId}/new_section.do"/>">Создать раздел</a></li>
+                	</sec:authorize>
+                	<c:if test="${not empty section.sectionId}">
+                    	<li><a href="#">Создать тему</a></li>
+                    </c:if>
                     <li><a href="#">Пользователи</a></li>
                 </ul>
             </div>
