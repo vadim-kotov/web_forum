@@ -1,5 +1,11 @@
 @charset "UTF-8";
 
+#second-header h2 input{
+    vertical-align: top;
+}
+#second-header h2 form {
+    display: inline-block;
+}
 #path{
     margin-left: 5%;
     font-size: 1em;

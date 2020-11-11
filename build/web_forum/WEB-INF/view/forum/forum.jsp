@@ -32,7 +32,10 @@
 		<div id="second-header">
             <h2>
             	<c:out value="${section.name}"/>
-            	
+            	<form action="<c:url value="/forum/${section.sectionId}/delete_section.do"/>" method="POST">
+            		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                    <input type="submit" class="button" method="POST" value="Удалить"/>
+                </form>
             </h2>
             <div class="buttons">
                 <ul>
