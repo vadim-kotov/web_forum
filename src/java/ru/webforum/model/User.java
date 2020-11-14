@@ -1,6 +1,7 @@
 package ru.webforum.model;
 
 import ru.webforum.model.banlist.Banlist;
+import ru.webforum.security.Role;
 import ru.webforum.security.RoleManager;
 
 import java.util.Collection;
@@ -62,7 +63,7 @@ public class User implements UserDetails, Cloneable
         return user;
     }
 	@Override
-	public Collection<? extends GrantedAuthority> getAuthorities() 
+	public Set<Role> getAuthorities() 
 	{
 		return RoleManager.getRoleSet(this.rights);
 	}

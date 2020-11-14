@@ -1,0 +1,21 @@
+#second-wrapper h3{
+    /*padding-top: 10px;*/
+    padding-left: 5%;
+    padding-bottom: 10px;
+}
+#new-section{
+    padding: 30px;
+}
+#new-section .textinput:not(:first-child) {
+    margin-top: 15px;
+}
+#new-section .textinput{
+    width: 100%;
+}
+#new-section textarea{
+    resize: none;
+    height: 100px;
+}
+#new-section-button{
+    margin-top: 20px;
+}

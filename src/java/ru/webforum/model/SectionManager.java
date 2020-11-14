@@ -19,6 +19,9 @@ import java.util.Comparator;
 @Component
 public class SectionManager
 {
+	static private Section rootSection = new Section(null, "Форум", "");
+	static public Section getRootSection() { return rootSection; }
+	
     static public class HierarchySize
     {
         private int sectionNum;

@@ -15,7 +15,7 @@
 			<a href="/web_forum/users/login.do">Вход</a><a href="/web_forum/users/registration.do">Регистрация</a>
 		</sec:authorize>
 		<sec:authorize access="isAuthenticated()">
-			<span>Добро пожаловать, <sec:authentication property="principal.username" htmlEscape="false"/></span><a href="#" onclick="document.getElementById('log-out').submit();">Выход</a>
+			<span>Добро пожаловать, <sec:authentication property="principal.username" htmlEscape="false"/> - <sec:authentication property="principal.authorities"/></span><a href="#" onclick="document.getElementById('log-out').submit();">Выход</a>
 			<form id="log-out" action="<c:url value="/users/logout.do"/>" method="POST">
 			    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 			</form>

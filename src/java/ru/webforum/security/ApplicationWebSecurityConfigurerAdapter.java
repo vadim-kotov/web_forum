@@ -38,7 +38,6 @@ public class ApplicationWebSecurityConfigurerAdapter extends WebSecurityConfigur
 			.csrf().and().cors().disable()
 			.authorizeRequests()
 				.antMatchers("/users/registration.do").anonymous()
-				.antMatchers("/", "/").permitAll()
 			.anyRequest().permitAll()
 			.and()
 			.formLogin()

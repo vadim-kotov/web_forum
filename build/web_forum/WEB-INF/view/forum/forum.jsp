@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
     
 <%@ include file="../includes.jsp" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!-- 
 <% 
 	request.setCharacterEncoding("UTF-8"); 
@@ -32,14 +33,18 @@
 		<div id="second-header">
             <h2>
             	<c:out value="${section.name}"/>
-            	<form action="<c:url value="/forum/${section.sectionId}/delete_section.do"/>" method="POST">
-            		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-                    <input type="submit" class="button" method="POST" value="Удалить"/>
-                </form>
+            	<sec:authorize access="hasAuthority('ROLE_ADMIN')">
+	            	<c:if test="${not empty section.sectionId}">
+		            	<form action="<c:url value="/forum/${section.sectionId}/delete_section.do"/>" method="POST">
+		            		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+		                    <input type="submit" class="button" method="POST" value="Удалить"/>
+		                </form>
+		        	</c:if>
+	        	</sec:authorize>
             </h2>
             <div class="buttons">
                 <ul>
-                	<sec:authorize access="hasRole('ROLE_ADMIN')">
+                	<sec:authorize access="hasAuthority('ROLE_ADMIN')">
                 		<li><a href="<c:url value="/forum/${section.sectionId}/new_section.do"/>">Создать раздел</a></li>
                 	</sec:authorize>
                 	<c:if test="${not empty section.sectionId}">
@@ -51,10 +56,10 @@
         </div>
         <c:if test="${not empty path}">
 	        <div id="path">
-	        	<c:if test="${not empty upsection}">
+	        	<c:if test="${not empty upsection.sectionId}">
 	            	<a href="<c:url value="/forum/${upsection.sectionId}.do"/>"><img id="path-up" class="string-img" src="<c:url value="/resources/forum/up.png"/>" alt="go up"/></a>
 	            </c:if>
-	            <c:if test="${empty upsection}">
+	            <c:if test="${empty upsection.sectionId}">
 	            	<a href="<c:url value="/forum.do"/>"><img id="path-up" class="string-img" src="<c:url value="/resources/forum/up.png"/>" alt="go up"/></a>
 	            </c:if>
 	            <ul>
