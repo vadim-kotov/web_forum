@@ -11,17 +11,12 @@ public class RoleManager
 	static private Set<Role> roleUser;
 	static private Set<Role> roleAdmin;
 	
-	{
+	static {
 		roleUser = new HashSet<Role>();
 		roleUser.add(new Role("ROLE_USER"));
 		
 		roleAdmin = new HashSet<Role>();
-		roleAdmin.add(new Role("ROLE_ADMIN"));
-		
-		for(Role r : roleUser)
-		{
-			System.out.println(r.getAuthority());
-		}
+		roleAdmin.add(new Role("ROLE_ADMIN"));	
 	}
 	
 	static public Set<Role> getRoleSet(boolean rights)

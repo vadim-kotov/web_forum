@@ -64,8 +64,8 @@ public class User implements UserDetails, Cloneable
     }
 	@Override
 	public Set<Role> getAuthorities() 
-	{
-		return RoleManager.getRoleSet(this.rights);
+	{		
+	    return RoleManager.getRoleSet(this.rights);
 	}
 	@Override
 	public String getUsername() { return login;	}

@@ -1,0 +1,14 @@
+#second-wrapper h3{
+    /*padding-top: 10px;*/
+    padding-left: 5%;
+    padding-bottom: 10px;
+}
+#new-topic{
+    padding: 30px;
+}
+#new-topic .textinput{
+    width: 100%;
+}
+#new-topic-button{
+    margin-top: 20px;
+}

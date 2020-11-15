@@ -588,7 +588,7 @@ public class SectionManagerTest extends TestCase
         }
         assertTrue(exFlag);
     }
-
+/*
     public void testCreateTopic()
     {
         String header = "message_header";
@@ -695,7 +695,7 @@ public class SectionManagerTest extends TestCase
 
         session.getTransaction().commit();
     }
-
+*/
     public void testDeleteTopics()
     {
         Session session = HibernateUtil.getSessionFactory()

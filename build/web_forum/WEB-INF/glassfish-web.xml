@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glassfish-web-app>
+<glassfish-web-app>
+    <jsp-config>
+    </jsp-config>
+    <parameter-encoding default-charset="UTF-8" />
+</glassfish-web-app>

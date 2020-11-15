@@ -8,7 +8,13 @@
 
         <!-- Database connection settings -->
         <property name="connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
-		<property name="connection.url">jdbc:sqlserver://localhost:49165;databaseName=web_forum</property>
+        <property name="connection.url">jdbc:sqlserver://localhost:49165;databaseName=web_forum</property>
+       	<!-- 
+		<property name="connection.url">jdbc:sqlserver://localhost:49165;databaseName=web_forum;useUnicode=true;characterEncoding=UTF-8</property>
+		<property name="connection.CharSet">utf8</property>
+		<property name="connection.characterEncoding">utf8</property>
+		<property name="connection.useUnicode">true</property>
+		-->
 		<property name="connection.username">sa</property>
 		<property name="connection.password">sa</property>
 

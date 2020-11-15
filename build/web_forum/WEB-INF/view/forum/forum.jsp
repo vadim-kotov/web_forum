@@ -33,7 +33,7 @@
 		<div id="second-header">
             <h2>
             	<c:out value="${section.name}"/>
-            	<sec:authorize access="hasAuthority('ROLE_ADMIN')">
+            	<sec:authorize access="hasRole('ADMIN')">
 	            	<c:if test="${not empty section.sectionId}">
 		            	<form action="<c:url value="/forum/${section.sectionId}/delete_section.do"/>" method="POST">
 		            		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
@@ -44,12 +44,20 @@
             </h2>
             <div class="buttons">
                 <ul>
-                	<sec:authorize access="hasAuthority('ROLE_ADMIN')">
-                		<li><a href="<c:url value="/forum/${section.sectionId}/new_section.do"/>">Создать раздел</a></li>
+                	<sec:authorize access="hasRole('ADMIN')">
+                		<c:if test="${empty section.sectionId}">
+           					<c:set var="newSectionButton" value="/forum/new_section.do"/> 
+				        </c:if> 
+				        <c:if test="${not empty section.sectionId}">
+				            <c:set var="newSectionButton" value="/forum/${section.sectionId}/new_section.do"/>
+				        </c:if>
+                		<li><a href="<c:url value="${newSectionButton}"/>">Создать раздел</a></li>
                 	</sec:authorize>
-                	<c:if test="${not empty section.sectionId}">
-                    	<li><a href="#">Создать тему</a></li>
-                    </c:if>
+                	<sec:authorize access="isAuthenticated()">
+						<c:if test="${not empty section.sectionId}">
+							<li><a href="<c:url value="/forum/${section.sectionId}/new_topic.do"/>">Создать тему</a></li>
+						</c:if>
+					</sec:authorize>
                     <li><a href="#">Пользователи</a></li>
                 </ul>
             </div>
@@ -122,17 +130,6 @@
 		                            </td>
 		                        </tr>
 	                        </c:forEach>
-	                        <tr>
-	                            <td class="top-header"><a class="top-table-img" href="#"><img src="<c:out value="/web_forum/resources/forum/avatar.png"/>" alt="avatar"></a>
-	                                <div class="div-pre-wrap"><a class="second-line" href="#">В Вашем доме скоро появится котёнок мейн кун!</a></div>
-	                                <div class="div-nowrap"><a class="first-line" href="#">КуноПаПа</a><time class="second-line" datetime="2009-04-28T14:41">28.04.2009 14:41</time></div></td>
-	                            <td class="top-user-num"><div class="top-text"><a class="first-line" href="#">10</a><br><span class="second-line">Участники</span></div></td>
-	                            <td class="top-mes-num"><div class="top-text"><span class="first-line">30</span><br><span class="second-line">Ответы</span></div></td>
-	                            <td class="top-last-mes clearfix"><a class="top-table-img" href="#"><img src="<c:out value="/web_forum/resources/forum/avatar.png"/>" alt="avatar"></a>
-	                                <div class="div-pre-wrap"><a class="second-line">Сам по себе форум - не гарантия качества котят которых предлагают к продаже участники форума и питомники зарегистрированные на форуме.</a></div>
-	                                <div class="div-nowrap"><a class="first-line" href="#">КуноПапа</a><time class="second-line" datetime="2012-09-11T19:42">2012.09.11 19:42</time></div>
-	                            </td>
-	                        </tr>
 	                    </tbody>
 	                </table>
 	            </div>

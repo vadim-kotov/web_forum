@@ -1,5 +1,6 @@
 package ru.webforum.controller;
 
+import java.security.Principal;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -18,8 +19,10 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import ru.webforum.model.Section;
 import ru.webforum.model.SectionManager;
 import ru.webforum.model.User;
+import ru.webforum.model.UserManager;
 import ru.webforum.model.SectionManager.ForumSection;
 import ru.webforum.model.SectionManager.ForumTopic;
+import ru.webforum.model.Topic;
 import ru.webforum.util.ControllerError;
 
 @Controller
@@ -28,11 +31,13 @@ import ru.webforum.util.ControllerError;
 public class ForumController 
 {
 	private final SectionManager sectionManager;
+	private final UserManager userManager;
 	
 	@Autowired
-	ForumController(SectionManager sectionManager)
+	ForumController(SectionManager sectionManager, UserManager userManager)
 	{
 		this.sectionManager = sectionManager;
+		this.userManager = userManager;
 	}
 	
 	@GetMapping("/{sectionId}")
@@ -163,6 +168,36 @@ public class ForumController
 	public String newSection(@PathVariable("sectionId") Integer sectionId, @ModelAttribute("newSection") Section newSection)
 	{
 		sectionManager.createSection(newSection, sectionId);
+
+		return "redirect:/forum/" + sectionId + ".do";
+	}
+
+	@GetMapping("/{sectionId}/new_topic.do")
+	public String newTopicPage(@PathVariable("sectionId") Integer sectionId, Model model)
+	{
+		Section section = sectionManager.getSection(sectionId);
+		if(section == null)
+		{
+			ControllerError error = new ControllerError("Невозможно создать тему в несуществующем разделе");
+			model.addAttribute("error", error);
+				
+			return "error/queryError";
+		}
+		model.addAttribute("section", section);
+		
+		model.addAttribute("newTopic", new Topic());
+		
+		return "forum/newTopic";
+	}
+
+	@PostMapping("/{sectionId}/new_topic.do")
+	public String newTopic(@PathVariable("sectionId") Integer sectionId, @ModelAttribute("newTopic") Topic newTopic, Principal principal)
+	{
+		User creator = userManager.getUser(principal.getName());
+		newTopic.setCreator(creator);
+		Section section = sectionManager.getSection(sectionId);
+		newTopic.setSection(section);
+		sectionManager.createTopic(newTopic);
 
 		return "redirect:/forum/" + sectionId + ".do";
 	}

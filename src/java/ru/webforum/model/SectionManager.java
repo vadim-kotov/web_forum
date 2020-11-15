@@ -708,6 +708,7 @@ public class SectionManager
 
         try
         {
+        	topic.setDate(new Date());
             session.save(topic);
             session.getTransaction().commit();
         }
