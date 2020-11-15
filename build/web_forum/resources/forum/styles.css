@@ -6,39 +6,6 @@
 #second-header h2 form {
     display: inline-block;
 }
-#path{
-    margin-left: 5%;
-    font-size: 1em;
-    height: 2em;
-}
-#path *{
-    vertical-align: middle;
-}
-#path-up{
-    width: 2em;
-}
-#path-next{
-    width: 1em;
-}
-#path ul, #path li{
-    display: inline;
-    list-style-type: none;
-}
-#path ul a{
-    color: #444;
-}
-#path li:last-child a{
-    color: #999;
-}
-#path ul a:hover{
-    text-decoration: underline;
-}
-
-.tools{
-    background-color: #444;
-    height: 1.5em;
-    margin-bottom: 1.5em;
-}
 
 .sections-table{
     table-layout: fixed;
@@ -73,15 +40,7 @@ table{
 .sections-table a:hover{
     text-decoration: underline;
 }
-.first-line{
-    font-size: .85em;
-    font-weight: bold;
-    color: #fff;
-}
-.second-line{
-    font-size: .85em;
-    color: #ccc;
-}
+
 .sec-header{
     width: 50%;
 }

@@ -1,0 +1,48 @@
+#topic-info {
+    margin-left: 10%;
+    font-size: .85em;
+}
+#topic-info a {
+    color: #555;
+    font-weight: bold;
+}
+#topic-info a:after {
+    content: " - "
+}
+#topic-info {
+    color: #888;
+}
+
+tr {
+    outline: 1px solid #222;
+}
+table#second-wrapper {
+    padding-top: 0;
+    padding-bottom: 0;
+    border-collapse: separate;
+    border-spacing: 0 20px;
+}
+.mes-user-info {
+    border-right: 1px solid #888;
+    padding: 10px;
+}
+.login-time {
+    padding: 10px 10px 0 10px;
+}
+.mes-user-info {
+    text-align: center;
+}
+.mes-table-img img {
+    width: 150px;
+}
+
+.mes-body {
+    vertical-align: top;
+}
+.mes-header {
+    border-bottom: 1px solid #888;
+    padding: 10px 20px;
+}
+.mes-text {
+    padding: 10px 20px;
+}

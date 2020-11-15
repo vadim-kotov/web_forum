@@ -69,7 +69,49 @@ body {
     padding-top: 3em;
     padding-bottom: 2em;
 }
+.first-line{
+    font-size: .85em;
+    font-weight: bold;
+    color: #fff;
+}
+.second-line{
+    font-size: .85em;
+    color: #ccc;
+}
 
+#path{
+    margin-left: 5%;
+    font-size: 1em;
+    height: 2em;
+}
+#path *{
+    vertical-align: middle;
+}
+#path-up{
+    width: 2em;
+}
+#path-next{
+    width: 1em;
+}
+#path ul, #path li{
+    display: inline;
+    list-style-type: none;
+}
+#path ul a{
+    color: #444;
+}
+#path li:last-child a{
+    color: #999;
+}
+#path ul a:hover{
+    text-decoration: underline;
+}
+
+.tools{
+    background-color: #444;
+    height: 1.5em;
+    margin-bottom: 1.5em;
+}
 
 .string-img{
     width: 1.4em;
