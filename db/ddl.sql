@@ -337,6 +337,8 @@ INSERT [User]([user_id], [login], [password], regist_date, rights, avatar) VALUE
 INSERT [User]([user_id], [login], [password], regist_date, rights, avatar) VALUES (14, '!Tatyana!', '12345678', convert(datetime, '2015-09-04 15:22', 102), 0, 'http://web-forum.ru/avatars/025836.jpg')
 INSERT [User]([user_id], [login], [password], regist_date, rights, avatar) VALUES (15, '$vetik', '12345678', convert(datetime, '2013-02-28 21:20', 102), 0, 'http://web-forum.ru/avatars/789456.jpg')
 INSERT [User]([user_id], [login], [password], regist_date, rights, avatar) VALUES (16, 'Luna', '12345678', convert(datetime, '2013-07-27 19:03', 102), 0, 'http://web-forum.ru/avatars/326553.jpg')
+INSERT [User]([user_id], [login], [password], regist_date, rights, avatar) VALUES (17, 'test_admin', '$2a$10$4eC6ga4ovQINGE6/l9Vs5urWLabwy9wurg6E6erkFA7udXA4P9DOi', convert(datetime, '2013-07-27 19:03', 102), 1, 'http://web-forum.ru/avatars/326553.jpg')
+INSERT [User]([user_id], [login], [password], regist_date, rights, avatar) VALUES (18, 'test_user', '$2a$10$blUoPmiQJBbTwGd9l2MUVutsf3wyJ3NugFa7IOXzznKMiwN2uqZC.', convert(datetime, '2013-07-27 19:03', 102), 0, 'http://web-forum.ru/avatars/326553.jpg')
 SET IDENTITY_INSERT [User] OFF
 GO
 

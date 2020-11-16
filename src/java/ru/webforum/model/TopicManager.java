@@ -400,4 +400,21 @@ public class TopicManager
             throw e;
         }
     }
+    
+    public void deleteMessage(int messageId)
+    {
+    	Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+        
+        try
+        {
+            session.delete(session.load(Message.class, new Integer(messageId)));
+            session.getTransaction().commit();
+        }
+        catch(HibernateException e)
+        {
+            session.getTransaction().rollback();
+            throw e;
+        }
+    }
 }

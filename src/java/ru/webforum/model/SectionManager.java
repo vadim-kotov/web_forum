@@ -329,6 +329,23 @@ public class SectionManager
             throw e;
         }
     }
+    
+    public void deleteTopic(int topicId)
+    {
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+
+        try
+        {
+            session.delete(session.load(Topic.class, new Integer(topicId)));
+            session.getTransaction().commit();
+        }
+        catch(HibernateException e)
+        {
+            session.getTransaction().rollback();
+            throw e;
+        }
+    }
 
     /* changes name or/and description if they are not both equal null,
         otherwise throws IllegalArgumentException.

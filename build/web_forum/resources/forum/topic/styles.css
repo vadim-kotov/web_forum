@@ -40,8 +40,14 @@ table#second-wrapper {
     vertical-align: top;
 }
 .mes-header {
+    position: relative;
     border-bottom: 1px solid #888;
     padding: 10px 20px;
+}
+.mes-header form {
+    position: absolute;
+    right: 5%;
+    bottom: 5px;
 }
 .mes-text {
     padding: 10px 20px;

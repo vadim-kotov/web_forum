@@ -2,12 +2,15 @@ package ru.webforum.controller;
 
 import java.util.List;
 
+import org.hibernate.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import ru.webforum.model.Section;
 import ru.webforum.model.SectionManager;
@@ -62,4 +65,48 @@ public class TopicController
 		return "forum/topic/topic";
 	}
 
+	@PostMapping("/{sectionId}/topic_{topicId}/delete_topic.do")
+	public String deleteTopic(@PathVariable("sectionId") Integer sectionId, @PathVariable("topicId") Integer topicId, Model model)
+	{
+		if(topicId == null)
+		{
+			ControllerError error = new ControllerError("Невозможно удалить несуществующую тему");
+			model.addAttribute("error", error);
+			
+			return "error/queryError";
+		}
+		
+		try
+		{
+			sectionManager.deleteTopic(topicId);
+		}
+		catch(ObjectNotFoundException e)
+		{
+			ControllerError error = new ControllerError("Невозможно удалить несуществующую тему");
+			model.addAttribute("error", error);
+			
+			return "error/queryError";
+		}
+		
+		Section section = sectionManager.getSection(sectionId);
+		return "redirect:/forum/" + section.getSectionId() + ".do";
+	}
+	
+	@PostMapping("/{sectionId}/topic_{topicId}/delete_message.do")
+	public String deleteMessage(@PathVariable("sectionId") Integer sectionId, @PathVariable("topicId") Integer topicId, @RequestParam("messageId") Integer messageId, Model model)
+	{
+		try
+		{
+			topicManager.deleteMessage(messageId);
+		}
+		catch(ObjectNotFoundException e)
+		{
+			ControllerError error = new ControllerError("Невозможно удалить несуществующее сообщение");
+			model.addAttribute("error", error);
+			
+			return "error/queryError";
+		}
+		
+		return "redirect:/forum/" + sectionId + "/" + "topic_" + topicId + ".do";
+	}
 }

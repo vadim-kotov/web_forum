@@ -57,8 +57,11 @@
                 <table id="second-wrapper">
                     <tbody>
                         <c:forEach var="topicMessage" items="${topicMessages}">
+                        	
                             <tr class="third-wrapper">
+                            	
                                 <td class="mes-user-info">
+                                	<a name="<c:out value="message_${topicMessage.message.messageId}"/>"></a>
                                     <a class="mes-table-img" href="#"><img src="<c:url value="/resources/forum/avatar.png"/>" alt="avatar"></a>
                                     <div class="login-time">
                                         <a class="first-line" href="#"><c:out value="${topicMessage.message.author.login}"/></a><br/>
@@ -67,7 +70,19 @@
                                 </td>
                                 <td class="mes-body">
                                     <div class="mes-header">
-                                        <span class="first-line"><c:out value="${topicMessage.message.header}"/></span>
+                                    	<c:if test="${not empty topicMessage.message.header}">
+                                        	<span class="first-line"><c:out value="${topicMessage.message.header}"/></span>
+                                        </c:if>
+                                        <c:if test="${empty topicMessage.message.header}">
+                                        	<span class="first-line"> </span>
+                                        </c:if>
+                                        <sec:authorize access="hasRole('ADMIN')">
+                                        	<form method="POST" action="<c:url value="/forum/${section.sectionId}/topic_${topic.topicId}/delete_message.do"/>">
+                                        		<input type="hidden" name="messageId" value="${topicMessage.message.messageId}"/>
+                                        		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                                        		<input type="submit" class="button" value="Удалить"/>
+                                        	</form>
+                                        </sec:authorize>
                                     </div>
                                     <div class="mes-text">
                                         <span class="second-line">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
