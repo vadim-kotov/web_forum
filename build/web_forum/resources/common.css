@@ -69,6 +69,12 @@ body {
     padding-top: 3em;
     padding-bottom: 2em;
 }
+#second-header h2 input{
+    vertical-align: top;
+}
+#second-header h2 form {
+    display: inline-block;
+}
 .first-line{
     font-size: .85em;
     font-weight: bold;

@@ -119,8 +119,8 @@
 	                    <tbody>
 	                    	<c:forEach var="subTopic" items="${subTopics}">
 		                        <tr>
-		                            <td class="top-header clearfix"><a class="top-table-img" href="#"><img src="<c:url value="/resources/forum/avatar.png"/>" alt="avatar"></a>
-		                                <div class="div-pre-wrap"><a class="second-line" href="#"><c:out value="${subTopic.topic.name}"/></a></div>
+		                            <td class="top-header clearfix"><a class="top-table-img" href="<c:url value="/forum/${section.sectionId}/topic_${subTopic.topic.topicId}.do"/>"><img src="<c:url value="/resources/forum/avatar.png"/>" alt="avatar"></a>
+		                                <div class="div-pre-wrap"><a class="second-line" href="<c:url value="/forum/${section.sectionId}/topic_${subTopic.topic.topicId}.do"/>"><c:out value="${subTopic.topic.name}"/></a></div>
 		                                <div class="div-nowrap"><a class="first-line" href="#"><c:out value="${subTopic.topic.creator.login}"/></a><time class="second-line" datetime=""><c:out value="${subTopic.topic.date}"/></time></div></td>
 		                            <td class="top-user-num"><div class="top-text"><a class="first-line" href="#"><c:out value="${subTopic.userNum}"/></a><br><span class="second-line">Участники</span></div></td>
 		                            <td class="top-mes-num"><div class="top-text"><span class="first-line"><c:out value="${subTopic.messageNum}"/></span><br><span class="second-line">Ответы</span></div></td>

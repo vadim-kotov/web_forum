@@ -3,15 +3,19 @@ package ru.webforum.model;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.type.IntegerType;
+import org.springframework.stereotype.Component;
+
 import ru.webforum.util.HibernateUtil;
 
 import org.hibernate.criterion.*;
 import org.hibernate.transform.Transformers;
 import org.hibernate.Criteria;
+import org.hibernate.FetchMode;
 
 import java.util.List;
 import java.util.ArrayList;
 
+@Component
 public class TopicManager
 {
     static public class TopicMessage
@@ -179,7 +183,14 @@ public class TopicManager
         Topic topic = null;
         try
         {
+        	topic = (Topic) session.createCriteria(Topic.class)
+        		.add(Restrictions.eq("topicId", new Integer(topicId)))
+        		.setFetchMode("creator", FetchMode.EAGER)
+        		.uniqueResult();	
+        	/*
             topic = session.get(Topic.class, new Integer(topicId));
+            */
+        	
             session.getTransaction().commit();
         }
         catch(HibernateException e)

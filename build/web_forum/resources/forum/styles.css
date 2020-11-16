@@ -1,12 +1,5 @@
 @charset "UTF-8";
 
-#second-header h2 input{
-    vertical-align: top;
-}
-#second-header h2 form {
-    display: inline-block;
-}
-
 .sections-table{
     table-layout: fixed;
     width: 100%;
