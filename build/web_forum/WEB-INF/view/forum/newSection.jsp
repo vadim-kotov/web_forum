@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <head>
     <meta charset="utf-8"/>
-    <title>Log in</title>
+    <title>Новый раздел</title>
     <link rel="stylesheet" type="text/css" href="<c:url value="/resources/common.css"/>"/>
     <link rel="stylesheet" type="text/css" href="<c:url value="/resources/forum/new_section/styles.css"/>"/>
 </head>

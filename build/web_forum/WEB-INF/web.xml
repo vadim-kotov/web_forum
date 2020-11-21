@@ -12,23 +12,38 @@
 	<servlet>
         <servlet-name>dispatcher</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-        <init-param>
+		<init-param>
             <param-name>contextConfigLocation</param-name>
             <param-value>/WEB-INF/application-context.xml</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
+        <multipart-config>
+        	<location>/tmp</location>
+		    <max-file-size>20848820</max-file-size>
+		    <max-request-size>418018841</max-request-size>
+		    <file-size-threshold>20848820</file-size-threshold>
+		</multipart-config>
+	
     </servlet>
 
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
-        <url-pattern>*.do</url-pattern>
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
     
+    <filter>
+    	<filter-name>MultipartFilter</filter-name>
+    	<filter-class>org.springframework.web.multipart.support.MultipartFilter</filter-class>
+	</filter>
     <filter>
     	<filter-name>springSecurityFilterChain</filter-name>
     	<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
 	</filter>
-
+	
+	<filter-mapping>
+	    <filter-name>MultipartFilter</filter-name>
+	    <url-pattern>/*</url-pattern>
+	</filter-mapping>
 	<filter-mapping>
 	    <filter-name>springSecurityFilterChain</filter-name>
 	    <url-pattern>/*</url-pattern>

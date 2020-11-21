@@ -186,6 +186,7 @@ public class TopicManager
         	topic = (Topic) session.createCriteria(Topic.class)
         		.add(Restrictions.eq("topicId", new Integer(topicId)))
         		.setFetchMode("creator", FetchMode.EAGER)
+                .setFetchMode("section", FetchMode.EAGER)
         		.uniqueResult();	
         	/*
             topic = session.get(Topic.class, new Integer(topicId));

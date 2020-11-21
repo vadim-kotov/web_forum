@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <base href="../../../../build/web_forum/resources/" />
+    <title>Web Forum</title>
+    <link class="prototype" rel="stylesheet" type="text/css" href="forum/topic/new_message/styles.css"/>
+    <link class="prototype" rel="stylesheet" type="text/css" href="common.css"/>
+</head>
+<body>
+    <div id="header">
+        <h1>Форум о Мэйн-Кунах</h1>        
+    </div>
+    <div id="nav">
+        <ul>
+            <li><a href="#">Форум</a></li
+            ><li><a href="#">Пользователи</a></li
+            ><li><a href="#">Личный кабинет</a></li>
+        </ul>
+        <div id="auth">
+            <a href="#">Вход</a><a href="#">Регистрация</a>
+        </div>
+    </div>
+    <div id="wrapper">
+        <div id="second-header">
+            <h2>Название темы</h2>
+        </div>
+        <div id="main">
+            <div id="second-wrapper">
+                <h3>Сообщение</h3>
+                <form id="new-message" class="third-wrapper" novalidate="true" method="POST" enctype="multipart/form-data">
+                    <input id="new-message-header" class="textinput" type="text" name="header" placeholder="Заголовок сообщения"><br/>
+                    <textarea id="new-message-text" class="textinput" name="text" placeholder="Текст сообщения"></textarea>
+                    <span id="new-message-text-error" class="input-error"></span>
+                    <input id="new-message-file" type="file" />
+
+                    <div id="new-message-button">
+                        <input class="button" type="submit" value="Опубликовать">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+
+    </div>
+    <script type="text/javascript">
+        var messageText = document.getElementById("new-message-text");
+        var messageTextError = document.getElementById("new-message-text-error");
+
+        messageText.addEventListener("focus", function(event) {
+            messageTextError.innerHTML = "";
+            messageText.className = "textinput";
+        } );
+
+        messageText.addEventListener("blur", function(event) {
+            if(!messageText.value) {
+                messageTextError.innerHTML = "заполните это поле";
+                messageText.className = "textinput textinput-error";
+            }
+        } );
+
+        var form = document.getElementById("new-message");
+        form.addEventListener("submit", function(event) {
+            if(!messageText.value) {
+                messageTextError.innerHTML = "заполните это поле";
+                messageText.className = "textinput textinput-error";
+                
+                event.preventDefault();
+            }
+        } );
+    </script>
+</body>

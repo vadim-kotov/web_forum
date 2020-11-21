@@ -1,0 +1,20 @@
+#avatar{
+    float: left;
+}
+#avatar {
+    margin-right: 20px;
+}
+#avatar img {
+    width: 150px;
+}
+
+.third-wrapper {
+    padding: 20px;
+}
+#info {
+    margin-left: 170px;
+    vertical-align: top;
+}
+#login {
+    margin-bottom: 0.85em;
+}

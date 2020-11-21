@@ -10,6 +10,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import ru.webforum.service.ApplicationUserDetailsService;
+
 @Configuration
 @EnableWebSecurity
 public class ApplicationWebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter 
@@ -40,7 +42,8 @@ public class ApplicationWebSecurityConfigurerAdapter extends WebSecurityConfigur
 				.antMatchers("/users/registration.do").anonymous()
 				.antMatchers("/users/login.do").anonymous()
 				.antMatchers("/forum/*/new_section.do").hasRole("ADMIN")
-				.antMatchers("/forum/*/new_topic.do").authenticated()
+				//.antMatchers("/forum/*/new_topic.do").authenticated()
+				.antMatchers("/forum/*/topic_*/new_message.do").authenticated()
 			.anyRequest().permitAll()
 			.and()
 			.formLogin()

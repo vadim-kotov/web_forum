@@ -13,8 +13,6 @@
 	
 	<context:component-scan base-package="ru.webforum"/>
 
-    <mvc:annotation-driven/>
-    
     <bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
@@ -22,6 +20,21 @@
 		<property name="suffix" value=".jsp"/>
 	</bean>
 	
+<!-- 
+	<bean id="filterMultipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="100000000"/>
+	</bean>
+-->
+
 	<mvc:view-controller path="/users/login.do" view-name="users/login"/>
-    
+	
+	<context:property-placeholder location="/WEB-INF/application.properties"/>
+
+	
+
+	<mvc:resources mapping="/img/**" location="file:///f:/MSU/prac2019spring/eclipse_workspace/web_forum/uploads/"/>
+	<mvc:resources mapping="/resources/**" location="/resources/"/>
+
+	<mvc:annotation-driven />
+
 </beans>

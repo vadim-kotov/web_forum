@@ -1,0 +1,23 @@
+#second-wrapper h3 {
+    padding-left: 5%;
+    padding-bottom: 10px;
+}
+#new-message {
+    padding: 30px;
+}
+#new-message .textinput:not(:first-child) {
+    margin-top: 15px;
+}
+#new-message .textinput {
+    width: 100%;
+}
+#new-message textarea {
+    resize: none;
+    height: 200px;
+}
+#new-message-file {
+    margin-top: 15px;
+}
+#new-message-button{
+    margin-top: 20px;
+}
