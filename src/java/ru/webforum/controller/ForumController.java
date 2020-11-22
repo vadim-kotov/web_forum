@@ -68,6 +68,14 @@ public class ForumController
 		model.addAttribute("upsection", upsection);
 		
 		List<ForumSection> sectionsList = sectionManager.getForumSectionList(id);
+		for(ForumSection fs : sectionsList)
+		{
+			if(fs.getLastMessage() != null)
+			{
+				Topic lastMesTopic = fs.getLastMessage().getTopic(); 
+				lastMesTopic.setSection(sectionManager.getTopicsSection(lastMesTopic.getTopicId()));
+			}
+		}
 		model.addAttribute("subSects", sectionsList);
 		
 		List<ForumTopic> topicsList = sectionManager.getForumTopicList(id);
@@ -83,6 +91,14 @@ public class ForumController
 		model.addAttribute("section", section);
 		
 		List<ForumSection> sectionsList = sectionManager.getForumSectionList(null);
+		for(ForumSection fs : sectionsList)
+		{
+			if(fs.getLastMessage() != null)
+			{
+				Topic lastMesTopic = fs.getLastMessage().getTopic(); 
+				lastMesTopic.setSection(sectionManager.getTopicsSection(lastMesTopic.getTopicId()));
+			}
+		}
 		model.addAttribute("subSects", sectionsList);
 		
 		model.addAttribute("path", null);

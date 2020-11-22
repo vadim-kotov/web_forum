@@ -39,7 +39,7 @@
             </div>
         </div>
         <div id="topic-info">
-            <a href="#"><c:out value="${topic.creator.login}"/></a><time datetime=""><c:out value="${topic.date}"/></time>
+            <a href="<c:url value="/users/user_${topic.creator.userId}.do"/>"><c:out value="${topic.creator.login}"/></a><time datetime=""><c:out value="${topic.date}"/></time>
         </div>
 	    <div id="path">
 	        <a href="<c:url value="/forum/${section.sectionId}.do"/>"><img id="path-up" class="string-img" src="<c:url value="/resources/forum/up.png"/>" alt="go up"/></a>
@@ -62,9 +62,9 @@
                             	<c:set var="objects" value="${topicMessage.message.messageObjects}"/>
                                 <td class="mes-user-info">
                                 	<a name="<c:out value="message_${topicMessage.message.messageId}"/>"></a>
-                                    <a class="mes-table-img" href="#"><img src="<c:url value="/resources/forum/avatar.png"/>" alt="avatar"></a>
+                                    <a class="mes-table-img" href="<c:url value="/users/user_${topicMessage.message.author.userId}.do"/>"><img src="<c:url value="/img/${topicMessage.message.author.avatar}"/>" alt="avatar"></a>
                                     <div class="login-time">
-                                        <a class="first-line" href="#"><c:out value="${topicMessage.message.author.login}"/></a><br/>
+                                        <a class="first-line" href="<c:url value="/users/user_${topicMessage.message.author.userId}.do"/>"><c:out value="${topicMessage.message.author.login}"/></a><br/>
                                         <time class="second-line" datetime=""><c:out value="${topicMessage.message.date}"/></time>
                                     </div>
                                 </td>

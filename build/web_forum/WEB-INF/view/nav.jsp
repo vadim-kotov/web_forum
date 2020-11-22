@@ -6,9 +6,9 @@
 
 <div id="nav">
 	<ul>
-		<li><a href="/web_forum/forum.do">Форум</a></li
+		<li><a href="<c:url value="/forum.do"/>">Форум</a></li
 		><li><a href="#">Пользователи</a></li
-		><li><a href="#">Личный кабинет</a></li>
+		><li><a href="<c:url value="/users/account.do"/>">Личный кабинет</a></li>
 	</ul>
 	<div id="auth">
 		<sec:authorize access="!isAuthenticated()">

@@ -321,24 +321,24 @@ DELETE FROM [User];
 GO
 
 SET IDENTITY_INSERT [User] ON
-INSERT [User]([user_id], [login], [password], regist_date, rights, avatar) VALUES (1, 'KunoPaPa', '12345678', convert(datetime, '2007-10-01 00:00', 102), 0, 'http://web-forum.ru/avatars/818173.jpg')
-INSERT [User]([user_id], [login], [password], regist_date, rights, avatar) VALUES (2, 'Kisye Mamko', '12345678', convert(datetime, '2006-05-23 14:15', 102), 0, 'http://web-forum.ru/avatars/123456.jpg')
-INSERT [User]([user_id], [login], [password], regist_date, rights, avatar) VALUES (3, 'alina13160', '12345678', convert(datetime, '2007-11-13 13:14', 102), 0, 'http://web-forum.ru/avatars/784332.jpg')
-INSERT [User]([user_id], [login], [password], regist_date, rights, avatar) VALUES (4, 'whisky70', '12345678', convert(datetime, '2007-03-02 22:15', 102), 0, 'http://web-forum.ru/avatars/023473.jpg')
-INSERT [User]([user_id], [login], [password], regist_date, rights, avatar) VALUES (5, 'MamaYana', '12345678', convert(datetime, '2007-05-09 17:40', 102), 0, 'http://web-forum.ru/avatars/456872.jpg')
-INSERT [User]([user_id], [login], [password], regist_date, rights, avatar) VALUES (6, 'diesel_rus', '12345678', convert(datetime, '2007-06-25 18:16', 102), 0, 'http://web-forum.ru/avatars/321058.jpg')
-INSERT [User]([user_id], [login], [password], regist_date, rights, avatar) VALUES (7, 'Monterini', '12345678', convert(datetime, '2007-06-15 04:00', 102), 0, 'http://web-forum.ru/avatars/021648.jpg')
-INSERT [User]([user_id], [login], [password], regist_date, rights, avatar) VALUES (8, 'Gautz', '12345678', convert(datetime, '2007-04-14 17:42', 102), 0, 'http://web-forum.ru/avatars/540670.jpg')
-INSERT [User]([user_id], [login], [password], regist_date, rights, avatar) VALUES (9, 'Busena', '12345678', convert(datetime, '2006-02-01 22:25', 102), 0, 'http://web-forum.ru/avatars/011021.jpg')
-INSERT [User]([user_id], [login], [password], regist_date, rights, avatar) VALUES (10, 'Yana1298', '12345678', convert(datetime, '2007-06-21 19:30', 102), 0, 'http://web-forum.ru/avatars/348982.jpg')
-INSERT [User]([user_id], [login], [password], regist_date, rights, avatar) VALUES (11, 'Bonita', '12345678', convert(datetime, '2007-03-02 15:30', 102), 0, 'http://web-forum.ru/avatars/121687.jpg')
-INSERT [User]([user_id], [login], [password], regist_date, rights, avatar) VALUES (12, 'LEV', '12345678', convert(datetime, '2007-06-13 11:00', 102), 0, 'http://web-forum.ru/avatars/148865.jpg')
-INSERT [User]([user_id], [login], [password], regist_date, rights, avatar) VALUES (13, '!Chp', '12345678', convert(datetime, '2012-04-21 7:00',102), 1, 'http://web-forum.ru/avatars/122854.jpg')
-INSERT [User]([user_id], [login], [password], regist_date, rights, avatar) VALUES (14, '!Tatyana!', '12345678', convert(datetime, '2015-09-04 15:22', 102), 0, 'http://web-forum.ru/avatars/025836.jpg')
-INSERT [User]([user_id], [login], [password], regist_date, rights, avatar) VALUES (15, '$vetik', '12345678', convert(datetime, '2013-02-28 21:20', 102), 0, 'http://web-forum.ru/avatars/789456.jpg')
-INSERT [User]([user_id], [login], [password], regist_date, rights, avatar) VALUES (16, 'Luna', '12345678', convert(datetime, '2013-07-27 19:03', 102), 0, 'http://web-forum.ru/avatars/326553.jpg')
-INSERT [User]([user_id], [login], [password], regist_date, rights, avatar) VALUES (17, 'test_admin', '$2a$10$4eC6ga4ovQINGE6/l9Vs5urWLabwy9wurg6E6erkFA7udXA4P9DOi', convert(datetime, '2013-07-27 19:03', 102), 1, 'http://web-forum.ru/avatars/326553.jpg')
-INSERT [User]([user_id], [login], [password], regist_date, rights, avatar) VALUES (18, 'test_user', '$2a$10$blUoPmiQJBbTwGd9l2MUVutsf3wyJ3NugFa7IOXzznKMiwN2uqZC.', convert(datetime, '2013-07-27 19:03', 102), 0, 'http://web-forum.ru/avatars/326553.jpg')
+INSERT [User]([user_id], [login], [password], regist_date, rights, avatar) VALUES (1, 'KunoPaPa', '12345678', convert(datetime, '2007-10-01 00:00', 102), 0, 'avatar.png')
+INSERT [User]([user_id], [login], [password], regist_date, rights, avatar) VALUES (2, 'Kisye Mamko', '12345678', convert(datetime, '2006-05-23 14:15', 102), 0, 'avatar.png')
+INSERT [User]([user_id], [login], [password], regist_date, rights, avatar) VALUES (3, 'alina13160', '12345678', convert(datetime, '2007-11-13 13:14', 102), 0, 'avatar.png')
+INSERT [User]([user_id], [login], [password], regist_date, rights, avatar) VALUES (4, 'whisky70', '12345678', convert(datetime, '2007-03-02 22:15', 102), 0, 'avatar.png')
+INSERT [User]([user_id], [login], [password], regist_date, rights, avatar) VALUES (5, 'MamaYana', '12345678', convert(datetime, '2007-05-09 17:40', 102), 0, 'avatar.png')
+INSERT [User]([user_id], [login], [password], regist_date, rights, avatar) VALUES (6, 'diesel_rus', '12345678', convert(datetime, '2007-06-25 18:16', 102), 0, 'avatar.png')
+INSERT [User]([user_id], [login], [password], regist_date, rights, avatar) VALUES (7, 'Monterini', '12345678', convert(datetime, '2007-06-15 04:00', 102), 0, 'avatar.png')
+INSERT [User]([user_id], [login], [password], regist_date, rights, avatar) VALUES (8, 'Gautz', '12345678', convert(datetime, '2007-04-14 17:42', 102), 0, 'avatar.png')
+INSERT [User]([user_id], [login], [password], regist_date, rights, avatar) VALUES (9, 'Busena', '12345678', convert(datetime, '2006-02-01 22:25', 102), 0, 'avatar.png')
+INSERT [User]([user_id], [login], [password], regist_date, rights, avatar) VALUES (10, 'Yana1298', '12345678', convert(datetime, '2007-06-21 19:30', 102), 0, 'avatar.png')
+INSERT [User]([user_id], [login], [password], regist_date, rights, avatar) VALUES (11, 'Bonita', '12345678', convert(datetime, '2007-03-02 15:30', 102), 0, 'avatar.png')
+INSERT [User]([user_id], [login], [password], regist_date, rights, avatar) VALUES (12, 'LEV', '12345678', convert(datetime, '2007-06-13 11:00', 102), 0, 'avatar.png')
+INSERT [User]([user_id], [login], [password], regist_date, rights, avatar) VALUES (13, '!Chp', '12345678', convert(datetime, '2012-04-21 7:00',102), 1, 'avatar.png')
+INSERT [User]([user_id], [login], [password], regist_date, rights, avatar) VALUES (14, '!Tatyana!', '12345678', convert(datetime, '2015-09-04 15:22', 102), 0, 'avatar.png')
+INSERT [User]([user_id], [login], [password], regist_date, rights, avatar) VALUES (15, '$vetik', '12345678', convert(datetime, '2013-02-28 21:20', 102), 0, 'avatar.png')
+INSERT [User]([user_id], [login], [password], regist_date, rights, avatar) VALUES (16, 'Luna', '12345678', convert(datetime, '2013-07-27 19:03', 102), 0, 'avatar.png')
+INSERT [User]([user_id], [login], [password], regist_date, rights, avatar) VALUES (17, 'test_admin', '$2a$10$4eC6ga4ovQINGE6/l9Vs5urWLabwy9wurg6E6erkFA7udXA4P9DOi', convert(datetime, '2013-07-27 19:03', 102), 1, 'avatar.png')
+INSERT [User]([user_id], [login], [password], regist_date, rights, avatar) VALUES (18, 'test_user', '$2a$10$blUoPmiQJBbTwGd9l2MUVutsf3wyJ3NugFa7IOXzznKMiwN2uqZC.', convert(datetime, '2013-07-27 19:03', 102), 0, 'avatar.png')
 SET IDENTITY_INSERT [User] OFF
 GO
 
@@ -416,9 +416,9 @@ INSERT [Message](message_id, topic_id, upmessage_id, author_id, [date], header) 
 INSERT [Object](message_id, [type_id], [value], object_num) VALUES (2, 1, 'Совет отличный! проблема та же. Дай, плиз, адрес компании,в которой ты заказывал сетки.', 1)
 
 INSERT [Message](message_id, topic_id, upmessage_id, author_id, [date], header) VALUES (3, 1, 2, 1, convert(datetime, '2008-03-03 18:09', 102), NULL)
-INSERT [Object](message_id, [type_id], [value], quote_author_id, quote_id, object_num) VALUES (3, 2, 'Совет отличный! проблема та же. Дай, плиз, адрес компании,в которой ты заказывал сетки.', 11, 2, 1)
+/*INSERT [Object](message_id, [type_id], [value], quote_author_id, quote_id, object_num) VALUES (3, 2, 'Совет отличный! проблема та же. Дай, плиз, адрес компании,в которой ты заказывал сетки.', 11, 2, 1)*/
 INSERT [Object](message_id, [type_id], [value], object_num) VALUES (3, 1, '+79178180410 Павел, ему от меня привет 
-В Самаре наверное кроме как у него, больше ни у кого нет сетки.', 2)
+В Самаре наверное кроме как у него, больше ни у кого нет сетки.', 1)
 
 INSERT [Message](message_id, topic_id, upmessage_id, author_id, [date], header) VALUES (4, 1, 1, 12, convert(datetime, '2008-03-04 00:58', 102), NULL)
 INSERT [Object](message_id, [type_id], [value], object_num) VALUES (4, 1, 'Очень нужная тема!!!!
@@ -426,21 +426,21 @@ INSERT [Object](message_id, [type_id], [value], object_num) VALUES (4, 1, 'Оч�
 Нельзя для Москвичей уточнить название фирмы и другие контакты или координаты. Не очень удобно заказывать сетки из Москвы через Самару, живя с первопрестольной!', 1)
 
 INSERT [Message](message_id, topic_id, upmessage_id, author_id, [date], header) VALUES (5, 1, 4, 1, convert(datetime, '2008-03-04 08:57', 102), 'координаты московских фирм')
-INSERT [Object](message_id, [type_id], [value], quote_author_id, quote_id, object_num) VALUES (5, 2, 'Очень нужная тема!!!!
+/*INSERT [Object](message_id, [type_id], [value], quote_author_id, quote_id, object_num) VALUES (5, 2, 'Очень нужная тема!!!!
 Спасибо, Георгий! Меньше будет работы при консультировании!
-Нельзя для Москвичей уточнить название фирмы и другие контакты или координаты. Не очень удобно заказывать сетки из Москвы через Самару, живя с первопрестольной!', 12, 4, 1)
+Нельзя для Москвичей уточнить название фирмы и другие контакты или координаты. Не очень удобно заказывать сетки из Москвы через Самару, живя с первопрестольной!', 12, 4, 1)*/
 INSERT [Object](message_id, [type_id], [value], object_num) VALUES (5, 1, 'Вообще в Москве такие услуги представляют многие фирмы - Москва более продвинутый город, чем Самара  , я первоначально брал информацию здесь - okna-spas.
-Но ещё раз повторяю - ШТАТНЫЕ КРЕПЛЕНИЯ НЕОБХОДИМО УСИЛИВАТЬ - несмотря на все заверения оконных дел мастеров.', 2)
+Но ещё раз повторяю - ШТАТНЫЕ КРЕПЛЕНИЯ НЕОБХОДИМО УСИЛИВАТЬ - несмотря на все заверения оконных дел мастеров.', 1)
 
 INSERT [Message](message_id, topic_id, upmessage_id, author_id, [date], header) VALUES (6, 1, 1, 1, convert(datetime, '2008-10-17 09:25', 102), 'Страшно')
 INSERT [Object](message_id, [type_id], [value], object_num) VALUES (6, 1, 'В очередно раз сеть наводнили грустные сообщения - куны продолжают покидать этот мир выпадая из окон!
 Стандартны окна ПВХ без доработок опасны для кунов на высоких этажах.
 Во первых - может быть открыто окно всегда случайно и забыто.
-Во вторых - положение откидное - так же опасно - особенно на высоком окне, так как кошка может не только выпасть но и застрять.', 1)
-INSERT [Object](message_id, [type_id], [value], width, height, object_num) VALUES (6, 3, 'http://img-fotki.yandex.ru/get/1/kunopapa.25/0_f8fc_4c164224_XL.jpg', 800, 534, 2)
-INSERT [Object](message_id, [type_id], [value], object_num) VALUES (6, 1, 'В правом верхнем углу фотографии видно дополнительный блокировщик установленный на окно - он затрудняет открытие окна на распашку и ограничивает угол откидывания - так же позволяет открыть окно в распашном режиме с просветом 2 см.
+Во вторых - положение откидное - так же опасно - особенно на высоком окне, так как кошка может не только выпасть но и застрять. 
+В правом верхнем углу фотографии видно дополнительный блокировщик установленный на окно - он затрудняет открытие окна на распашку и ограничивает угол откидывания - так же позволяет открыть окно в распашном режиме с просветом 2 см.
 Можно заблокировать ключём, в этом случае снять блокировку случайно не возможно.
-Стоит - копейки - работает пока надёжно.', 3)
+Стоит - копейки - работает пока надёжно.', 1)
+INSERT [Object](message_id, [type_id], [value], width, height, object_num) VALUES (6, 3, 'message_6_image.jpg', NULL, NULL, 2)
 SET IDENTITY_INSERT [Message] OFF
 
 GO

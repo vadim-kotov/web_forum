@@ -419,6 +419,37 @@ public class SectionManager
 
         return section.getUpsection();
     }
+    
+    public Section getTopicsSection(int topicId)
+    {
+        Session session = HibernateUtil.getSessionFactory()
+            .getCurrentSession();
+        session.beginTransaction();
+
+        Topic topic = null;
+        Section section = null;
+        try
+        {
+            topic = (Topic) session.createCriteria(Topic.class)
+                .add(Restrictions.eq("topicId", new Integer(topicId)))
+                .setFetchMode("section", FetchMode.EAGER)
+                .uniqueResult();
+            
+            session.getTransaction().commit();
+        }
+        catch(HibernateException e)
+        {
+            session.getTransaction().rollback();
+            throw e;
+        }
+
+        if(topic == null)
+        {
+            throw new IllegalArgumentException("Row with id " + topicId + " in Table 'Topic' doesn't exist");
+        }
+
+        return topic.getSection();
+    }
 
     /*
         Gives number of (sections + subsections), topics and messages contained in sections with sectionIds.
@@ -831,4 +862,6 @@ public class SectionManager
             throw e;
         }
     }
+    
+    
 }

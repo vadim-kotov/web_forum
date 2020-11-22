@@ -1,5 +1,7 @@
 package ru.webforum.controller;
 
+import java.security.Principal;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,6 +37,15 @@ public class UsersController
 			return "error/queryError";
 		}
 		
+		model.addAttribute("user", user);
+		
+		return "users/user";
+	}
+	
+	@GetMapping("/account.do")
+	public String accountPage(Model model, Principal principal)
+	{
+		User user = userManager.getUser(principal.getName());
 		model.addAttribute("user", user);
 		
 		return "users/user";

@@ -2,12 +2,12 @@ package ru.webforum.model;
 
 public class Image extends MessageObject
 {
-    private int width;
-    private int height;
+    private Integer width;
+    private Integer height;
 
-    public int getWidth() { return this.width; }
-    public void setWidth(int width) { this.width = width; }
+    public Integer getWidth() { return this.width; }
+    public void setWidth(Integer width) { this.width = width; }
 
-    public int getHeight() { return this.height; }
-    public void setHeight(int height) { this.height = height; }
+    public Integer getHeight() { return this.height; }
+    public void setHeight(Integer height) { this.height = height; }
 }

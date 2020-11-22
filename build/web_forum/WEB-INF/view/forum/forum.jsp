@@ -95,10 +95,12 @@
 		                        <td class="sec-topic-num"><span class="first-line"><c:out value="${subSect.topicNum}"/></span><br><span class="second-line">Темы</span></td>
 		                        <td class="sec-mes-num"><span class="first-line"><c:out value="${subSect.messageNum}"/></span><br><span class="second-line">Ответы</span></td>
 		                        <td class="sec-last-mes">
-		                        	<a class="sec-table-img" href="#"><img src="<c:url value="/resources/forum/avatar.png"/>" alt="user_avatar"/></a>
-		                        	<a class="first-line" href="<c:url value="/forum/${subSect.section.sectionId}/topic_${subSect.lastMessage.topic.topicId}.do#message_${subSect.lastMessage.messageId}"/>"><c:out value="${subSect.lastMessage.topic.name}"/></a><br>
-		                        	<time class="second-line" datetime=""><c:out value="${subSect.lastMessage.date}"/></time>
-		                        	<a class="first-line" href="#"><c:out value="${subSect.lastMessage.author.login}"/></a>
+		                        	<c:if test="${not empty subSect.lastMessage}">
+			                        	<a class="sec-table-img" href="<c:url value="/users/user_${subSect.lastMessage.author.userId}.do"/>"><img src="<c:url value="/img/${subSect.lastMessage.author.avatar}"/>" alt="user_avatar"/></a>
+			                        	<a class="first-line" href="<c:url value="/forum/${subSect.lastMessage.topic.section.sectionId}/topic_${subSect.lastMessage.topic.topicId}.do#message_${subSect.lastMessage.messageId}"/>"><c:out value="${subSect.lastMessage.topic.name}"/></a><br>
+			                        	<time class="second-line" datetime=""><c:out value="${subSect.lastMessage.date}"/></time>
+			                        	<a class="first-line" href="<c:url value="/users/user_${subSect.lastMessage.author.userId}.do"/>"><c:out value="${subSect.lastMessage.author.login}"/></a>
+			                    	</c:if>			                       
 		                        </td>
 	                    	</tr>
 	                	</c:forEach>
@@ -119,14 +121,17 @@
 	                    <tbody>
 	                    	<c:forEach var="subTopic" items="${subTopics}">
 		                        <tr>
-		                            <td class="top-header clearfix"><a class="top-table-img" href="<c:url value="/forum/${section.sectionId}/topic_${subTopic.topic.topicId}.do"/>"><img src="<c:url value="/resources/forum/avatar.png"/>" alt="avatar"></a>
+		                            <td class="top-header clearfix"><a class="top-table-img" href="<c:url value="/users/user_${subTopic.topic.creator.userId}.do"/>"><img src="<c:url value="/img/${subTopic.topic.creator.avatar}"/>" alt="avatar"></a>
 		                                <div class="div-pre-wrap"><a class="second-line" href="<c:url value="/forum/${section.sectionId}/topic_${subTopic.topic.topicId}.do"/>"><c:out value="${subTopic.topic.name}"/></a></div>
-		                                <div class="div-nowrap"><a class="first-line" href="#"><c:out value="${subTopic.topic.creator.login}"/></a><time class="second-line" datetime=""><c:out value="${subTopic.topic.date}"/></time></div></td>
+		                                <div class="div-nowrap"><a class="first-line" href="<c:url value="/users/user_${subTopic.topic.creator.userId}.do"/>"><c:out value="${subTopic.topic.creator.login}"/></a><time class="second-line" datetime=""><c:out value="${subTopic.topic.date}"/></time></div></td>
 		                            <td class="top-user-num"><div class="top-text"><a class="first-line" href="#"><c:out value="${subTopic.userNum}"/></a><br><span class="second-line">Участники</span></div></td>
 		                            <td class="top-mes-num"><div class="top-text"><span class="first-line"><c:out value="${subTopic.messageNum}"/></span><br><span class="second-line">Ответы</span></div></td>
-		                            <td class="top-last-mes clearfix"><a class="top-table-img" href="#"><img src="<c:url value="/resources/forum/avatar.png"/>" alt="avatar"></a>
-		                                <div class="div-pre-wrap"><a class="second-line" href="<c:url value="/forum/${section.sectionId}/topic_${subTopic.topic.topicId}.do#message_${subTopic.lastMessage.messageId}"/>"><c:out value="${subTopic.lastMessage.header}"/></a></div>
-		                                <div class="div-nowrap"><a class="first-line" href="#"><c:out value="${subTopic.lastMessage.author.login}"/></a><time class="second-line" datetime=""><c:out value="${subTopic.lastMessage.date}"/></time></div>
+		                            <td class="top-last-mes clearfix">
+		                            	<c:if test="${not empty subTopic.lastMessage}">
+			                            	<a class="top-table-img" href="<c:url value="/users/user_${subTopic.lastMessage.author.userId}.do"/>"><img src="<c:url value="/img/${subTopic.lastMessage.author.avatar}"/>" alt="avatar"></a>
+			                                <div class="div-pre-wrap"><a class="second-line" href="<c:url value="/forum/${section.sectionId}/topic_${subTopic.topic.topicId}.do#message_${subTopic.lastMessage.messageId}"/>"><c:out value="${subTopic.lastMessage.header}"/></a></div>
+			                                <div class="div-nowrap"><a class="first-line" href="<c:url value="/users/user_${subTopic.lastMessage.author.userId}.do"/>"><c:out value="${subTopic.lastMessage.author.login}"/></a><time class="second-line" datetime=""><c:out value="${subTopic.lastMessage.date}"/></time></div>
+			                        	</c:if>
 		                            </td>
 		                        </tr>
 	                        </c:forEach>
