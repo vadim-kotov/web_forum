@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <base href="../../../build/web_forum/resources/" />
+    <title>Пользователи</title>
+    <link rel="stylesheet" type="text/css" href="common.css"/>
+    <link rel="stylesheet" type="text/css" href="users/usersList/styles.css"/>
+</head>
+<body>
+    <div id="header">
+        <h1>Форум о Мэйн-Кунах</h1>
+    </div>
+
+    <div id="nav">
+        <ul>
+            <li><a href="">Форум</a></li
+            ><li><a href="">Пользователи</a></li
+            ><li><a href="">Личный кабинет</a></li>
+        </ul>
+    </div>
+
+    <div id="wrapper">
+        <div id="second-header">
+            <h2>Название раздела</h2>
+        </div>
+        <div id="main">
+            <div id="second-wrapper">
+                <h3 id="filter-header">Фильтры:</h3>
+                <form id="filters" class="third-wrapper" method="get" action="users.html">
+                    <div class="filter-div">
+                        <p class="second-line">Период активности:</p>
+                        <label class="second-line" for="activity-period-start">С:</label>
+                        <input class="textinput" type="date" name="activity-period-start">
+                        <label class="second-line" for="ativity-period-end">По:</label>
+                        <input class="textinput" type="date" name="activity-period-end">
+                    </div>
+                    <div class="filter-div">
+                        <p class="second-line">Количество сообщений:</p>
+                        <label class="second-line" for="mes-num-min">От:</label>
+                        <input class="textinput" type="number" name="mes-num-min">
+                        <label class="second-line" for="mes-num-max">До:</label>
+                        <input class="textinput" type="number" name="mes-num-max">
+                    </div>
+                    <div class="filter-div"> 
+                        <p class="second-line">Дата регистрации:</p>
+                        <label class="second-line" for="registry-period-start">С:</label>
+                        <input class="textinput" type="date" name="registry-period-start">
+                        <label class="second-line" for="registry-period-end">По:</label>
+                        <input class="textinput" type="date" name="registry-period-end">
+                    </div>
+                    <input class="button" type="submit" value="Применить">
+                </form>
+            
+                <h3 id="users-header">Пользователи:</h3>
+                <table id="users-table">
+                    <tbody>
+                        <tr class="third-wrapper">
+                            <td class="users-avatar">
+                                <a class="mes-table-img" href="#"><img src="forum/avatar.png" alt="avatar"></a>
+                            </td>
+                            <td class="users-info">
+                                <div id="login">
+                                    <span class="first-line">логин_логин</span><br/>
+                                </div>
+                                <span class="second-line">Дата регистрации: </span><time class="first-line" datetime="">21.08.2020 17:45</time><br/>
+                                <span class="second-line">Статус: </span><span class="first-line">Пользователь</span>
+                            </td>
+                            <td class="users-mes-num">
+                                <span class="first-line">1</span><br/><span class="second-line">Ответы</span>
+                            </td>
+                            <td class="users-top-num">
+                                <span class="first-line">1</span><br/><span class="second-line">Темы</span>
+                            </td>
+                            <td class="users-created-top-num">
+                                <span class="first-line">1</span><br/><span class="second-line">Создано тем</span>
+                            </td>
+                            <td class="empty-col">
+
+                            </td>
+                        </tr>
+                        <tr class="third-wrapper">
+                            <td class="users-avatar">
+                                <a class="mes-table-img" href="#"><img src="forum/avatar.png" alt="avatar"></a>
+                            </td>
+                            <td class="users-info">
+                                <div id="login">
+                                    <span class="first-line">логин_логин</span><br/>
+                                </div>
+                                <span class="second-line">Дата регистрации: </span><time class="first-line" datetime="">21.08.2020 17:45</time><br/>
+                                <span class="second-line">Статус: </span><span class="first-line">Пользователь</span>
+                            </td>
+                            <td class="users-mes-num">
+                                <span class="first-line">1</span><br/><span class="second-line">Ответы</span>
+                            </td>
+                            <td class="users-top-num">
+                                <span class="first-line">1</span><br/><span class="second-line">Темы</span>
+                            </td>
+                            <td class="users-created-top-num">
+                                <span class="first-line">1</span><br/><span class="second-line">Создано тем</span>
+                            </td>
+                            <td class="empty-col">
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+
+    </div>
+</body>
+</html>

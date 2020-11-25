@@ -42,6 +42,7 @@ body {
 	box-shadow: 1px 1px 3px 1px #444;
 }
 .third-wrapper{
+    padding: 20px;
     background-color: #444;
     border: 1px solid #222;
     box-shadow: 1px 1px 3px 1px #222;

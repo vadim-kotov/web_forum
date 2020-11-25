@@ -1,0 +1,63 @@
+#second-wrapper {
+    padding-bottom: 0 !important;
+}
+#filter-header {
+    padding-left: 5%;
+    padding-bottom: 10px;
+}
+#users-header {
+    padding-left: 5%;
+}
+#filters {
+    display: inline-block;
+}
+#filters .filter-div {
+    margin-bottom: 10px;
+}
+.filter-div p {
+    margin-bottom: 5px;
+}
+.filter-div label {
+    display: inline-block;
+    width: 1.75em;
+}
+#filters .button {
+    margin-top: 15px
+}
+#filters {
+    margin-bottom: 40px;
+}
+
+#users-table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 20px;
+}
+
+.users-avatar {
+    padding: 10px;
+}
+.users-avatar {
+    width: 120px;
+}
+.users-avatar img {
+    width: 100px;
+}
+.users-info {
+    vertical-align: top;
+    padding: 10px;
+}
+.users-mes-num, .users-top-num, .users-created-top-num {
+    text-align: center;
+    vertical-align: middle;
+}
+.users-mes-num, .users-top-num {
+    width: 4em;
+}
+.users-created-top-num {
+    width: 7em;
+}
+.empty-col {
+    width: 10%;
+}

@@ -58,7 +58,14 @@
 							<li><a href="<c:url value="/forum/${section.sectionId}/new_topic.do"/>">Создать тему</a></li>
 						</c:if>
 					</sec:authorize>
-                    <li><a href="#">Пользователи</a></li>
+                    <li>
+                    	<c:if test="${empty section.sectionId}">
+                    		<a href="<c:url value="/users/users_list.do"/>">Пользователи</a>
+                    	</c:if>
+                    	<c:if test="${not empty section.sectionId}">
+                    		<a href="<c:url value="/users/users_list/${section.sectionId}.do"/>">Пользователи</a>
+                    	</c:if>	
+                    </li>
                 </ul>
             </div>
         </div>

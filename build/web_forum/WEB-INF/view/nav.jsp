@@ -7,7 +7,7 @@
 <div id="nav">
 	<ul>
 		<li><a href="<c:url value="/forum.do"/>">Форум</a></li
-		><li><a href="#">Пользователи</a></li
+		><li><a href="<c:url value="users/users_list.do"/>">Пользователи</a></li
 		><li><a href="<c:url value="/users/account.do"/>">Личный кабинет</a></li>
 	</ul>
 	<div id="auth">

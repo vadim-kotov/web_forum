@@ -34,7 +34,6 @@
                 	<sec:authorize access="isAuthenticated()">
 						<li><a href="<c:url value="/forum/${section.sectionId}/topic_${topic.topicId}/new_message.do"/>">Сообщение</a></li>
 					</sec:authorize>
-                    <li><a href="#">Пользователи</a></li>
                 </ul>
             </div>
         </div>
