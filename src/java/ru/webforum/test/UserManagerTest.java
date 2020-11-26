@@ -370,6 +370,7 @@ public class UserManagerTest extends TestCase
         userManager.deleteBan(banTopicInDb.getBanlistId());
     }
 
+    /*
     public void testGetUsersInfo() throws CloneNotSupportedException
     {
         Filter filter = new Filter();
@@ -616,9 +617,9 @@ public class UserManagerTest extends TestCase
         }
 
         session.getTransaction().commit();
-
+*/
 /********************************************************* */
-
+/*
         Filter filter2 = filter.clone();
         filter2.setSectionIds(null);
         List<UserInfo> actualUI2 = userManager.getUsersInfo(filter2);
@@ -670,7 +671,7 @@ public class UserManagerTest extends TestCase
 
         session.getTransaction().commit();
     }
-
+*/
     public void testGetUserInfo()
     {
         Session session = HibernateUtil.getSessionFactory()

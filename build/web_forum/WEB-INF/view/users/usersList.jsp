@@ -23,42 +23,36 @@
         <div id="second-header">
             <h2><c:out value="${section.name}"/></h2>
         </div>
-        <c:if test="${empty section.sectionId}">
-            <c:set var="formAction" value="/web_forum/users/users_list/section_${section.sectionId}.do"/> 
-        </c:if> 
-        <c:if test="${not empty section.sectionId}>">
-            <c:set var="formAction" value="/web_forum/users/users_list.do"/>
-        </c:if>
+
         <div id="main">
+			<h3 id="filter-header">Фильтры:</h3>
+            <form:form modelAttribute="filter" id="filters" class="third-wrapper" method="GET" action="/web_forum/users/users_list.do">
+            	<div class="filter-div">
+                    <p class="second-line">Период активности:</p>
+                    <label class="second-line" for="startDate">С:</label>
+                    <form:input path="startDate" class="textinput" type="date" name="startDate" value="${filter.startDate}"/>
+                    <label class="second-line" for="endDate">По:</label>
+                    <form:input path="endDate" class="textinput" type="date" name="endDate"/>
+                </div>
+                <div class="filter-div">
+                    <p class="second-line">Количество сообщений:</p>
+                    <label class="second-line" for="minMessageNum">От:</label>
+                    <form:input path="minMessageNum" class="textinput" type="number" name="minMessageNum"/>
+                    <label class="second-line" for="maxMessageNum">До:</label>
+                    <form:input path="maxMessageNum" class="textinput" type="number" name="maxMessageNum"/>
+                </div>
+                <div class="filter-div"> 
+                    <p class="second-line">Дата регистрации:</p>
+                    <label class="second-line" for="startRegistDate">С:</label>
+                    <form:input path="startRegistDate" class="textinput" type="date" name="startRegistDate"/>
+                    <label class="second-line" for="endRegistDate">По:</label>
+                    <form:input path="endRegistDate" class="textinput" type="date" name="endRegistDate"/>
+                </div>
+                <input type="hidden" name="filterEnabled" value="true"/>
+                <input class="button" type="submit" value="Применить">
+            </form:form>
             <div id="second-wrapper">
-                <h3 id="filter-header">Фильтры:</h3>
-                <form:form modelAttriute="filter" id="filters" class="third-wrapper" method="GET" action="formAction">
-                    <div class="filter-div">
-                        <p class="second-line">Период активности:</p>
-                        <label class="second-line" for="startDate">С:</label>
-                        <form:input path="startDate" class="textinput" type="date" name="startDate"/>
-                        <label class="second-line" for="endDate">По:</label>
-                        <form:input path="endDate" class="textinput" type="date" name="endDate"/>
-                    </div>
-                    <div class="filter-div">
-                        <p class="second-line">Количество сообщений:</p>
-                        <label class="second-line" for="minMessageNum">От:</label>
-                        <form:input path="minMessageNum" class="textinput" type="number" name="minMessageNum"/>
-                        <label class="second-line" for="maxMessageNum">До:</label>
-                        <form:input path="maxMessageNum" class="textinput" type="number" name="maxMessageNum"/>
-                    </div>
-                    <div class="filter-div"> 
-                        <p class="second-line">Дата регистрации:</p>
-                        <label class="second-line" for="startRegistDate">С:</label>
-                        <form:input path="startRegistDate" class="textinput" type="date" name="startRegistDate"/>
-                        <label class="second-line" for="endRegistDate">По:</label>
-                        <form:input path="endRegistDate" class="textinput" type="date" name="endRegistDate"/>
-                    </div>
-                    <input type="hidden" name="filterEnabled" value="true"/>
-                    <input class="button" type="submit" value="Применить">
-                </form:form>
-            
-                <h3 id="users-header">Пользователи:</h3>
+            <h3 id="users-header">Пользователи:</h3>
                 <table id="users-table">
                     <tbody>
                     	<c:forEach var="user" items="${usersList}">

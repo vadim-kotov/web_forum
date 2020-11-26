@@ -262,13 +262,13 @@ public class UserManager
 
     static public class Filter implements Cloneable
     {
-        private List<Integer> sectionIds = null;
+        //private List<Integer> sectionIds = null;
         private Date startDate = null, endDate = null;
         private Long minMessageNum = null, maxMessageNum = null;
         private Date startRegistDate = null, endRegistDate = null;
 
-        public List<Integer> getSectionIds() { return this.sectionIds; }
-        public void setSectionIds(List<Integer> sectionIds) { this.sectionIds = sectionIds; }
+        //public List<Integer> getSectionIds() { return this.sectionIds; }
+        //public void setSectionIds(List<Integer> sectionIds) { this.sectionIds = sectionIds; }
         public Date getStartDate() { return this.startDate; }
         public void setStartDate(Date startDate) { this.startDate = startDate; }
         public Date getEndDate() { return this.endDate; }
@@ -373,7 +373,7 @@ public class UserManager
         return _filter;
     }
 
-    public List<UserInfo> getUsersInfo(Filter filter) throws CloneNotSupportedException
+    public List<UserInfo> getUsersInfo(Filter filter, List<Integer> sectionIds) throws CloneNotSupportedException
     {
         List<UserInfo> userInfoList;
 
@@ -385,7 +385,7 @@ public class UserManager
 
         try
         {
-            if(_filter.getSectionIds() != null)
+            if(sectionIds != null && !sectionIds.isEmpty())
             {
                 userInfoList = session.createSQLQuery(
                     "WITH temp(section_id) AS " +
@@ -418,7 +418,7 @@ public class UserManager
                         "[User] userInfo ON (T1.[user_id] IS NOT NULL AND T1.[user_id] = userInfo.[user_id] " +
                             "OR T2.[user_id] IS NOT NULL AND T2.[user_id] = userInfo.[user_id]) " +
                     "WHERE (messageNum BETWEEN :minMessageNum AND :maxMessageNum) OR (messageNum IS NULL AND :minMessageNum = 0)")
-                        .setParameterList("sectionIds", _filter.getSectionIds())
+                        .setParameterList("sectionIds", sectionIds)
                         .setParameter("startRegistDate", _filter.getStartRegistDate())
                         .setParameter("endRegistDate", _filter.getEndRegistDate())
                         .setParameter("startDate", _filter.getStartDate())

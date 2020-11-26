@@ -63,7 +63,7 @@
                     		<a href="<c:url value="/users/users_list.do"/>">Пользователи</a>
                     	</c:if>
                     	<c:if test="${not empty section.sectionId}">
-                    		<a href="<c:url value="/users/users_list/${section.sectionId}.do"/>">Пользователи</a>
+                    		<a href="<c:url value="/users/users_list/section_${section.sectionId}.do"/>">Пользователи</a>
                     	</c:if>	
                     </li>
                 </ul>
